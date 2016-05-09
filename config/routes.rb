@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-  get 'user/new'
 
-  get 'user/show'
+  root "pages#home"
 
-  get 'user/create'
+  resources :categories, only: [:index, :show] do
+    resources :walks
+  end
 
-  get 'user/edit'
+  resources :users
 
-  get 'user/destroy'
 
-  get 'user/update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

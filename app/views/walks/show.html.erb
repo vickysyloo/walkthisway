@@ -1,2 +1,13 @@
 <h1>Walks#show</h1>
-<p>Find me in app/views/walks/show.html.erb</p>
+
+<div>
+  <%= @walk.name %>
+
+  <% @walk.waypoints.each do |waypoint| %>
+    <%= waypoint.description %>
+    <%= waypoint.address %>
+    <%= waypoint.latitude %>
+    <%= waypoint.longitude %>
+  <% end %>
+
+</div>

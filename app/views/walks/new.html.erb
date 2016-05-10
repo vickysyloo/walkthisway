@@ -1,9 +1,13 @@
-<h1>Walks#new</h1>
-<h1>Waypoints#new</h1>
-<p>Find me in app/views/waypoints/new.html.erb</p>
+<h1>Create a new walk!</h1>
 
-<%= form_for [@category, @walk, @waypoint] do |f| %>
+<div id="map_walk"></div>
 
+<%= form_for @walk do |f| %>
+
+  <div>
+    <%= f.label :category %>
+    <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
+  </div>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -13,9 +17,18 @@
     <%= f.text_area :description %>
   </div>
   <div>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.label :picture %>
+    <%= f.text_field :picture %>
   </div>
+
+  <div>
+  <p>Waypoints</p>
+    <%= f.fields_for :waypoints do |waypoint| %>
+      <%= render 'waypoint_fields', :f => waypoint %>
+    <% end %>
+    <%= link_to_add_association 'Add new waypoint', f, :waypoints %>
+  </div>
+
   <div>
     <%= f.submit %>
   </div>

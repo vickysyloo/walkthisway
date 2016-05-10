@@ -18,8 +18,6 @@ class WaypointsController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    @walk = @category.walks(params[:walk_id])
     @waypoint = @walk.waypoints.build(waypoint_params)
   end
 
@@ -35,10 +33,11 @@ class WaypointsController < ApplicationController
   private
 
   def waypoint_params
-    params.require(:waypoint).permit(:name, :description, :address, :latitude, :longitude, :path_id)
+    params.require(:waypoint).permit(:name, :description, :address, :latitude, :longitude, :walk_id)
   end
 
   def load_walks
     @walk = Walk.find(params[:walk_id])
   end
+  
 end

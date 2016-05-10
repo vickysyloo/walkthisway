@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-
   root "pages#home"
 
-  resources :categories, only: [:index, :show] do
-    resources :walks do
-      resources :waypoints
-    end
+  resources :categories, only: [:index, :show]
+  
+  resources :walks do
+    resources :waypoints
   end
 
   resources :users

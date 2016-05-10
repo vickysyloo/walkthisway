@@ -1,7 +1,5 @@
 class WalksController < ApplicationController
 
-  before_action :load_category
-
   def index
     @walks = Walk.all
   end
@@ -11,13 +9,18 @@ class WalksController < ApplicationController
   end
 
   def new
+    @walk = Walk.new
   end
 
   def create
-    @walk = @category.walks.build(walk_params)
-      @category = Category.find(params[:category_id])
-      @waypoint = @walk.waypoints.build(waypoint_params)
-    @walk.user = current_user
+    @walk = Walk.new(walk_params)
+
+    if @walk.save
+      flash[:alert] = "Walk created!"
+      redirect_to walk_path(@walk)
+    else
+      render :new
+    end
   end
 
   def update
@@ -32,15 +35,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:name, :description, :picture, :category_id, :user_id)
-  end
-
-  def load_category
-    @category = Category.find(params[:category_id])
-  end
-
-  def waypoint_params
-    params.require(:waypoint).permit(:name, :description, :address, :latitude, :longitude, :path_id)
+    params.require(:walk).permit(:name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude])
   end
 
 end

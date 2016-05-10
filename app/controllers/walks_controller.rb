@@ -7,7 +7,7 @@ class WalksController < ApplicationController
   end
 
   def show
-    @walk = Walk.find_by(params[:id])
+    @walk = Walk.find(params[:id])
   end
 
   def new
@@ -15,6 +15,8 @@ class WalksController < ApplicationController
 
   def create
     @walk = @category.walks.build(walk_params)
+      @category = Category.find(params[:category_id])
+      @waypoint = @walk.waypoints.build(waypoint_params)
     @walk.user = current_user
   end
 
@@ -36,4 +38,9 @@ class WalksController < ApplicationController
   def load_category
     @category = Category.find(params[:category_id])
   end
+
+  def waypoint_params
+    params.require(:waypoint).permit(:name, :description, :address, :latitude, :longitude, :path_id)
+  end
+
 end

@@ -17,6 +17,11 @@ theme: 'Architecture',
 picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
 )
 
+greenspace = Category.create!(
+theme: 'Green spaces',
+picture: 'http://farm3.static.flickr.com/2179/2090898183_e70e0bab6e.jpg',
+)
+
 bob = User.create!(
 first_name: 'Bob',
 last_name: 'Loblaw',
@@ -36,11 +41,19 @@ category_id: architecture.id,
 user_id: bob.id
 )
 
+walk = Walk.create!(
+name: 'trees!',
+description: "branchy",
+picture: 'ttp://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
+category_id: greenspace.id,
+user_id: bob.id
+)
+
 waypoint = Waypoint.create!(
-name: 'ROM',
-description: 'Museum',
-latitude: 43.6677,
-longitude: -79.3948,
+name: 'bitmaker',
+description: 'school is cool',
+latitude: 43.64692,
+longitude: -79.3871,
 address: '100 Queen\'s Park',
 walk_id: walk.id
 )

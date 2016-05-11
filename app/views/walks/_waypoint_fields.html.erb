@@ -1,15 +1,21 @@
 <div class="nested-fields">
 
   <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <table>
+    <tr>
+  <td>  <%= f.label :description %> </td>
+  <td>  <%= f.text_area :description, {class: 'description'}%> </td>
+</tr>
   </div>
 
   <div>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <tr>
+  <td>  <%= f.label :address %> </td>
+  <td>  <%= f.text_field :address, {class: 'address'}%> </td>
+  </tr>
+</table>
   </div>
 
-    <%= link_to_remove_association "cancel", f %>
-
+    <button type = 'button'><%= link_to_remove_association "cancel", f %> </button>
+    <button type = button class='renderformwaypoint'> Show point on map! </button>
 </div>

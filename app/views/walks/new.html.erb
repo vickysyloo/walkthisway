@@ -1,32 +1,34 @@
 <h1>Create a new walk!</h1>
 
 <div id="map_walk"></div>
-
+<div id='markPoints'>show way points on map </div>
+<div>
+  <h2>Walk</h2>
 <%= form_for @walk do |f| %>
+  <table>
+    <tr>
+  <td>    <%= f.label :category %></td>
+  <td>  <%= f.collection_select(:category_id, Category.all, :id, :theme) %></td>
+</tr>
 
-  <div>
-    <%= f.label :category %>
-    <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
-  </div>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :picture %>
-    <%= f.text_field :picture %>
-  </div>
+  <tr>  <td>  <%= f.label :name %></td>
+  <td>  <%= f.text_field :name %></td>
 
-  <div>
-  <p>Waypoints</p>
-    <%= f.fields_for :waypoints do |waypoint| %>
+  <tr>
+  <td>  <%= f.label :description %></td>
+  <td>  <%= f.text_area :description %></td>
+</tr>
+  <tr>
+  <td>  <%= f.label :picture %> </td>
+  <td>  <%= f.text_field :picture %> </td>
+</tr>
+<tr><td>  <h2>Waypoints</h2></td></tr>
+</table>
+  <div id='mkpts'>
+  <%= f.fields_for :waypoints do |waypoint| %>
       <%= render 'waypoint_fields', :f => waypoint %>
     <% end %>
-    <%= link_to_add_association 'Add new waypoint', f, :waypoints %>
+    <%= link_to_add_association raw("<div id=newpt>'Add new waypoint'</div>"), f, :waypoints %>
   </div>
 
   <div>
@@ -34,3 +36,4 @@
   </div>
 
 <% end %>
+</div>

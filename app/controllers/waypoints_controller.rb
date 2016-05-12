@@ -2,11 +2,7 @@ class WaypointsController < ApplicationController
   before_action :load_walks
 
   def index
-    # if params[:search].present?
-    #   @waypoints = Waypoint.near(params[:search], 50, :order => :distance)
-    # else
-      @waypoints = Waypoint.all
-    # end
+    @waypoints = Waypoint.all
   end
 
   def new
@@ -39,5 +35,5 @@ class WaypointsController < ApplicationController
   def load_walks
     @walk = Walk.find(params[:walk_id])
   end
-  
+
 end

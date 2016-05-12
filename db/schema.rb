@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509204438) do
+ActiveRecord::Schema.define(version: 20160512185220) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "theme"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160509204438) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "city"
   end
 
   create_table "waypoints", force: :cascade do |t|

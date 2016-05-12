@@ -1,2 +1,9 @@
-<h1>Walks#index</h1>
-<p>Find me in app/views/walks/index.html.erb</p>
+<h1>Fab Walks</h1>
+
+<%= link_to "Create a walk", new_walk_path %>
+
+<div class="walks-list">
+  <% @walks.each do |walk| %>
+    <%= walk.name %>
+  <% end %>
+</div>

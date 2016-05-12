@@ -2,7 +2,6 @@
 
 <div id="map_walk"></div>
 <div style='width: 800px;'>
-  <div id="directions" style='width: 800px; height: 400px;'></div>
 </div>
 
 <%= form_for @walk do |f| %>
@@ -22,10 +21,12 @@
   <div>
     <%= f.label :picture %>
     <%= f.text_field :picture %>
-  </div>
 
+  </div>
   <div>
-  <p>Waypoints</p>
+    <p>Waypoints</p>
+  </div>
+  <div>
     <%= f.fields_for :waypoints do |waypoint| %>
       <%= render 'waypoint_fields', :f => waypoint %>
     <% end %>

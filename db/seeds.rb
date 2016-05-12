@@ -33,7 +33,8 @@ name: 'Great Architecture Buildings!',
 description: "Cool things",
 picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
 category_id: architecture.id,
-user_id: bob.id
+user_id: bob.id,
+city: "Toronto"
 )
 
 waypoint = Waypoint.create!(
@@ -42,5 +43,14 @@ description: 'Museum',
 latitude: 43.6677,
 longitude: -79.3948,
 address: '100 Queen\'s Park',
+walk_id: walk.id
+)
+
+waypoint2 = Waypoint.create!(
+name: 'AGO',
+description: 'Museum',
+latitude: 43.65342,
+longitude: -79.392625,
+address: '317 Dundas Street West',
 walk_id: walk.id
 )

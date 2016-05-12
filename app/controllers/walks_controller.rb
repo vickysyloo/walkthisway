@@ -1,7 +1,11 @@
 class WalksController < ApplicationController
 
   def index
-    @walks = Walk.all
+    @walks = if params[:search]
+                Walk.where("LOWER(city) LIKE LOWER(?)", "#{params[:search]}")
+             else
+               Walk.all
+             end
   end
 
   def show

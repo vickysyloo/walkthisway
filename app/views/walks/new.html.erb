@@ -4,8 +4,42 @@
 <div style='width: 800px;'>
 </div>
 
+<div>
+<%= button_to "Center" %>
+<!-- add form field here for auto complete, to center city -->
+</div>
+
+
+<div class="form-list">
 <%= form_for @walk do |f| %>
 
+<div class="errors">
+  <% if @walk.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@walk.errors.count, "error") %> prohibited this walk from being saved:</h2>
+    <ul>
+      <% @walk.errors.each do |key, value| %>
+      <li><%= value %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
+    <h2><%= pluralize(@waypoint.errors.count, "error") %> prohibited this waypoint from being saved:</h2>
+    <ul>
+      <% @waypoint.errors.each do |key, value| %>
+      <li><%= key %><%= value %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+  </div>
+
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <!-- button to center map -->
   <div>
     <%= f.label :category %>
     <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
@@ -38,3 +72,4 @@
   </div>
 
 <% end %>
+</div>

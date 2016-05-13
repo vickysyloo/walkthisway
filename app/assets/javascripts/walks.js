@@ -1,24 +1,38 @@
-$(document).on('ready page:load', function() {
-    var map = new google.maps.Map(document.getElementById('map_walk'), {
-      zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+	$(document).ready(function() {
+	var geocoder;
+	var map;
 
-    var infowindow = new google.maps.InfoWindow();
+	//initialize map
+	function initialize() {
+		geocoder = new google.maps.Geocoder();	// create geocoder object to geocode address
+		var latlng = new google.maps.LatLng(43.6532, -79.3832);	// set default lat/long to toronto
+		var mapOptions = {
+			zoom: 16,
+			center: latlng
+		}
+		map = new google.maps.Map(document.getElementById('map_walk'), mapOptions);	// create new map div
+	}
 
-    for (var i = 0; i < locations.length; i++) {
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+  	$(".waypoint-btn").click(function(event){
+      event.preventDefault();
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
+//function to geocode adddress and plot it on map
+      function codeAddress(address) {
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);			// center the map on address
+            var marker = new google.maps.Marker({					// place a marker on the map at the address
+              map: map,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('somethign went wrong... Geocode was not successful');
+          }
+        });
+      }
+      var address = $(this).closest(".nested-fields").find(".address").val();	// grab the address from the input field
+      codeAddress(address);		// pass in the address into codeAddress function
+  		});
 
-});
+	google.maps.event.addDomListener(window, 'load', initialize);		// execute init map function on page load
+	});

@@ -2,15 +2,15 @@
 
   <div>
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description,:class=>"description"%>
   </div>
 
   <div>
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address,:class=>"address" %>
   </div>
 
     <%= link_to_remove_association "cancel", f %>
-  <button id="show-marker" type="submit">Plot me!</button>
+  <button class="waypoint-btn" type="submit">Plot me!</button>
 
 </div>

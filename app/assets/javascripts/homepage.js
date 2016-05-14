@@ -1,6 +1,4 @@
 $(document).on('ready page:load', function() {
-
-  var search_acAddress;
   var acOptions = {
     // types: ['establishment']
   };
@@ -11,12 +9,12 @@ $(document).on('ready page:load', function() {
   });
 
   $('input#search-button').on('click', function(event) {
-    // event.preventDefault();
+    event.preventDefault();
     console.log('search button click event is registering');
     $.ajax({
       url: "/walks",
       method: "GET",
-      data: {search: search_ACaddress},
+      data: {search: $('input#autocomplete').val()},
       dataType: 'HTML',
       success: function(data) {
         console.log('ajax success called');

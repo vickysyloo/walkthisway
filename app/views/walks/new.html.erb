@@ -13,6 +13,7 @@
 <div class="form-list">
 <%= form_for @walk do |f| %>
 
+
 <div class="errors">
   <% if @walk.errors.any? %>
   <div id="error_explanation">
@@ -60,12 +61,16 @@
   <div>
     <p>Waypoints</p>
   </div>
+  
+<div id="mkpts">
   <div>
     <%= f.fields_for :waypoints do |waypoint| %>
-      <%= render 'waypoint_fields', :f => waypoint %>
+    <%= render 'waypoint_fields', :f => waypoint %>
     <% end %>
     <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
   </div>
+
+</div>
 
   <div>
     <%= f.submit %>

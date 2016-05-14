@@ -10,8 +10,8 @@ class Walk < ActiveRecord::Base
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank
 
   def need_two_waypoints
-    if self.waypoints.count < 2
-      errors.add(:walk, "Walks need at least two waypoints.")
-    end
+    # if self.waypoints.second
+    #   errors.add(:walk, "Walks need at least two waypoints.")
+    # end
   end
 end

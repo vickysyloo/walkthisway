@@ -5,3 +5,16 @@
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
 <% end %>
+
+
+autocomplete test
+<!-- <%= text_field_tag :search, params[:search], id:'autocomplete' %> -->
+<!-- <input type="text" id="autocomplete" > -->
+<!-- <button id = 'search-button'>search </button> -->
+<%= form_tag walks_path, method: :get do %>
+  <%= label_tag :search %>
+<%= text_field_tag :search, params[:search], id: "autocomplete", data:params[:search]%>
+<%= submit_tag "Search", id: 'search-button'%>
+<% end %>
+
+<div id = 'walklist'></div>

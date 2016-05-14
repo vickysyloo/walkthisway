@@ -28,29 +28,61 @@ location: 'Toronto, ON',
 crypted_password: 'hello'
 )
 
-walk = Walk.create!(
+walk1 = Walk.new(
+id: 1,
 name: 'Great Architecture Buildings!',
 description: "Cool things",
 picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto"
+city: "Toronto, Ontario, Canada"
 )
 
-waypoint = Waypoint.create!(
+walk1.waypoint = Waypoint.create!(
 name: 'ROM',
 description: 'Museum',
 latitude: 43.6677,
 longitude: -79.3948,
-address: '100 Queen\'s Park',
-walk_id: walk.id
+address: '220 king street west, toronto, ontario, canada',
+
 )
 
-waypoint2 = Waypoint.create!(
+walk1.waypoint2 = Waypoint.create!(
 name: 'AGO',
 description: 'Museum',
 latitude: 43.65342,
 longitude: -79.392625,
 address: '317 Dundas Street West',
-walk_id: walk.id
+
+)
+
+walk1.save!
+
+
+
+waypoint3 = Waypoint.create!(
+name: 'Vancouver art gallery',
+description: 'Museum',
+address: '750 Hornby St, Vancouver, BC V6Z 2H7',
+walk_id: 2
+)
+
+waypoint4 = Waypoint.create!(
+name: 'ubc',
+description: 'Museum',
+latitude: 43.65342,
+longitude: -79.392625,
+address: '2329 West Mall, Vancouver, BC V6T 1Z4',
+walk_id: 2
+)
+
+walk2 = Walk.create!(
+id: 2,
+name: 'Great Architecture Buildings!',
+description: "Cool things",
+picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
+category_id: architecture.id,
+user_id: bob.id,
+city: "Vancouver, British Columbia, Canada"
+
 )

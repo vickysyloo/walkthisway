@@ -4,6 +4,7 @@
 
 <div class="walks-list">
   <% @walks.each do |walk| %>
-    <%= walk.name %>
+    walk name: <%= walk.name %>
+    walk city: <%= walk.city %>
   <% end %>
 </div>

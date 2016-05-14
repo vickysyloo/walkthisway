@@ -1,11 +1,27 @@
 class WalksController < ApplicationController
 
   def index
-    @walks = if params[:search]
-                Walk.where("LOWER(city) LIKE LOWER(?)", "#{params[:search]}")
-             else
-               Walk.all
-             end
+    @walks = []
+    if params[:search]
+      Walk.all.each do |walk|
+        if walk.waypoints.first.distance_from(params[:search]) < 30
+          @walks << walk
+        # Walk.city.near(params[:search], 50)
+        #Walk.where("LOWER(city) LIKE LOWER(?)", "#{params[:search]}")
+        # puts "params hash is #{params[:search]}"
+        # puts "@walks = #{@walks}"
+        end
+      end
+
+    else
+      # binding.pry
+      Walk.all
+    end
+    # binding.pry
+    if request.xhr?
+      render @walks
+    end
+
   end
 
   def show
@@ -18,7 +34,7 @@ class WalksController < ApplicationController
 
   def create
     @walk = Walk.new(walk_params)
-
+    @walk[:city] = @walk.waypoints.first.address
     if @walk.save
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)

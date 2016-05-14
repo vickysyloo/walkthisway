@@ -2,8 +2,12 @@
 
 <%= link_to "Create a walk", new_walk_path %>
 
+<div id="map_walk" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>"></div>
+
 <div class="walks-list">
-  <% @walks.each do |walk| %>
-    <%= walk.name %>
-  <% end %>
+  <ul>
+    <% @walks.each do |walk| %>
+    <li><%= link_to walk.name, walk_path(walk) %></li>
+    <% end %>
+  </ul>
 </div>

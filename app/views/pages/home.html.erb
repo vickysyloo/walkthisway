@@ -1,7 +1,10 @@
 <h1>Home!</h1>
 
-<%= form_tag walks_path, method: :get do %>
-  <%= label_tag :search %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search" %>
-<% end %>
+  <%= form_tag walks_path, method: :get do %>
+    <%= label_tag :search %>
+  <%= text_field_tag :search, params[:search], id: "autocomplete", data:params[:search]%>
+  <%= submit_tag "Search", id: 'search-button'%>
+  <% end %>
+
+<!-- insert returned data into div below -->
+<!-- <div id = 'walklist'></div> -->

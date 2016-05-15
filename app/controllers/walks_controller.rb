@@ -1,7 +1,6 @@
 class WalksController < ApplicationController
 
   def index
-    skip_before_action :require_login, only: [:new, :create]
     @walks = [] #define @walks as an empty array
       if params[:search] #if there is a search key in teh params hash (via ajax or full http request)
         # binding.pry

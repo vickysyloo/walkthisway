@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  
+
   def new
     @user = User.new
   end
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.name = params[:user][:name].capitalize
+    @user.first_name = params[:user][:first_name].capitalize
 
     if @user.save
       # UserMailer.welcome(@user).deliver_later
@@ -38,6 +38,17 @@ class UsersController < ApplicationController
       render :edit
     end
 
+  end
+
+  def activate
+    if @user = User.load_from_activation_token(params[:id])
+      @user.activate!
+      flash[:success] = 'User account was successfully activated.'
+      redirect_to log_in_path
+    else
+      flash[:warning] = 'Cannot activate this user.'
+      redirect_to root_path
+    end
   end
 
   def destroy

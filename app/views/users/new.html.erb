@@ -12,15 +12,15 @@
 </div>
 
 <div>
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
 </div>
 
 <!-- <div>to be replaced with an upload field for user icon</div> -->
 
 <div>
   <%= f.label :details %>
-  <%= f.text_field :details, :maxlength =>'256' %>
+  <%= f.text_area :details, :maxlength =>'256', :size => '30x10'%>
 </div>
 
 <div>
@@ -44,5 +44,5 @@
 </div>
 
   <%= f.submit 'Save' %>
-  
+
 <% end %>

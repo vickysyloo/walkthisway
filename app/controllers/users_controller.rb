@@ -13,10 +13,8 @@ class UsersController < ApplicationController
 
     if @user.save
       # UserMailer.welcome(@user).deliver_later
-      # self.current_user = @user
-
-      flash[:alert] = "Successfully signed up!"
       auto_login(@user)
+      flash[:alert] = "Successfully signed in!"
       redirect_to root_path
     else
       render :new

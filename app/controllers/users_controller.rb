@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+  
   def new
     @user = User.new
   end
@@ -13,11 +15,12 @@ class UsersController < ApplicationController
 
     if @user.save
       # UserMailer.welcome(@user).deliver_later
-      auto_login(@user)
-      flash[:alert] = "Successfully signed in!"
-      redirect_to root_path
-    else
-      render :new
+      if login(params[:email], params[:password])
+        flash[:alert] = "Successfully signed in!"
+        redirect_to root_path
+      else
+        render :new
+      end
     end
   end
 

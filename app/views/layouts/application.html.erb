@@ -7,17 +7,35 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
 
-  <% if flash[:notice] %>
-    <p id="notice"><%= flash[:notice] %></p>
-  <% end %>
+    <div>
+      <ul>
+        <% if current_user %>
+          <li><%= link_to 'Create A Walk', new_walk_path %></li>
+        <% else %>
+          <li><%= link_to 'Sign Up', new_user_path %></li>
+          <li><%= link_to 'Log In', log_in_path %></li>
+        <% end %>
+      </ul>
 
-  <% if flash[:alert] %>
-    <p id="alert"><%= flash[:alert] %></p>
-  <% end %>
+      <% if current_user %>
+        <ul>
+          <li><span><%= current_user.name %></span></li>
+          <li><%= link_to 'Log Out', log_out_path, method: :delete %></li>
+        </ul>
+      <% end %>
+    </div>
 
-<%= yield %>
+    <% if flash[:notice] %>
+      <p id="notice"><%= flash[:notice] %></p>
+    <% end %>
 
-</body>
+    <% if flash[:alert] %>
+      <p id="alert"><%= flash[:alert] %></p>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
 </html>

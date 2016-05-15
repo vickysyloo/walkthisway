@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512185220) do
+ActiveRecord::Schema.define(version: 20160515023333) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "theme"
@@ -28,13 +28,16 @@ ActiveRecord::Schema.define(version: 20160512185220) do
     t.string   "icon"
     t.string   "details"
     t.string   "location"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "crypted_password"
     t.string   "salt"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
 
   create_table "walks", force: :cascade do |t|
     t.string   "name"

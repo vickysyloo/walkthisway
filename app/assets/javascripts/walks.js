@@ -45,12 +45,14 @@ $(document).on('ready page:load', function() {
             alert('something went wrong... Geocode was not successful');
           }
         });
+
         return false;
       };
       var city = $('#autocomplete').val();
       codeCity(city);
     });
   };
+
 
   // if ($('#map_walk-show').length > 0) {
   //   var waypoints = (add all waypoints to json file)

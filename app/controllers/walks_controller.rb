@@ -23,6 +23,13 @@ class WalksController < ApplicationController
 
   def show
     @walk = Walk.find(params[:id])
+    @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
+    @allwaypoints = @walk.waypoints.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @allwaypoints }
+    end
   end
 
   def new
@@ -36,7 +43,7 @@ class WalksController < ApplicationController
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      flash[:alert] = "Failed"
+      flash.now[:alert] = "Failed"
       render :new
     end
   end

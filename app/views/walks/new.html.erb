@@ -1,46 +1,39 @@
 <h1>Create a new walk!</h1>
 
-<div id="map_walk"></div>
-<div style='width: 800px;'>
-</div>
-
-<div>
-<%= button_to "Center" %>
-<!-- add form field here for auto complete, to center city -->
-</div>
-
+<div id="map_walk-new" data-latitude='0' data-longitude="0" ></div>
 
 <div class="form-list">
-<%= form_for @walk do |f| %>
+  <%= form_for @walk do |f| %>
 
-
-<div class="errors">
-  <% if @walk.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@walk.errors.count, "error") %> prohibited this walk from being saved:</h2>
-    <ul>
-      <% @walk.errors.each do |key, value| %>
-      <li><%= value %></li>
+  <div class="errors">
+    <% if @walk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@walk.errors.count, "error") %> prohibited this walk from being saved:</h2>
+      <ul>
+        <% @walk.errors.each do |key, value| %>
+        <li><%= value %></li>
+        <% end %>
+      </ul>
       <% end %>
-    </ul>
-    <% end %>
 
-    <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
-    <h2><%= pluralize(@waypoint.errors.count, "error") %> prohibited this waypoint from being saved:</h2>
-    <ul>
-      <% @waypoint.errors.each do |key, value| %>
-      <li><%= key %><%= value %></li>
+      <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
+      <h2><%= pluralize(@waypoint.errors.count, "error") %> prohibited this waypoint from being saved:</h2>
+      <ul>
+        <% @waypoint.errors.each do |key, value| %>
+        <li><%= key %><%= value %></li>
+        <% end %>
+      </ul>
       <% end %>
-    </ul>
-    <% end %>
 
   </div>
 
   <div>
     <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, id: "autocomplete"%>
   </div>
-  <!-- button to center map -->
+  <div>
+  <button type="button" id="centerbutton">Center</button>
+  </div>
   <div>
     <%= f.label :category %>
     <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
@@ -56,21 +49,18 @@
   <div>
     <%= f.label :picture %>
     <%= f.text_field :picture %>
-
-  </div>
-  <div>
-    <p>Waypoints</p>
-  </div>
-  
-<div id="mkpts">
-  <div>
-    <%= f.fields_for :waypoints do |waypoint| %>
-    <%= render 'waypoint_fields', :f => waypoint %>
-    <% end %>
-    <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
   </div>
 
-</div>
+  <div><p>Waypoints</p></div>
+
+  <div id="mkpts">
+    <div>
+      <%= f.fields_for :waypoints do |waypoint| %>
+      <%= render 'waypoint_fields', :f => waypoint %>
+      <% end %>
+      <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
+    </div>
+  </div>
 
   <div>
     <%= f.submit %>

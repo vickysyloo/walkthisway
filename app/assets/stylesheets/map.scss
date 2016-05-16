@@ -13,10 +13,23 @@ body {
 // justify-content: center;
 }
 
-#map_walk {
+#map_walk-index,
+#map_walk-show,
+#map_walk-new
+{
   height: 50%;
   width: 70%;
 }
+//
+// #map_walk-show {
+//   height: 50%;
+//   width: 70%;
+// }
+//
+// #map_walk-new {
+//   height: 50%;
+//   width: 70%;
+// }
 
 #multi_markers{
   width: 800px;

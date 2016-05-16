@@ -14,7 +14,9 @@
 	}
 
   	$(".waypoint-btn").click(function(event){
-      event.preventDefault();
+      // event.preventDefault();
+
+  var address = $(this).closest(".nested-fields").find(".address").val();	// grab the address from the input field
 
 //function to geocode adddress and plot it on map
       function codeAddress(address) {
@@ -30,8 +32,9 @@
           }
         });
       }
-      var address = $(this).closest(".nested-fields").find(".address").val();	// grab the address from the input field
+
       codeAddress(address);		// pass in the address into codeAddress function
+			return false;
   		});
 
 	google.maps.event.addDomListener(window, 'load', initialize);		// execute init map function on page load

@@ -32,6 +32,8 @@ $(document).on('ready page:load', function(){
         console.log('returned json file: ' + waypoints);
         plot_waypoints_array(waypoints, map_show);
 
+
+
         // var marker = new google.maps.Marker({					// place a marker on the map at the address
         //   map: new_walk_form_map,
         //   position: results[0].geometry.location

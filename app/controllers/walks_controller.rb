@@ -1,4 +1,5 @@
 class WalksController < ApplicationController
+  before_action :require_login, only: [:new, :create]
 
   def index
     @walks = [] #define @walks as an empty array

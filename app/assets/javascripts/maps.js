@@ -14,15 +14,18 @@ $(document).on('ready page:load', function(){
   //initialize map
 
   if ($('#map_walk-index').length > 0) {
-  google.maps.event.addDomListener(window, 'load', initialize('map_walk-index', 12));		// execute init map function on page load
+  map_index = initialize('map_walk-index', 12);
+  google.maps.event.addDomListener(window, 'load',map_index);		// execute init map function on page load
   }
 
   if ($('#map_walk-show').length > 0) {
-  google.maps.event.addDomListener(window, 'load', initialize('map_walk-show', 12));		// execute init map function on page load
+  map_show = initialize('map_walk-show', 12);
+  google.maps.event.addDomListener(window, 'load', map_show);		// execute init map function on page load
   }
 
   if ($('#map_walk-new').length > 0) {
-  google.maps.event.addDomListener(window, 'load', initialize('map_walk-new', 1));		// execute init map function on page load
+  map_new = initialize('map_walk-new', 1);
+  google.maps.event.addDomListener(window, 'load', map_new);		// execute init map function on page load
   }
 
 });

@@ -16,7 +16,9 @@ class Walk < ActiveRecord::Base
 
   def waypoints_coord_array
     if self.waypoints
+      self.waypoints.order(:order)
       coords = self.waypoints.map {|waypt| [waypt.latitude, waypt.longitude] }
+
     end
     return coords
   end

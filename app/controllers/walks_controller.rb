@@ -19,17 +19,23 @@ class WalksController < ApplicationController
       if request.xhr?
         render @walks #if the request is sent via ajax, render @walks. otherwise, redirect to walks_path (per rails default)
       end
+
+      respond_to do |format|
+        format.html
+        format.json { render json: @allwaypoints_js }
+      end
   end
 
   def show
     @walk = Walk.find(params[:id])
-    @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
-    @allwaypoints = {coords: @walk.waypoints_coord_array}
-    @allwaypoints_js = @allwaypoints.to_json
-    binding.pry
+    @allwaypoints = @walk.waypoints_coord_array
+    @centershow = @allwaypoints.first
+    @allwaypoints = {coords: @walk.waypoints_coord_array}.to_json
+    # binding.pry
     respond_to do |format|
       format.html
-      format.json { render json: @allwaypoints_js }
+      format.json { render json: @allwaypoints}
+      # binding.pry
     end
   end
 

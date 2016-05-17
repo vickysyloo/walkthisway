@@ -2,7 +2,7 @@
 # The default is nothing which will include only core features (password encryption, login/logout).
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging, :external
-Rails.application.config.sorcery.submodules = []
+Rails.application.config.sorcery.submodules = [:external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -76,7 +76,7 @@ Rails.application.config.sorcery.configure do |config|
   # What providers are supported by this app, i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce] .
   # Default: `[]`
   #
-  # config.external_providers =
+  config.external_providers = [:twitter, :facebook]
 
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -122,6 +122,19 @@ Rails.application.config.sorcery.configure do |config|
   # config.facebook.access_permissions = ["email", "publish_actions"]
   # config.facebook.display = "page"
   # config.facebook.api_version = "v2.2"
+  config.twitter.key = "<ec47UpkvTpvAQmOMjRTGg1qrN>"
+  config.twitter.secret = "<mzY8huPHBbJM2ysWeJJ3IJxMnWoSRALDZpWVNyL6AeHmKFs5ws>"
+  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  config.twitter.user_info_mapping = {:email => "email"}
+
+  config.facebook.key = "<622388771259653>"
+  config.facebook.secret = "<cb56e471421d412c309ca4bb3eb96f86>"
+  config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
+  config.facebook.user_info_mapping = {:email => "email"} #etc
+  config.facebook.scope = "email,user_likes" #etc
+  config.facebook.display = "popup"
+
+
   #
   # config.github.key = ""
   # config.github.secret = ""
@@ -173,6 +186,8 @@ Rails.application.config.sorcery.configure do |config|
 
   # --- user config ---
   config.user_config do |user|
+
+    user.authentications_class = Authentication
     # -- core --
     # specify username attributes, for example: [:username, :email].
     # Default: `[:email]`

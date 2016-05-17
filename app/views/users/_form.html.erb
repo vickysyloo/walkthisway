@@ -1,0 +1,40 @@
+<h1>F my life</h1>
+
+<%= form_for @user do |f| %>
+<div>
+   <%= f.label :first_name %>
+   <%= f.text_field :first_name %>
+</div>
+<div>
+   <%= f.label :last_name %>
+   <%= f.text_field :last_name %>
+</div>
+<div>
+   <%= f.label :username %><br />
+   <%= f.text_field :username %>
+</div>
+<div>
+   <%= f.label :email %><br />
+   <%= f.email_field :email %>
+</div>
+<!-- <div>The div for uploading an avatar goes here </div> -->
+<div>
+   <%= f.label :details %>
+   <%= f.text_area(:details, size:'20x5' ) %>
+</div>
+<div>
+   <%= f.label :location %>
+   <%= f.text_field(:location) %>
+</div>
+<div>
+   <%= f.label :password %>
+   <%= f.text_field :password %>
+</div>
+<div>
+   <%= f.label :password_confirmation %>
+   <%= f.text_field :password_confirmation %>
+</div>
+<div>
+   <%= f.submit "Save" %>
+</div>
+<% end %>

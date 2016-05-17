@@ -2,6 +2,7 @@ class UserSessionsController < ApplicationController
 
   def new
     @user = User.new
+    @gobbledegook = true
   end
 
   def create

@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :authentications_attributes
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end

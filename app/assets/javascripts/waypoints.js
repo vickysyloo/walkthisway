@@ -11,8 +11,6 @@ function plot_waypoints_array(pt_array, map) {
   }
 }
 
-
-
 $(document).on('ready page:load', function(){
   // $('#walks-list-item a').on('click', function(e){
 

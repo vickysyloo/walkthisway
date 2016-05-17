@@ -8,8 +8,7 @@ html, body {
   cursor: crosshair;
   font-family:  AbrilFatface-Regular;
   height:100vh;
-  display: flex;
-  flex-direction: column;
+
  }
 
 @font-face {
@@ -25,7 +24,7 @@ img {
   box-sizing: inherit; }
 
 a {
-  color: white;
+  color: black;
 }
 .page-wrapper {
   position: relative;
@@ -35,10 +34,6 @@ a {
 .hidden {
   position: absolute;
   left: -10000px; }
-
-  body{
-    display: flex;
-  }
 
   .social-media{
     display: flex;

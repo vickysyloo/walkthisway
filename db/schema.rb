@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20160517041202) do
 
+  create_table "authentications", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+
   create_table "categories", force: :cascade do |t|
     t.string   "theme"
     t.string   "picture"

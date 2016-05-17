@@ -9,6 +9,19 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>" >
 
+  <div>
+    <% if @gobbledegook == nil %>
+      <% if current_user %>
+        <%= link_to "Create a walk", new_walk_path %>
+        <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+        <%= link_to "Logout", :logout, method: :post %>
+      <% else %>
+        <%= link_to "Register", new_user_path %> |
+        <%= link_to "Login", :login %>
+      <% end %>
+    <% end %>
+  </div>
+
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
   <% end %>
@@ -20,7 +33,7 @@
 <%= yield %>
 
   <footer id="footer">
-    <h1> testttt</h1>
+    <h1></h1>
   </footer>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_maps_api_key']%>&libraries=drawing,geometry,places"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

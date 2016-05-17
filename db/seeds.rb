@@ -25,7 +25,8 @@ email: 'bbl@gmail.com',
 icon: 'https://pbs.twimg.com/profile_images/688922841375322112/tTiPeHKd.png',
 details: 'Lawyer',
 location: 'Toronto, ON',
-crypted_password: 'hello'
+password: 'banana',
+password_confirmation: 'banana'
 )
 
 walk = Walk.create!(

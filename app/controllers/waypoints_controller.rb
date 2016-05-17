@@ -29,7 +29,7 @@ class WaypointsController < ApplicationController
   private
 
   def waypoint_params
-    params.require(:waypoint).permit(:name, :description, :address, :latitude, :longitude, :walk_id)
+    params.require(:waypoint).permit(:name, :description, :address, :latitude, :longitude, :walk_id, :order)
   end
 
   def load_walks

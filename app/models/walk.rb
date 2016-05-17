@@ -14,10 +14,10 @@ class Walk < ActiveRecord::Base
     end
   end
 
-  def waypoints_json
+  def waypoints_coord_array
     if self.waypoints
-      self.waypoints.each do |
-        # do mapping
+      coords = self.waypoints.map {|waypt| [waypt.latitude, waypt.longitude] }
     end
+    return coords
   end
 end

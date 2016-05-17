@@ -1,0 +1,84 @@
+.homepage{
+  width: 100vw;
+  height:100vh;
+  background-color:#f1d01b ;
+  position:fixed;
+  -webkit-animation:change-bg-colour 20s infinite;
+  -moz-animation:    change-bg-colour 20s infinite;
+  -o-animation:     change-bg-colour 20s infinite;
+  animation:        change-bg-colour 20s infinite;
+}
+
+@keyframes change-bg-colour {
+    0%   {background-color: #f75c4f;}
+    25%  {background-color: #F1D01B;}
+    50%  {background-color: #6DCC7A;}
+    100% {background-color: #F2693E;}
+}
+
+.welcome_msg{
+  color: white;
+  letter-spacing: 1px;
+  margin-left: 7%;
+  margin-top: 3%;
+  z-index: 1;
+}
+
+
+h1{
+  border: solid 5px white;
+  display: inline-block;
+  padding: 8px;
+  font-size: 30px;
+}
+
+.slogan{
+  font-size: 24px;
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+
+
+.contain-shoeprint{
+  position: relative;
+  margin-top: 10%;
+  transform: rotate(-28deg);
+}
+
+.print{
+  position: absolute;
+}
+
+.search-bar {
+  color: white;
+  margin-left: 7%;
+  margin-top: -5%;
+}
+
+.search-bar-field{
+  height:45px;
+  width: 400px;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+.search-button {
+  border: solid 2px white;
+  width: 100px;
+  padding: 10px;
+  color: white;
+  font-family: Arial;
+  background-color: transparent;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.fa{
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 27px;
+  &:hover{
+    color: lightgrey;
+  }
+}

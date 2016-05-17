@@ -27,6 +27,7 @@ $(document).on('ready page:load', function() {
               } else {
                 alert('something went wrong... Geocode was not successful');
               }
+
             });
             return false;
           }
@@ -47,6 +48,7 @@ $(document).on('ready page:load', function() {
         });
 
         return false;
+
       };
       var city = $('#autocomplete').val();
       codeCity(city);

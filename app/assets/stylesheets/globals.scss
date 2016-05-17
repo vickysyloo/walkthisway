@@ -1,0 +1,54 @@
+/*  CSS PERTAINING TO ALL PAGES WILL GO HERE */
+
+html, body {
+  font-size: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: crosshair;
+  font-family:  AbrilFatface-Regular;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+ }
+
+@font-face {
+font-family: AbrilFatface-Regular  ;
+src: url("fonts/AbrilFatface-Regular.otf");
+}
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+a {
+  color: white;
+}
+.page-wrapper {
+  position: relative;
+  max-width: 95%;
+  margin: 0 auto; }
+
+.hidden {
+  position: absolute;
+  left: -10000px; }
+
+  body{
+    display: flex;
+  }
+
+  .social-media{
+    display: flex;
+    flex-direction: column;
+    right:0;
+    position: fixed;
+  }
+
+  // #footer{
+  //   flex-grow:1;
+  //   padding: 20px;
+  // text-align: center;
+  // }

@@ -1,10 +1,27 @@
-<h1>Home!</h1>
+<div class="homepage">
+    <div class="welcome_msg">
+      <h1>WELCOME TO WALKTHISWAY </h1>
+      <p class="slogan">Discover and explore new routes in your neighborhood.</p>
+    </div>
 
-  <%= form_tag walks_path, method: :get do %>
-    <%= label_tag :search %>
-  <%= text_field_tag :search, params[:search], id: "autocomplete", data:params[:search]%>
-  <%= submit_tag "Search", id: 'search-button'%>
-  <% end %>
+    <div class="contain-shoeprint">
+      <%= image_tag(('shoeprint_final.png'),:class =>'print') %>
+      <span class="cover"></span>
+    </div>
 
-<!-- insert returned data into div below -->
-<!-- <div id = 'walklist'></div> -->
+    <div class="search-bar"
+      <%= form_tag walks_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], id: "autocomplete", data:params[:search], :placeholder => "Where do you want to go? (Ex. Toronto, ON)", :class =>"search-bar-field"%>
+      <%= submit_tag "Search", class: 'search-button'%>
+      <% end %>
+    </div>
+
+    <div class="social-media">
+        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+
+    </div>
+
+
+</div><!-- end of homepage-->

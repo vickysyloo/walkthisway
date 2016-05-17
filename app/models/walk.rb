@@ -13,4 +13,11 @@ class Walk < ActiveRecord::Base
       errors.add(:walk, "Walks need at least two waypoints.")
     end
   end
+
+  def waypoints_json
+    if self.waypoints
+      self.waypoints.each do |
+        # do mapping
+    end
+  end
 end

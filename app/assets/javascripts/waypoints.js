@@ -23,7 +23,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
       {location: new google.maps.LatLng(returnWaypoints[i][0], returnWaypoints[i][1])}
     )
   }
-  
+
 
   if (waypt_array_length >2) {
     var waypts = formatted_waypoints.slice(1, waypt_array_length-1);

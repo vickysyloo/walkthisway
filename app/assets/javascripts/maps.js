@@ -1,3 +1,7 @@
+var map_index;
+var map_show;
+var map_new;
+
 function initialize(mapElement, zoomlevel) {
   // geocoder = new google.maps.Geocoder();	// create geocoder object to geocode address
   var mapPlaceholder = $('#' + mapElement);

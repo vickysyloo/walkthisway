@@ -1,6 +1,10 @@
 <h1>Walks in <%=@searchedcity%> </h1>
 
-<div id="map_walk-index" class="map" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>"></div>
+
+<%= link_to "Create a walk", new_walk_path %>
+
+<div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
+
 
 <div class="walks-list">
   <ul>

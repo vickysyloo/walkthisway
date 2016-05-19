@@ -68,7 +68,11 @@ walk2 = Walk.new(
 id: 2,
 name: 'greenest of spaces',
 description: 'such nature',
+<<<<<<< HEAD
  picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
+=======
+picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
+>>>>>>> 3d995bd91bdcc5bf2a4f72d011686ec83767e17e
 category_id: nature.id,
 user_id: bob.id,
 city: "Toronto"
@@ -84,11 +88,11 @@ walk_id: walk2.id
 )
 
 waypoint2 = Waypoint.create!(
-name: 'Mt Pleasant',
-description: 'Mt Pleasant',
-latitude: 43.695,
-longitude: -79.39445,
-address: 'Address???',
+name: 'Bitmaker',
+description: 'learning!',
+latitude: 43,
+longitude: -79,
+address: '220 king street west, toronto, ontario, canada',
 walk_id: walk2.id
 )
 

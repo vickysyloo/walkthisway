@@ -7,17 +7,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= controller_name %> <%= action_name %>" >
+ <body>
 
-  <div>
+  <div class="nav-menu">
+      <%= link_to "Home", root_path %>
     <% if @gobbledegook == nil %>
       <% if current_user %>
-        <%= link_to "Create a walk", new_walk_path %>
+        <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>
+        <%= link_to "Create a walk", new_walk_path %>
         <%= link_to "Register", new_user_path %> |
-        <%= link_to "Login", :login %>
+        <%= link_to "Login", :login, :class=> 'login_link'%>
+
       <% end %>
     <% end %>
   </div>
@@ -30,11 +33,15 @@
     <p id="alert"><%= flash[:alert] %></p>
   <% end %>
 
+
 <%= yield %>
 
+
+
   <footer id="footer">
-    <h1></h1>
+     copyright Walkthisway, 2016.
   </footer>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_maps_api_key']%>&libraries=drawing,geometry,places"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>

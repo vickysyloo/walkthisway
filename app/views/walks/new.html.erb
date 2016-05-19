@@ -1,6 +1,6 @@
 <h1>Create a new walk!</h1>
 
-<div id="map_walk-new" data-latitude='0' data-longitude="0" ></div>
+<div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
 
 <div class="form-list">
   <%= form_for @walk do |f| %>
@@ -8,7 +8,7 @@
   <div class="errors">
     <% if @walk.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@walk.errors.count, "error") %> prohibited this walk from being saved:</h2>
+
       <ul>
         <% @walk.errors.each do |key, value| %>
         <li><%= value %></li>
@@ -17,7 +17,6 @@
       <% end %>
 
       <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
-      <h2><%= pluralize(@waypoint.errors.count, "error") %> prohibited this waypoint from being saved:</h2>
       <ul>
         <% @waypoint.errors.each do |key, value| %>
         <li><%= key %><%= value %></li>
@@ -29,26 +28,26 @@
 
   <div>
     <%= f.label :city %>
-    <%= f.text_field :city, id: "autocomplete"%>
+    <%= f.text_field :city, id: "autocomplete"%><span class="required">* required </span>
   </div>
   <div>
   <button type="button" id="centerbutton">Center</button>
   </div>
   <div>
     <%= f.label :category %>
-    <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
+    <%= f.collection_select(:category_id, Category.all, :id, :theme) %><span class="required">* required </span>
   </div>
   <div>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><span class="required">* required </span>
   </div>
   <div>
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description %><span class="required">* required </span>
   </div>
   <div>
     <%= f.label :picture %>
-    <%= f.text_field :picture %>
+    <%= f.text_field :picture %><span class="required">* required </span>
   </div>
 
   <div><p>Waypoints</p></div>

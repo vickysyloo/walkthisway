@@ -4,7 +4,10 @@ class Walk < ActiveRecord::Base
   has_many :waypoints
 
   validate :need_two_waypoints
-  validates :name, :description, :picture, :city, presence: {message: "You have a blank field"}
+  validates :name, presence: { message: "Name of walk is required" }
+  validates :description, presence: { message: "Description of walk is required" }
+  validates :picture, presence: { message: "Image of walk is required" }
+    validates :city, presence: { message: "City is required" }
 
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank
 

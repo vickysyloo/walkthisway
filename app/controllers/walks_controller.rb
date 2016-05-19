@@ -6,6 +6,7 @@ class WalksController < ApplicationController
       if params[:search] #if there is a search key in teh params hash (via ajax or full http request)
         # binding.pry
         @centerpoint = Geocoder.coordinates(params[:search])
+        @searchedcity = (params[:search])
         Walk.all.each do |walk| #iterate over all Walks in database
           if walk.waypoints.first.distance_from(params[:search]) < 30
             #if the first waypoint in the walk is within 30 miles of the search value
@@ -50,7 +51,6 @@ class WalksController < ApplicationController
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      flash.now[:alert] = "Failed"
       render :new
     end
   end

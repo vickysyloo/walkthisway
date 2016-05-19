@@ -20,7 +20,7 @@ class Walk < ActiveRecord::Base
 
   def too_many_waypoints
     if self.waypoints.length > 8
-      errors.add(:walk, "Walk is too complicated! Walk has a max number of 8 waypoints (this is a walk! not a hike!)")
+      errors.add(:walk, "Walk is too complicated! Walk has a max number of 8 waypoints (this is a walk, not a hike, or a long and winding spiritual journey with many waypoints)")
     end
   end
 

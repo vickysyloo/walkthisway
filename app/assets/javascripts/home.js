@@ -24,7 +24,9 @@ function autocomplete_maker(dom_element) {
   });
 }
 
+if ($('#autocomplete').length >0) {
 autocomplete_maker('autocomplete');
+}
 //
 
 // every time the search button is clicked

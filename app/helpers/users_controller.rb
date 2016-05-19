@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    @gobbledegook = true
+   @gobbledegook  = false
   end
 
   def show

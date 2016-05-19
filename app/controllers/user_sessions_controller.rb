@@ -2,7 +2,7 @@ class UserSessionsController < ApplicationController
 
   def new
     @user = User.new
-    @gobbledegook = true
+    @gobbledegook = false
   end
 
   def create
@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       flash.now[:success] = "You are now logged in."
       redirect_back_or_to root_path
     else
-      flash.now[:alert] = 'Login failed'
+      flash.now[:alert] = 'Username and/or password is incorrect.'
       render action: 'new'
     end
   end

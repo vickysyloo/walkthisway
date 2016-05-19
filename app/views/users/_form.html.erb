@@ -1,25 +1,25 @@
-<h1>F my life</h1>
 
+<div class="form loginform">
 <%= form_for @user do |f| %>
 <div>
    <%= f.label :first_name %>
-   <%= f.text_field :first_name %>
+   <%= f.text_field :first_name %> <span class="required">* required</span>
 </div>
 <div>
    <%= f.label :last_name %>
-   <%= f.text_field :last_name %>
+   <%= f.text_field :last_name %> <span class="required">* required</span>
 </div>
 <div>
-   <%= f.label :username %><br />
-   <%= f.text_field :username %>
+   <%= f.label :username %>
+   <%= f.text_field :username %> <span class="required">* required</span>
 </div>
 <div>
-   <%= f.label :email %><br />
-   <%= f.email_field :email %>
+   <%= f.label :email %>
+   <%= f.email_field :email %> <span class="required">* required</span>
 </div>
 <!-- <div>The div for uploading an avatar goes here </div> -->
 <div>
-   <%= f.label :details %>
+   <%= f.label :details, "About Me" %>
    <%= f.text_area(:details, size:'20x5' ) %>
 </div>
 <div>
@@ -28,13 +28,14 @@
 </div>
 <div>
    <%= f.label :password %>
-   <%= f.text_field :password %>
+   <%= f.text_field :password %> <span class="required">* required</span>
 </div>
 <div>
    <%= f.label :password_confirmation %>
-   <%= f.text_field :password_confirmation %>
+   <%= f.text_field :password_confirmation %> <span class="required">* required</span>
 </div>
 <div>
    <%= f.submit "Save" %>
 </div>
 <% end %>
+</div>

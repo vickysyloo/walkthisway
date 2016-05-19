@@ -7,14 +7,30 @@ html, body {
   padding: 0;
   cursor: crosshair;
   font-family:  AbrilFatface-Regular;
-  height:100vh;
-
+  height:100%;
+  font-weight: 300;
  }
 
 @font-face {
 font-family: AbrilFatface-Regular  ;
 src: url("fonts/AbrilFatface-Regular.otf");
 }
+
+@font-face {
+   font-family: freefonts;
+  src: url(freefont.oft) format("truetype");
+ }
+
+ @font-face {
+    font-family: gotham;
+   src: url(GOTHAM-MEDIUM.TTF) format("truetype");
+  }
+
+
+  @font-face {
+      font-family: gotham-light;
+     src: url(GOTHAM-THIN.TTF) format("truetype");
+    }
 
 img {
   max-width: 100%;
@@ -23,9 +39,28 @@ img {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-a {
-  color: black;
-}
+.nav-menu {
+    background-color:transparent;
+    padding: 20px 0;
+    font-family:  gotham;
+    a{
+      color: white;
+      text-decoration: none;
+      margin: 20px;
+      letter-spacing: 1px;
+      &:hover {
+        border-bottom: solid white ;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  .nav_links{
+  float: right;
+    border: solid blue;
+    width: 50%;
+  }
+
 .page-wrapper {
   position: relative;
   max-width: 95%;
@@ -35,15 +70,43 @@ a {
   position: absolute;
   left: -10000px; }
 
+.logo{
+  border-radius:50%;
+  border: solid black;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
   .social-media{
     display: flex;
+    height: 100vh;
+    justify-content: center;
     flex-direction: column;
     right:0;
     position: fixed;
+    z-index: 2;
+    a{
+      color: white;
+    }
   }
 
-  // #footer{
-  //   flex-grow:1;
-  //   padding: 20px;
-  // text-align: center;
-  // }
+  #footer{
+  text-align: center;
+  //  bottom:0;
+  height:10%;
+   width: 100%;
+  //  position: absolute;
+   background-color: blue;
+  }
+
+
+// .login_modal{
+//   height:200px;
+//   width:100px;
+//   border: solid red;
+//   display: none;
+// }

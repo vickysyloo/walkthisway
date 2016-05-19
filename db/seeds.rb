@@ -50,7 +50,7 @@ description: 'Museum',
 latitude: 43.6677,
 longitude: -79.3948,
 address: '100 Queen\'s Park',
-walk_id: walk.id
+walk_id: walk1.id
 )
 
 waypoint2 = Waypoint.create!(
@@ -59,7 +59,7 @@ description: 'Museum',
 latitude: 43.65342,
 longitude: -79.392625,
 address: '317 Dundas Street West',
-walk_id: walk.id
+walk_id: walk1.id
 )
 
 walk1.save!
@@ -67,8 +67,12 @@ walk1.save!
 walk2 = Walk.new(
 id: 2,
 name: 'greenest of spaces',
-description: 'such nature",
+description: 'such nature',
+<<<<<<< HEAD
+ picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
+=======
 picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
+>>>>>>> 3d995bd91bdcc5bf2a4f72d011686ec83767e17e
 category_id: nature.id,
 user_id: bob.id,
 city: "Toronto"
@@ -84,11 +88,11 @@ walk_id: walk2.id
 )
 
 waypoint2 = Waypoint.create!(
-name: 'Mt Pleasant',
-description: 'Mt Pleasant',
-latitude: 43.695,
-longitude: -79.39445,
-address: 'Address???',
+name: 'Bitmaker',
+description: 'learning!',
+latitude: 43,
+longitude: -79,
+address: '220 king street west, toronto, ontario, canada',
 walk_id: walk2.id
 )
 

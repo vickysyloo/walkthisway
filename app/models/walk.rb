@@ -4,11 +4,11 @@ class Walk < ActiveRecord::Base
   has_many :waypoints
 
   validate :need_two_waypoints
+  validate :too_many_waypoints
   validates :name, presence: { message: "Name of walk is required" }
   validates :description, presence: { message: "Description of walk is required" }
   validates :picture, presence: { message: "Image of walk is required" }
   validates :city, presence: { message: "City is required" }
-  validates :too_many_waypoints
 
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank
 
@@ -20,10 +20,10 @@ class Walk < ActiveRecord::Base
 
   def too_many_waypoints
     if self.waypoints.length > 8
-      errors.add(:walk, "Walk is too complicated! Try creating a shorter walk")
+      errors.add(:walk, "Walk is too complicated! Walk has a max number of 8 waypoints (this is a walk! not a hike!)")
     end
   end
-  
+
   def waypoints_coord_array
     if self.waypoints
       self.waypoints.order(:order)

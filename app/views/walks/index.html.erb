@@ -7,13 +7,13 @@
 
 
 <div class="walks-list">
-  <ul>
+
     <% @walks.each do |walk| %>
-    <li class="walks-list-item">
-       <%= walk.picture%>
-      <%= link_to walk.name, walk_path(walk) %>
-      <%= walk.description%>
-    </li>
+    <div>
+     <img src = '<%=walk.picture%>' >
+    <h3> <%= link_to walk.name, walk_path(walk) %> </h3>
+    <h3>  <%= walk.description%> </h3>
+    </div>
     <% end %>
-  </ul>
+
 </div>

@@ -23,32 +23,42 @@
         <% end %>
       </ul>
       <% end %>
-
+    </div>
   </div>
 
+  <table>
+  <p> Enter a city </p>
+  <tr>
+    <td>  <%= f.label :city %> </td>
+    <td><%= f.text_field :city, id: "autocomplete"%><span class="required">* required </span> </td>
+  <td>
   <div>
-    <%= f.label :city %>
-    <%= f.text_field :city, id: "autocomplete"%><span class="required">* required </span>
+  </table>
+    <button type="button" id="centerbutton">Center</button>
   </div>
-  <div>
-  <button type="button" id="centerbutton">Center</button>
+
+  <p> Walk Details </p>
+
+  <table>
+  <tr>
+    <td>  <%= f.label :category %> </td>
+    <td>  <%= f.collection_select(:category_id, Category.all, :id, :theme) %><span class="required">* required </span> </td>
+  </tr>
+  <tr>
+  <td>  <%= f.label :name %> </td>
+  <td>  <%= f.text_field :name %><span class="required">* required </span> </td>
+  </tr>
+
+  <tr>
+    <td><%= f.label :description %></td>
+    <td><%= f.text_area :description %><span class="required">* required </span></td>
+  </tr>
+  <tr>
+    <td><%= f.label :picture %></td>
+    <td><%= f.text_field :picture %><span class="required">* required </span></td>
   </div>
-  <div>
-    <%= f.label :category %>
-    <%= f.collection_select(:category_id, Category.all, :id, :theme) %><span class="required">* required </span>
-  </div>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %><span class="required">* required </span>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %><span class="required">* required </span>
-  </div>
-  <div>
-    <%= f.label :picture %>
-    <%= f.text_field :picture %><span class="required">* required </span>
-  </div>
+
+  </table>
 
   <div><p>Waypoints</p></div>
 
@@ -61,6 +71,9 @@
     </div>
   </div>
 
+  <div id='plot_new_walk'>
+    Plot this path on the map!
+  </div>
   <div>
     <%= f.submit %>
   </div>

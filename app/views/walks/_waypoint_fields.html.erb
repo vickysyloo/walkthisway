@@ -1,20 +1,19 @@
 <div class="nested-fields">
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description,:class=>"description"%>
-  </div>
-
-  <div>
-    <%= f.label :address %>
-    <%= f.text_field :address,:class=>"address" %>
-  </div>
-
-  <div>
-    <%= f.label :order %>
-    <%= f.number_field :order,:class=>"point order" %>
-  </div>
-
+<table>
+  <tr>
+    <td><%= f.label :description %></td>
+    <td><%= f.text_area :description,:class=>"description"%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :address %></td>
+    <td><%= f.text_field :address,:class=>"address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :order %></td>
+    <td><%= f.number_field :order,:class=>"point order" %></td>
+  </tr>
+</table>
     <%= link_to_remove_association "cancel", f %>
 
   <!-- <button class="waypoint-btn" type="button">Plot me!</button> -->

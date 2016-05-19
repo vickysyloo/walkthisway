@@ -7,7 +7,8 @@ class Walk < ActiveRecord::Base
   validates :name, presence: { message: "Name of walk is required" }
   validates :description, presence: { message: "Description of walk is required" }
   validates :picture, presence: { message: "Image of walk is required" }
-    validates :city, presence: { message: "City is required" }
+  validates :city, presence: { message: "City is required" }
+  validates :too_many_waypoints
 
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank
 
@@ -17,6 +18,12 @@ class Walk < ActiveRecord::Base
     end
   end
 
+  def too_many_waypoints
+    if self.waypoints.length > 8
+      errors.add(:walk, "Walk is too complicated! Try creating a shorter walk")
+    end
+  end
+  
   def waypoints_coord_array
     if self.waypoints
       self.waypoints.order(:order)
@@ -25,5 +32,7 @@ class Walk < ActiveRecord::Base
     end
     return coords
   end
+
+
 
 end

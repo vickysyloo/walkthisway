@@ -69,8 +69,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
 
 }
 
-<<<<<<< HEAD
-=======
 function initPathMap(returnedWaypoints) {
   // ******THIS IS FROM THE DIRECTIONS SERVICES ******//
   var directionsService = new google.maps.DirectionsService; // geocode and calculate direction between pts
@@ -84,7 +82,6 @@ function initPathMap(returnedWaypoints) {
 }
 
 
->>>>>>> 0a93c4fb9514e90c4ce7096da7052bbe7d54b97f
 $(document).on('ready page:load', function(){
 
   //if the url matches the regex(/ + walks + >1 number):

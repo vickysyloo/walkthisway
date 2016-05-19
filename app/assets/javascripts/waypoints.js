@@ -1,3 +1,4 @@
+// this function, plot_waypoints_array was used to plot waypoints on the show page before the google directions service was implemented to show paths
 function plot_waypoints_array(pt_array, map) {
   for (var i=0; i<pt_array.length; i++) {
     lat = pt_array[i][0]
@@ -5,12 +6,17 @@ function plot_waypoints_array(pt_array, map) {
 
     var marker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
-      setMap: map,
       title: 'Hello World!'
     });
+
+    marker.setMap(map);
   }
 }
 
+// function home_index_waypoints(pt_array, map, mapElement, zoomlevel) {
+//   initialize(mapElement, zoomlevel);
+//   plot_waypoints_array(pt_array, map);
+// }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWaypoints) {
   //chunk below iterates over input menu on htmlpage and plucks out selected waypoints, pushing into waypts array

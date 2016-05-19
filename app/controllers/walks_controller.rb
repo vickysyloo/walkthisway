@@ -3,28 +3,33 @@ class WalksController < ApplicationController
 
   def index
     @walks = [] #define @walks as an empty array
-      if params[:search] #if there is a search key in teh params hash (via ajax or full http request)
-        # binding.pry
-        @centerpoint = Geocoder.coordinates(params[:search])
-        Walk.all.each do |walk| #iterate over all Walks in database
-          if walk.waypoints.first.distance_from(params[:search]) < 30
-            #if the first waypoint in the walk is within 30 miles of the search value
-            @walks << walk #push this walk into @walks array
-          end
+    @startpoints = []
+
+    if params[:search] #if there is a search key in teh params hash (via ajax or full http request)
+      @centerpoint = Geocoder.coordinates(params[:search])
+      Walk.all.each do |walk| #iterate over all Walks in database
+        if walk.waypoints.first.distance_from(params[:search]) < 30
+          #if the first waypoint in the walk is within 30 miles of the search value
+          @walks << walk #push this walk into @walks array
         end
-      else
-        # if there is no search form (e.g. someone types in url)
-        Walk.all #return all walks
       end
+    else
+      @walks = Walk.where(city: 'Toronto')
+      @centerpoint = Geocoder.coordinates('Toronto, Ontario')
+    end
 
-      if request.xhr?
-        render @walks #if the request is sent via ajax, render @walks. otherwise, redirect to walks_path (per rails default)
-      end
+    @walks.each do |walk|
+      @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude]
+    end
 
-      respond_to do |format|
-        format.html
-        format.json { render json: @allwaypoints_js }
-      end
+    # if request.xhr?
+    #   render @walks #if the request is sent via ajax, render @walks. otherwise, redirect to walks_path (per rails default)
+    # end
+
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @allwaypoints_js }
+    # end
   end
 
   def show

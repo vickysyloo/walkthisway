@@ -4,29 +4,13 @@
 
 .signup_container{
   height: 100vh;
-   background-image:image-url('bg2.jpg');
   background-size: cover;
 
-}
-
-.overlay-signup{
-     width: 100%;
-     position: relative;
- }
-
- .overlay-signup::after {
-     content:"";
-     display: block;
-     height: 100%;
-      position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-      background-color: black;
-      opacity: 0.3;
 }
 
 .loginform{
   z-index: 3;
   background-color: white;
+  display: inline-block;
+
 }

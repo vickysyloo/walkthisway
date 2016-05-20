@@ -1,6 +1,40 @@
-<h1>Create a new walk!</h1>
+<div class="nav-menu-not-homepage">
+  <div class="logo">
+    <%= link_to "W", root_path %>
+  </div>
 
+      <ul>
+  <% if @gobbledegook == nil %>
+    <% if current_user %>
+
+      <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
+      <%= link_to "Hi, #{current_user.first_name}!" ,edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout, method: :post %>
+    </ul>
+    <% else %>
+      <%= link_to "Create a walk", new_walk_path %>
+      <%= link_to "Register", new_user_path %>
+      <%= link_to "Login", :login, :class=> 'login_link'%>
+
+    <% end %>
+  <% end %>
+</div><!-- end of nav-menu-->
+
+
+<div class="page-wrapper">
+
+<div class="create_walk_contain_left">
+  <h1 class="create_walk_title">
+    <span class="create_walk_title_split">Have an awesome path</span>
+    <span class="create_walk_title_split">you want to share?<span>
+    <span class="create_walk_title_split">Create a route!</span>
+  </h1>
+</div>
+
+<div class="create_walk_contain_right">
 <div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
+</div>
+
 
 <div class="form-list">
   <%= form_for @walk do |f| %>
@@ -26,34 +60,36 @@
 
   </div>
 
-  <div>
-    <%= f.label :city %>
-    <%= f.text_field :city, id: "autocomplete"%><span class="required">* required </span>
+  <div class ='form_set'>
+    <%= f.label :city,:class=> 'form_label form_label_create_walk'  %>
+    <%= f.text_field :city, id: "autocomplete", :class=>'form_field form_field_create_walk'%><span class="required">*  </span>
+    <button type="button" id="centerbutton">Center Map</button>
   </div>
-  <div>
-  <button type="button" id="centerbutton">Center</button>
+
+  <div class ='form_set'>
+    <%= f.label :category, :class=> 'form_label form_label_create_walk' %>
+    <%= f.collection_select(:category_id, Category.all, :id, :theme) %><span class="required">*  </span>
   </div>
-  <div>
-    <%= f.label :category %>
-    <%= f.collection_select(:category_id, Category.all, :id, :theme) %><span class="required">* required </span>
+
+  <div class ='form_set'>
+    <%= f.label :name,:class=> 'form_label form_label_create_walk'  %>
+    <%= f.text_field :name, :class=>'form_field form_field_create_walk' %><span class="required">* </span>
   </div>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %><span class="required">* required </span>
+
+  <div class ='form_set'>
+    <%= f.label :description,:class=> 'form_label form_label_create_walk'  %>
+    <%= f.text_area :description, :class=>'form_field form_field_create_walk' %><span class="required">* </span>
   </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %><span class="required">* required </span>
-  </div>
-  <div>
-    <%= f.label :picture %>
-    <%= f.text_field :picture %><span class="required">* required </span>
+
+  <div class ='form_set'>
+    <%= f.label :picture,:class=> 'form_label form_label_create_walk'  %>
+    <%= f.text_field :picture, :class=>'form_field form_field_create_walk' %><span class="required">*  </span>
   </div>
 
   <div><p>Waypoints</p></div>
 
   <div id="mkpts">
-    <div>
+    <div class ='form_set'>
       <%= f.fields_for :waypoints do |waypoint| %>
       <%= render 'waypoint_fields', :f => waypoint %>
       <% end %>
@@ -67,3 +103,4 @@
 
 <% end %>
 </div>
+</div> <!-- end of page wrapper-->

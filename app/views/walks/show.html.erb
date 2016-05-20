@@ -1,16 +1,57 @@
-<h1>Walks#show</h1>
+<div class="nav-menu-not-homepage">
+  <div class="logo">
+    <%= link_to "W", root_path %>
+  </div>
 
-<div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
+      <ul>
+  <% if @gobbledegook == nil %>
+    <% if current_user %>
 
+      <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
+      <%= link_to "Hi, #{current_user.first_name}!" ,edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout, method: :post %>
+    </ul>
+    <% else %>
+      <%= link_to "Create a walk", new_walk_path %>
+      <%= link_to "Register", new_user_path %>
+      <%= link_to "Login", :login, :class=> 'login_link'%>
+
+    <% end %>
+  <% end %>
+</div><!-- end of nav-menu-->
+
+
+
+<div class="walk_image">
+<img src="<%=@walk.picture%>" >
+</div>
+
+<div class= "walk_show_left">
 <div>
   <%= @walk.name %>
+</div>
 
+<div>
+  <%=@walk.city%>
+</div>
+
+<div>
+  <%=@walk.description%>
+</div>
+
+<h2> Waypoints</h2>
+<div>
   <% @walk.waypoints.each do |waypoint| %>
+  <%= waypoint.address %>
     <%= waypoint.description %>
-    <%= waypoint.address %>
-    <%= waypoint.latitude %>
-    <%= waypoint.longitude %>
+
   <% end %>
 
   <div id='directions-panel'>Directions</div>
+</div>
+
+</div><!-- end of walk_show_left-->
+
+<div class="walk_show_right">
+<div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
 </div>

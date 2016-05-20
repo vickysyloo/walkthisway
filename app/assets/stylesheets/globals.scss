@@ -5,7 +5,7 @@ html, body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: crosshair;
+  // cursor: crosshair;
   font-family:  AbrilFatface-Regular;
   height:100%;
   font-weight: 300;
@@ -39,10 +39,17 @@ img {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+
 .nav-menu {
     background-color:transparent;
     padding: 20px 0;
-    font-family:  gotham;
+    font-family: gotham;
+
+    ul{
+      display: inline-block;
+      margin-left: 60%;
+    }
+
     a{
       color: white;
       text-decoration: none;
@@ -63,7 +70,7 @@ img {
 
 .page-wrapper {
   position: relative;
-  max-width: 95%;
+  max-width: 90%;
   margin: 0 auto; }
 
 .hidden {
@@ -71,14 +78,16 @@ img {
   left: -10000px; }
 
 .logo{
-  border-radius:50%;
-  border: solid black;
-  display: inline-block;
-  height: 50px;
-  width: 50px;
+  font-family: freefonts;
   position: absolute;
-  top:0;
-  left:0;
+  // top:0;
+  // left:0;
+  margin-left: 10px;
+  font-size: 30px;
+  border: solid 5px white;
+  border-radius: 50%;
+  padding: 10px;
+
 }
 
   .social-media{
@@ -102,11 +111,3 @@ img {
   //  position: absolute;
    background-color: blue;
   }
-
-
-// .login_modal{
-//   height:200px;
-//   width:100px;
-//   border: solid red;
-//   display: none;
-// }

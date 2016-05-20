@@ -3,14 +3,64 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .signup_container{
-  height: 100vh;
+  height: 700px;
   background-size: cover;
-
+}
+.login_desc {
+  font-size: 40px;
+  width: 45%;
+  margin-top: 100px;
+  display: inline-block;
 }
 
+
 .loginform{
-  z-index: 3;
   background-color: white;
   display: inline-block;
+  border: solid  black 2px;
+  width: 48%;
+  height:500px;
+  float: right;
+  padding: 20px;
+  margin-right: 5%;
+  margin-top: 100px;
+  display: block;
+}
 
+.form_label{
+  font-family: Gotham-light;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.form_field{
+  width: 200px;
+  line-height: 20px;
+}
+
+
+.form_set{
+  margin: 10px;
+}
+
+.text_area_field{
+  font-size: 12px;
+}
+
+.social-login a {
+  color: black;
+}
+
+.btn_submit{
+  background-color: black;
+  padding: 7px;
+  border-radius: 5px;
+  color: white;
+  width:60px;
+}
+
+.signup_form{
+  height: 200px;
+  width: 30%;
+  margin-right:20%;
 }

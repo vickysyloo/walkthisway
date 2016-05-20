@@ -1,41 +1,52 @@
-
-<div class="form loginform">
 <%= form_for @user do |f| %>
-<div>
-   <%= f.label :first_name %>
-   <%= f.text_field :first_name %> <span class="required">* required</span>
+<div class ='form_set'>
+   <%= f.label :first_name, :class=> 'form_label' %><span class="required">*</span>
+   <%= f.text_field :first_name, :class=>'form_field' %>
 </div>
-<div>
-   <%= f.label :last_name %>
-   <%= f.text_field :last_name %> <span class="required">* required</span>
+
+
+<div class ='form_set'>
+   <%= f.label :last_name,:class=> 'form_label' %><span class="required">*</span>
+   <%= f.text_field :last_name, :class=>'form_field' %>
 </div>
-<div>
-   <%= f.label :username %>
-   <%= f.text_field :username %> <span class="required">* required</span>
+
+<div class ='form_set'>
+   <%= f.label :username,:class=> 'form_label' %><span class="required">*</span>
+   <%= f.text_field :username, :class=>'form_field' %>
 </div>
-<div>
-   <%= f.label :email %>
-   <%= f.email_field :email %> <span class="required">* required</span>
+
+<div class ='form_set'>
+   <%= f.label :email,:class=> 'form_label' %><span class="required">*</span>
+    <%= f.email_field :email, :class=>'form_field' %>
 </div>
+
+<div>
 <!-- <div>The div for uploading an avatar goes here </div> -->
-<div>
-   <%= f.label :details, "About Me" %>
-   <%= f.text_area(:details, size:'20x5' ) %>
 </div>
-<div>
-   <%= f.label :location %>
-   <%= f.text_field(:location) %>
+
+
+<div class ='form_set'>
+   <%= f.label :details, "About Me",:class=> 'form_label' %>
+
+   <%= f.text_area:details, size:'50x10', :class=>'text_area_field', :placeholder =>'Write a description about yourself! (min 250 words)' %>
 </div>
-<div>
-   <%= f.label :password %>
-   <%= f.text_field :password %> <span class="required">* required</span>
+
+<div class ='form_set'>
+   <%= f.label :location,:class=> 'form_label' %>
+   <%= f.text_field :location, :class=>'form_field' %>
 </div>
-<div>
-   <%= f.label :password_confirmation %>
-   <%= f.text_field :password_confirmation %> <span class="required">* required</span>
+
+<div class ='form_set'>
+   <%= f.label :password,:class=> 'form_label' %><span class="required">*</span>
+   <%= f.text_field :password, :class=>'form_field' %>
 </div>
-<div>
-   <%= f.submit "Save" %>
+
+<div class ='form_set'>
+   <%= f.label :password_confirmation,:class=> 'form_label' %><span class="required">*</span>
+   <%= f.text_field :password_confirmation , :class=>'form_field'%>
+</div>
+
+<div class ='form_set'>
+   <%= f.submit "Sign Up", :class=>"btn_submit" %>
 </div>
 <% end %>
-</div>

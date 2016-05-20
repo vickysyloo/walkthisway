@@ -1,4 +1,4 @@
-.map{
+.map, #map_walk-index{
   height:300px;
   width: 400px;
 }
@@ -7,4 +7,13 @@
   width: 800px;
   height:400px;
 
+}
+
+#map_walk-index{
+  width: 90%;
+  height: 400px;
+}
+
+#map_walk-new{
+  width: 100%;
 }

@@ -1,19 +1,46 @@
-<h1>Walks in <%=@searchedcity%> </h1>
+<div class="nav-menu-not-homepage">
+  <div class="logo">
+    <%= link_to "W", root_path %>
+  </div>
+
+      <ul>
+  <% if @gobbledegook == nil %>
+    <% if current_user %>
+
+      <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
+      <%= link_to "Hi, #{current_user.first_name}!" ,edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout, method: :post %>
+    </ul>
+    <% else %>
+      <%= link_to "Create a walk", new_walk_path %>
+      <%= link_to "Register", new_user_path %>
+      <%= link_to "Login", :login, :class=> 'login_link'%>
+
+    <% end %>
+  <% end %>
+</div><!-- end of nav-menu-->
 
 
-<%= link_to "Create a walk", new_walk_path %>
+<div class="index_container">
+  <div class=" page-wrapper">
+<h1 class="index_title">Walks in <%=@searchedcity%> </h1>
 
 <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
+</div>
+</div>
 
+<button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
 
 <div class="walks-list">
-  <ul>
     <% @walks.each do |walk| %>
-    <li class="walks-list-item">
-       <%= walk.picture%>
-      <%= link_to walk.name, walk_path(walk) %>
-      <%= walk.description%>
-    </li>
+    <div class="walks-list-item">
+      <div class="restaurant_image">
+       <img src="<%= walk.picture%>">
+     </div>
+        <p class="restaurant_name"><%= link_to walk.name, walk_path(walk) %></p>
+      <p class="walk_desc"><%= walk.description%></p>
+    </div>
     <% end %>
-  </ul>
+</div>
+
 </div>

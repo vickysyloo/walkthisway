@@ -95,7 +95,6 @@ $(document).on('ready page:load', function(){
       url: document.location.pathname,
       method: 'GET',
       success: function(return_data){
-        alert('ajax call success');
         var returnedWaypoints = return_data.coords;
         console.log('returned json file: ' + returnedWaypoints);
         plot_waypoints_array(returnedWaypoints, map_show);

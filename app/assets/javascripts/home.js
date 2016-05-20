@@ -32,7 +32,7 @@ autocomplete_maker('autocomplete');
 // every time the search button is clicked
 //   $('input#search-button').on('click', function(event) {
 //     //intercept the default behaviour (full HTML request)
-//     // event.preventDefault(); //comment this line to check regular html response cycle behaviour
+
 //     // confirm click is registered in JS console in chrome
 //     console.log('search button click event is registering');
 //

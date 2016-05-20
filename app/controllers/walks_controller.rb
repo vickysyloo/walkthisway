@@ -16,7 +16,6 @@ class WalksController < ApplicationController
       end
 
     else
-      binding.pry
       @walks = []
       @startpoints = []
       @walks = Walk.where(city: 'Toronto')
@@ -24,9 +23,8 @@ class WalksController < ApplicationController
     end
 
     if params[:search_by_category]
-      binding.pry
       @searchquery = params[:search_by_category]
-      @category_id = Category.find_by(theme: params[:search_by_category]).id
+      @category_id = Category.find_by("lower(theme) like lower(?)",  params[:search_by_category]).id
       @walks = @walks.select{|walk| walk.category_id ==  @category_id}
     end
 

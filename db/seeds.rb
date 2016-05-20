@@ -68,7 +68,7 @@ walk2 = Walk.new(
 id: 2,
 name: 'Coffee it up!',
 description: 'A fantastic walk through your neighbourhood featuring coffee shops!',
-picture: 'http://imgh.us/Toronto_skyline_small.jpg',
+picture: 'http://imgh.us/Toronto_skyline_250x250.jpg',
 category_id: nature.id,
 user_id: bob.id,
 city: "Toronto"

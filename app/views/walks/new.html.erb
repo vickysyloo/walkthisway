@@ -57,7 +57,7 @@
         <% end %>
       </ul>
       <% end %>
-    </div>
+
   </div>
 
   <div class ='form_set'>
@@ -84,24 +84,19 @@
   <div class ='form_set'>
     <%= f.label :picture,:class=> 'form_label form_label_create_walk'  %>
     <%= f.text_field :picture, :class=>'form_field form_field_create_walk' %><span class="required">*  </span>
-
   </div>
 
-
-  <div><p>Waypoints</p></div>
+  <div class="waypoint_title">Waypoints</div>
 
   <div id="mkpts">
-    <div class ='form_set'>
+
       <%= f.fields_for :waypoints do |waypoint| %>
       <%= render 'waypoint_fields', :f => waypoint %>
       <% end %>
       <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
-    </div>
+
   </div>
 
-  <!-- <div id='plot_new_walk'>
-    Plot this path on the map!
-  </div> -->
   <div>
     <%= f.submit %>
   </div>

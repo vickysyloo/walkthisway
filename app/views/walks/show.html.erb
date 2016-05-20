@@ -23,28 +23,29 @@
 
 
 <div class="walk_image">
-<img src="<%=@walk.picture%>" >
+<!-- <img src="<%=@walk.picture%>" > -->
+<img src="http://imgh.us/Toronto_skyline_small.jpg">
 </div>
+
+<div class="page-wrapper">
 
 <div class= "walk_show_left">
-<div>
+<div class="walk_name">
   <%= @walk.name %>
+    <%=@walk.city%>
 </div>
 
-<div>
-  <%=@walk.city%>
-</div>
 
-<div>
-  <%=@walk.description%>
-</div>
+  <h2>About This Walk</h2>
+  <p class="walk_show_description"><%=@walk.description%></p>
 
-<h2> Waypoints</h2>
-<div>
+
+<h2> Walk Route</h2>
+<div class="waypoints_form">
   <% @walk.waypoints.each do |waypoint| %>
-  <%= waypoint.address %>
-    <%= waypoint.description %>
 
+  <%= waypoint.address %>
+    <!-- <%#= waypoint.description %> -->
   <% end %>
 
   <div id='directions-panel'>Directions</div>
@@ -54,4 +55,5 @@
 
 <div class="walk_show_right">
 <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
+</div>
 </div>

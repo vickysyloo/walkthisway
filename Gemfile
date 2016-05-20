@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+ruby '~> 2.3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,6 +44,7 @@ gem 'velocityjs-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+  gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -62,5 +64,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  # gem 'pg'
+  gem 'rails_12factor'
 end

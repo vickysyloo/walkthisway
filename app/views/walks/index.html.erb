@@ -9,6 +9,7 @@
 <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
   <%= label_tag(:search_by_category, "search for:") %>
   <%= text_field_tag :search_by_category, params[:search_by_category], placeholder: 'search by category' %>
+  <%= hidden_field_tag :search_by_location, params[:search_by_location] %>
   <%= submit_tag "search by Category" %>
 <% end %>
 </div>

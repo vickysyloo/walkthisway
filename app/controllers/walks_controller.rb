@@ -4,7 +4,8 @@ class WalksController < ApplicationController
   def index
  #define @walks as an empty array
 
-    if params[:search_by_location] #if there is a search key in teh params hash (via ajax or full http request)
+    if params[:search_by_location].present?
+     #if there is a search key in teh params hash (via ajax or full http request)
       @walks = []
       @startpoints = []
       @centerpoint = Geocoder.coordinates(params[:search_by_location])
@@ -13,7 +14,9 @@ class WalksController < ApplicationController
           @walks << walk #push this walk into @walks array
         end
       end
+
     else
+      binding.pry
       @walks = []
       @startpoints = []
       @walks = Walk.where(city: 'Toronto')
@@ -21,11 +24,12 @@ class WalksController < ApplicationController
     end
 
     if params[:search_by_category]
+      binding.pry
       @searchquery = params[:search_by_category]
-
-      @category = Category.find_by(theme: params[:search_by_category]).id
-      @walks = Walk.where(category_id: @category)
+      @category_id = Category.find_by(theme: params[:search_by_category]).id
+      @walks = @walks.select{|walk| walk.category_id ==  @category_id}
     end
+
 
     if @walks != nil
       @walks.each do |walk|

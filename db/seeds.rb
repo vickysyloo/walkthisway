@@ -41,7 +41,7 @@ description: "Cool things",
 picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto"
+city: "Toronto, Ontario, Canada"
 )
 
 waypoint1 = Waypoint.create!(
@@ -49,7 +49,7 @@ name: 'ROM',
 description: 'Museum',
 latitude: 43.6677,
 longitude: -79.3948,
-address: '100 Queen\'s Park',
+address: '100 Queen\'s Park, Toronto, Ontario',
 walk_id: walk1.id
 )
 
@@ -58,7 +58,7 @@ name: 'AGO',
 description: 'Museum',
 latitude: 43.65342,
 longitude: -79.392625,
-address: '317 Dundas Street West',
+address: '317 Dundas Street West, Toronto, Ontario',
 walk_id: walk1.id
 )
 
@@ -68,11 +68,7 @@ walk2 = Walk.new(
 id: 2,
 name: 'greenest of spaces',
 description: 'such nature',
-<<<<<<< HEAD
- picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
-=======
 picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
->>>>>>> 3d995bd91bdcc5bf2a4f72d011686ec83767e17e
 category_id: nature.id,
 user_id: bob.id,
 city: "Toronto"

@@ -2,25 +2,38 @@ class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
-    @searchedcity = params[:search]
-    @walks = [] #define @walks as an empty array
 
-    @startpoints = []
-
-    if params[:search] #if there is a search key in teh params hash (via ajax or full http request)
-      @centerpoint = Geocoder.coordinates(params[:search])
+    if params[:search_by_location].present?
+      @walks = []
+      @startpoints = []
+      @searchedcity = params[:search_by_location]
+      @centerpoint = Geocoder.coordinates(params[:search_by_location])
       Walk.all.each do |walk| #iterate over all Walks in database
         if walk.waypoints.first.distance_from(@centerpoint) < 30
           @walks << walk #push this walk into @walks array
         end
       end
+
     else
+      @walks = []
+      @startpoints = []
       @walks = Walk.where(city: 'Toronto')
       @centerpoint = Geocoder.coordinates('Toronto, Ontario')
+      @searchedcity = 'Toronto, Ontario';
     end
 
-    @walks.each do |walk|
-      @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude]
+    if params[:search_by_category]
+      @searchquery = params[:search_by_category]
+      @category_id = Category.find_by("lower(theme) like lower(?)",  params[:search_by_category]).id
+      @walks = @walks.select{|walk| walk.category_id ==  @category_id}
+    end
+
+
+    if @walks != nil
+      @walks.each do |walk|
+        @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude]
+      end
+
     end
 
     if request.xhr?
@@ -74,6 +87,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
+    binding.pry
     params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order])
   end
 

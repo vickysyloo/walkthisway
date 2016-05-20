@@ -22,6 +22,16 @@ theme: 'Nature',
 picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
 )
 
+photo_walk = Category.create!(
+theme: 'Photo Walk',
+picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
+)
+
+street_art = Category.create!(
+theme: 'street_art',
+picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
+)
+
 bob = User.create!(
 first_name: 'Bob',
 last_name: 'Loblaw',
@@ -41,7 +51,7 @@ description: "A cool route which takes you across downtown Toronto and showcases
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto"
+city: "Toronto, Ontario, Canada"
 )
 
 waypoint1 = Waypoint.create!(
@@ -74,7 +84,7 @@ user_id: bob.id,
 city: "Toronto"
 )
 
-waypoint = Waypoint.create!(
+waypoint3 = Waypoint.create!(
 name: 'Dark Horse Espresso',
 description: 'Basement hipster cafe.',
 latitude: 43.6868,
@@ -83,7 +93,7 @@ address: '550 Bayview Ave, Toronto, ON M4W 3X8',
 walk_id: walk2.id
 )
 
-waypoint2 = Waypoint.create!(
+waypoint4 = Waypoint.create!(
 name: 'Bitmaker Labs',
 description: 'Where computer nerds and wannabe developers congregate!',
 latitude: 43,
@@ -93,3 +103,34 @@ walk_id: walk2.id
 )
 
 walk2.save!
+#
+# walk3 = Walk.new(
+# id: 3,
+# name: 'Big buildings',
+# description: 'Sky scrapers and historic buildings',
+# picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
+# category_id: nature.id,
+# user_id: bob.id,
+# city: "Toronto"
+# )
+#
+#
+# waypoint5 = Waypoint.create!(
+# name: 'Dark Horse Espresso',
+# description: 'Basement hipster cafe.',
+# latitude: 43.6868,
+# longitude: -79.3663,
+# address: '401 bay street, Toronto, ON',
+# walk_id: walk3.id
+# )
+#
+# waypoint6 = Waypoint.create!(
+# name: 'Bitmaker Labs',
+# description: 'Where computer nerds and wannabe developers congregate!',
+# latitude: 43,
+# longitude: -79,
+# address: '220 king street west, toronto, ontario, canada',
+# walk_id: walk3.id
+# )
+#
+# walk3.save!

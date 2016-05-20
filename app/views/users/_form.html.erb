@@ -27,6 +27,14 @@
    <%= f.text_field(:location) %>
 </div>
 <div>
+   <%= f.label :icon %>
+   <%= f.file_field :icon %>
+</div>
+<div>
+   <%= f.file_field :icon %>
+   <%= f.hidden_field :icon_cache %>
+</div>
+<div>
    <%= f.label :password %>
    <%= f.text_field :password %> <span class="required">* required</span>
 </div>

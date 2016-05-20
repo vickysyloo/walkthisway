@@ -38,6 +38,7 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = {coords: @walk.waypoints_coord_array}.to_json
+    @pictures = @walk.picture.where(walk_id: params[:id])
     # binding.pry
     respond_to do |format|
       format.html
@@ -73,7 +74,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order])
+    params.require(:walk).permit(:city, :name, :description, :featured_picture, :featured_picture_cache, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order], pictures_attributes: [])
   end
 
 end

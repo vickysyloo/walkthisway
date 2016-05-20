@@ -46,8 +46,12 @@
     <%= f.text_area :description %><span class="required">* required </span>
   </div>
   <div>
-    <%= f.label :picture %>
-    <%= f.text_field :picture %><span class="required">* required </span>
+    <%= f.label :featured_picture %>
+    <%= f.file_field :featured_picture %><span class="required">* required </span>
+  </div>
+  <div>
+    <%= f.file_field :featured_picture %>
+    <%= f.hidden_field :featured_picture_cache %>
   </div>
 
   <div><p>Waypoints</p></div>
@@ -58,6 +62,17 @@
       <%= render 'waypoint_fields', :f => waypoint %>
       <% end %>
       <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
+    </div>
+  </div>
+
+  <div><p>Gallery</p></div>
+
+  <div id="gallery">
+    <div>
+      <%= f.fields_for :pictures, Picture.new do |picture| %>
+      <%= render 'picture_fields', :f => picture %>
+      <% end %>
+      <%= link_to_add_association 'Add Picture To Gallery', f, :pictures%>
     </div>
   </div>
 

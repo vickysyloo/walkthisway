@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517041202) do
+ActiveRecord::Schema.define(version: 20160520000153) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20160517041202) do
   create_table "categories", force: :cascade do |t|
     t.string   "theme"
     t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "featured_pictures", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "picture"
+    t.integer  "walk_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,12 +61,12 @@ ActiveRecord::Schema.define(version: 20160517041202) do
   create_table "walks", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "picture"
     t.integer  "category_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "city"
+    t.string   "featured_picture"
   end
 
   create_table "waypoints", force: :cascade do |t|

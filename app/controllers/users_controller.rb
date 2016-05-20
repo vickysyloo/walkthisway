@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-   @gobbledegook  = false
+    @gobbledegook  = false
   end
 
   def show
@@ -12,11 +12,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
       # UserMailer.welcome(@user).deliver_later
-      flash[:notice] = "Successfully signed up!"
       auto_login(@user)
       redirect_to root_path
     else
-      flash[:alert] = "User not created."
       render :new
     end
   end
@@ -47,7 +45,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :icon, :details, :location, :password, :password_confirmation, :authentications_attributes)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :icon, :icon_cache, :details, :location, :password, :password_confirmation, :authentications_attributes, :icon)
   end
 
 end

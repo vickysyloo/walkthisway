@@ -1,0 +1,12 @@
+<div class="nested-forms">
+  <div>
+    <%= f.label :picture %>
+    <%= f.file_field :picture, multiple: true %>
+  </div>
+  <div>
+    <%= f.file_field :picture %>
+    <%= f.hidden_field :picture_cache, multiple: true %>
+  </div>
+
+  <%= link_to_remove_association "cancel", f %>
+</div>

@@ -1,19 +1,21 @@
-<h1>Walks in <%=@searchedcity%> </h1>
+<div class="page-wrap">
+  <h1>Walks in <%=@searchedcity%> </h1>
+
+  <%= link_to "Create a walk", new_walk_path %>
+
+  <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
 
 
-<%= link_to "Create a walk", new_walk_path %>
-
-<div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
-
-
-<div class="walks-list">
-  <ul>
-    <% @walks.each do |walk| %>
-    <li class="walks-list-item">
-       <%= walk.picture%>
-      <%= link_to walk.name, walk_path(walk) %>
-      <%= walk.description%>
-    </li>
-    <% end %>
-  </ul>
+  <div class="walks-list">
+    <ul>
+      <% @walks.each do |walk| %>
+      <li class="walks-list-item">
+        <%= link_to walk.name, walk_path(walk) %>
+        <img src="<%=walk.picture%>">
+        <%= walk.description%>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="push"></div>
 </div>

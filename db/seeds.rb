@@ -68,11 +68,7 @@ walk2 = Walk.new(
 id: 2,
 name: 'greenest of spaces',
 description: 'such nature',
-<<<<<<< HEAD
- picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
-=======
 picture: 'http://www.whattodotoronto.com/assets/Kay-Gardner-Beltline-Park-whatTOdo-Toronto.jpg',
->>>>>>> 3d995bd91bdcc5bf2a4f72d011686ec83767e17e
 category_id: nature.id,
 user_id: bob.id,
 city: "Toronto"

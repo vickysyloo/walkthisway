@@ -1,16 +1,19 @@
-<h1>Walks#show</h1>
+<div class="page-wrap">
+  <h1>Walks#show</h1>
 
-<div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
+  <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
 
-<div>
-  <%= @walk.name %>
+  <div>
+    <%= @walk.name %>
 
-  <% @walk.waypoints.each do |waypoint| %>
+    <% @walk.waypoints.each do |waypoint| %>
     <%= waypoint.description %>
     <%= waypoint.address %>
-    <%= waypoint.latitude %>
-    <%= waypoint.longitude %>
-  <% end %>
+    <!-- <%#= waypoint.latitude %>
+    <%#= waypoint.longitude %> -->
+    <% end %>
 
-  <div id='directions-panel'>Directions</div>
+    <div id='directions-panel'>Directions</div>
+  </div>
+  <div class="push"></div>
 </div>

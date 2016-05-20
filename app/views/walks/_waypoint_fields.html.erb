@@ -1,25 +1,23 @@
 <div class="nested-fields">
 
-<<<<<<< HEAD
-  <div>
+  <div class ='form_set'>
     <%= f.label :description, :class=> 'form_label_create_walk'  %>
     <%= f.text_area :description,:class=>"description"%>
   </div>
 
-  <div>
+  <div class ='form_set'>
     <%= f.label :address,:class=> 'form_label_create_walk'  %>
     <%= f.text_field :address,:class=>"address" %>
   </div>
 
-  <div>
+  <div class ='form_set'>
     <%= f.label :order,:class=> 'form_label_create_walk'   %>
     <%= f.number_field :order,:class=>"point order" %>
   </div>
 
-    <%= link_to_remove_association "cancel", f %>
 
-  <!-- <button class="waypoint-btn" type="button">Plot me!</button> -->
+  <div>  <%= link_to_remove_association "cancel", f %></div>
 
 
-  <p id ="plot">Plot me</p>
+  <div class ="plot_btn">Plot me</div>
 </div>

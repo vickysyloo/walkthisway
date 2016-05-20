@@ -56,7 +56,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
       // For each leg of route, display summary information.
       for (var i = 0; i < route.legs.length; i++) {
         var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+        summaryPanel.innerHTML += '<b>Segments: ' + '#' + routeSegment +
             '</b><br>';
         summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
         summaryPanel.innerHTML += route.legs[i].end_address + '<br>';

@@ -32,6 +32,7 @@
 <button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
 
 <div class="walks-list">
+
     <% @walks.each do |walk| %>
     <div class="walks-list-item">
       <div class="restaurant_image">
@@ -42,5 +43,6 @@
     </div>
     <% end %>
 </div>
+
 
 </div>

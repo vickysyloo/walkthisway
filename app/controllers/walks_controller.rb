@@ -10,10 +10,8 @@ class WalksController < ApplicationController
     if params[:search] #if there is a search key in teh params hash (via ajax or full http request)
       @centerpoint = Geocoder.coordinates(params[:search])
       Walk.all.each do |walk| #iterate over all Walks in database
-        if walk.waypoints.first.distance_from(params[:search]) < 30
-          #if the first waypoint in the walk is within 30 miles of the search value
+        if walk.waypoints.first.distance_from(@centerpoint) < 30
           @walks << walk #push this walk into @walks array
-
         end
       end
     else

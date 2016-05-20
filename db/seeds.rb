@@ -49,7 +49,7 @@ name: 'Historic Route',
 description: 'A route that takes you through the ROM Museum and shows all the historic buildings within Toronto.',
 latitude: 43.6677,
 longitude: -79.3948,
-address: '100 Queen\'s Park',
+address: '100 Queen\'s Park, Toronto, Ontario',
 walk_id: walk1.id
 )
 
@@ -58,7 +58,7 @@ name: 'An artistic adventure',
 description: 'A route that takes you through the AGO and shows all the historic buildings within Toronto.',
 latitude: 43.65342,
 longitude: -79.392625,
-address: '317 Dundas Street West',
+address: '317 Dundas Street West, Toronto, Ontario',
 walk_id: walk1.id
 )
 

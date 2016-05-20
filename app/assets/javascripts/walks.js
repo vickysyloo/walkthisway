@@ -44,7 +44,7 @@ $(document).on('ready page:load', function() {
       // attempting to see if cocoon is effecting jquery order
       console.log("waypoint div selected");
       $("p#plot").on('click', function(event){
-        //   event.preventDefault();
+        //   prevent default?
         console.log("button.waypoint-btn jquery event registered");
     //function to geocode adddress and plot it on map
         var address = $(this).closest(".nested-fields").find(".address").val();	// grab the address from the input field

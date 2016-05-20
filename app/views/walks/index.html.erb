@@ -5,14 +5,21 @@
 
 <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
 
-
+<div>
+<%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
+  <%= label_tag(:search_by_category, "search for:") %>
+  <%= text_field_tag :search_by_category, params[:search_by_category], placeholder: 'search by category' %>
+  <%= submit_tag "search by Category" %>
+<% end %>
+</div>
 <div class="walks-list">
 
     <% @walks.each do |walk| %>
     <div>
      <img src = '<%=walk.picture%>' >
-    <h3> <%= link_to walk.name, walk_path(walk) %> </h3>
-    <h3>  <%= walk.description%> </h3>
+    walk name: <h3> <%= link_to walk.name, walk_path(walk) %> </h3>
+    walk description: <h3>  <%= walk.description%> </h3>
+    walk city: <h3> <%= walk.city %></h3>
     </div>
     <% end %>
 

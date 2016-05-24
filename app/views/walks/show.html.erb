@@ -42,10 +42,12 @@
 
 <h2> Walk Route</h2>
 <div class="waypoints_form">
+  <p> Waypoints on this route: </p>
   <% @walk.waypoints.each do |waypoint| %>
-
-  <%= waypoint.address %>
+  <% i = 1 %>
+   <%= "Stop #{i}: "%> <%= waypoint.address %>
     <!-- <%#= waypoint.description %> -->
+  <% i+= 1%> <br>
   <% end %>
 
   <div id='directions-panel'>Directions</div>

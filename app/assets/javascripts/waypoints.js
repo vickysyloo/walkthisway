@@ -58,9 +58,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
         var routeSegment = i + 1;
         summaryPanel.innerHTML += '<b>Segments: ' + '#' + routeSegment +
             '</b><br>';
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+        summaryPanel.innerHTML += 'Starting point: ' + route.legs[i].start_address + '<br>';
+        summaryPanel.innerHTML += 'End point: ' + route.legs[i].end_address + '<br><br>';
+        summaryPanel.innerHTML += 'Total length of walk segment: ' + route.legs[i].distance.text + '<br><br>';
       } // ***** CHANGE TEXT HERE TO PROVIDE DIRECTIONS ********//
     } else { // if response status is not ok
       window.alert('Directions request failed due to ' + status);

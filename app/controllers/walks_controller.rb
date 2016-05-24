@@ -87,7 +87,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    binding.pry
+    # binding.pry
     params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order])
   end
 

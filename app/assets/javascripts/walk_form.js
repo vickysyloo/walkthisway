@@ -22,17 +22,22 @@ $(document).on('ready page:load', function() {
 //     reassign hidden attribute field
 //   })
 
-  $('button.add_orders').on('click', function(e) {
 
-    $('.nested-fields').append("<br> order value: <input type='number'>")
-    console.log('button add orders click event is registered')
-    _.each($('.nested-fields'), function() {
-      $('.nested-fields').val('value here');
-    });  
-  })
+  $('input.walk_submit').on('click', function(e) {
+
+
+      e.preventDefault();
+
+      $('input.order').each(function(index) {
+        $(this).val(index);
+        $('form#new_walk').trigger('submit');
+      });
+
+
+  });
+});
 
   // listen for form submit
   // go through and select every instance of the waypoint form
   // assign a hidden attribute field 'order'
   // add value to each form field
-});

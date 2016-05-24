@@ -89,7 +89,6 @@
   <div class="waypoint_title">Waypoints</div>
 
   <div id="mkpts">
-
       <%= f.fields_for :waypoints do |waypoint| %>
       <%= render 'waypoint_fields', :f => waypoint %>
       <% end %>
@@ -98,7 +97,8 @@
   </div>
 
   <div>
-    <%= f.submit %>
+    <button type = 'button' class = 'add_orders'> add orders </button>
+    <%= f.submit :class=>'walk_submit'%>
   </div>
 
 <% end %>

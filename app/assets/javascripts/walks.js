@@ -44,7 +44,7 @@ $(document).on('ready page:load', function() {
     $('#mkpts').on('cocoon:after-insert', function(e){
       // attempting to see if cocoon is effecting jquery order
       console.log("waypoint div selected");
-      $("p#plot").on('click', function(event){
+      $(".plot_btn").on('click', function(event){
         //   prevent default?
         console.log("button.waypoint-btn jquery event registered");
     //function to geocode adddress and plot it on map

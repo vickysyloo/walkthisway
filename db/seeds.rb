@@ -22,16 +22,20 @@ theme: 'Nature',
 picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
 )
 
-photo_walk = Category.create!(
-theme: 'Photo Walk',
-picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
+murals = Category.create!(
+theme: 'Murals',
+picture: 'http://susandrysdale.com/wp-content/uploads/2013/04/InstagramCapture_6f6efe60-e7bb-4c0b-b444-df7cb8821541.jpg',
 )
 
-street_art = Category.create!(
-theme: 'street_art',
-picture: 'http://digital.library.unlv.edu/cgi-bin/getimage.exe?CISOROOT=/sky&CISOPTR=1033&DMX=0&DMY=0&DMWIDTH=256&DMHEIGHT=256&DMROTATE=0&DMSCALE=14.569737441189861',
+statues = Category.create!(
+theme: 'Statues',
+picture: 'http://api.viglink.com/api/click?format=go&jsonp=vglnk_14641087157278&key=0da3f17dd3d3d8e710fb25246bc6e80c&libId=ioloiydj010004ox000DAjtmh30jg&loc=http%3A%2F%2Fhistorum.com%2Feuropean-history%2F72067-worst-historical-monuments-your-country-4.html&v=1&out=https%3A%2F%2Fc2.staticflickr.com%2F4%2F3622%2F3338702978_afe58027bc.jpg&ref=https%3A%2F%2Fwww.google.ca%2F&title=Worst%20historical%20monuments%20in%20your%20country%20-%20Page%204%20-%20Historum%20-%20History%20Forums&txt=',
 )
 
+statues = Category.create!(
+theme: 'Statues',
+picture: 'http://api.viglink.com/api/click?format=go&jsonp=vglnk_14641087157278&key=0da3f17dd3d3d8e710fb25246bc6e80c&libId=ioloiydj010004ox000DAjtmh30jg&loc=http%3A%2F%2Fhistorum.com%2Feuropean-history%2F72067-worst-historical-monuments-your-country-4.html&v=1&out=https%3A%2F%2Fc2.staticflickr.com%2F4%2F3622%2F3338702978_afe58027bc.jpg&ref=https%3A%2F%2Fwww.google.ca%2F&title=Worst%20historical%20monuments%20in%20your%20country%20-%20Page%204%20-%20Historum%20-%20History%20Forums&txt=',
+)
 bob = User.create!(
 first_name: 'Bob',
 last_name: 'Loblaw',

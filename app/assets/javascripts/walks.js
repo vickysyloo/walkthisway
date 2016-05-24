@@ -42,14 +42,11 @@ $(document).on('ready page:load', function() {
     google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
 
     $('#mkpts').on('cocoon:after-insert', function(e){
-      // attempting to see if cocoon is effecting jquery order
       console.log("waypoint div selected");
-      $("p#plot").on('click', function(event){
-        //   prevent default?
-        console.log("button.waypoint-btn jquery event registered");
-    //function to geocode adddress and plot it on map
-        var address = $(this).closest(".nested-fields").find(".address").val();	// grab the address from the input field
-        codeAddress(geocoder, address, map_new);// pass in the address into codeAddress function
+      $(".plot_btn").on('click', function(event){
+        // console.log("button.waypoint-btn jquery event registered");
+        var address = $(this).closest(".nested-fields").find(".address").val();
+        codeAddress(geocoder, address, map_new);
       });
     });
 

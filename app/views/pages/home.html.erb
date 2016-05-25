@@ -1,28 +1,7 @@
 <div class="homepage">
 <div class="home-overlay">
 
-<div class="nav-menu">
-  <div class="logo">
-    <%= link_to "W", root_path %>
-  </div>
-
-
-        <ul>
-    <% if @gobbledegook == nil %>
-      <% if current_user %>
-
-        <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
-        <%= link_to "Hi, #{current_user.first_name}!" ,edit_user_path(current_user.id) %>
-        <%= link_to "Logout", :logout, method: :post %>
-      </ul>
-      <% else %>
-        <%= link_to "Create a walk", new_walk_path %>
-        <%= link_to "Register", new_user_path %>
-        <%= link_to "Login", :login, :class=> 'login_link'%>
-
-      <% end %>
-    <% end %>
-  </div><!-- end of nav-menu-->
+<%= render 'nav_menu_home' %>
 
   <div class="homepage-big-letter">W</div>
 

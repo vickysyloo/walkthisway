@@ -11,14 +11,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
       if @user.save
-      # UserMailer.welcome(@user).deliver_later
-      flash[:notice] = "Successfully signed up!"
-      auto_login(@user)
-      redirect_to root_path
-    else
-      flash[:alert] = "User not created."
-      render :new
-    end
+        # UserMailer.welcome(@user).deliver_later
+        flash[:notice] = "Successfully signed up!"
+        auto_login(@user)
+        redirect_to root_path
+      else
+        flash[:alert] = "User not created."
+        render :new
+      end
   end
 
   def edit

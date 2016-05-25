@@ -13,7 +13,7 @@ $(document).on('ready page:load', function() {
 
   //optional input variable to narrow down autocomplete search
   var acOptions = {
-    // types: ['establishment']
+    types: ['(cities)']
   };
 
   // option 1 - loop through classes

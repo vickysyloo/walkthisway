@@ -23,7 +23,7 @@
 
 <div class="index_container">
   <div class=" page-wrapper">
-<h1 class="index_title">Walks in <%=@searchedcity%> </h1>
+<h1 class="index_title">Walks around <%= @searchedcity %> </h1>
 
 <div>
 <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>

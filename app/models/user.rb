@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  mount_uploader :icon, IconUploader
+
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end
@@ -13,4 +15,5 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true
+  validates :icon, presence: true
 end

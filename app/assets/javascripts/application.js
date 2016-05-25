@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require cocoon
 //= require velocity
+//= require underscore
 //= require_tree .

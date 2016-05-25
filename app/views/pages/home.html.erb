@@ -11,11 +11,14 @@
 
     <div class="search-bar">
       <%= form_tag walks_path, method: :get do %>
-      <%= text_field_tag :search, params[:search], id: "autocomplete", data:params[:search], :placeholder => "Where do you like to walk to? (Ex. Toronto, ON)", :class =>"search-bar-field"%>
+      <%= text_field_tag :search_by_location, params[:search_by_location], id: "autocomplete", data:params[:search_by_location], :placeholder => "Where do you want to walk around? (E.g. Toronto, ON)", :class =>"search-bar-field"%>
       <%= submit_tag "Search", class: 'search-button'%>
       <% end %>
     </div>
 
+    <!-- <div class='geolocate_me'>
+      Find Walks near me!
+    </div> -->
     <div class="contain-shoeprint">
       <%= image_tag(('shoeprint.png'),:class =>'print') %>
      </div>

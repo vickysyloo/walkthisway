@@ -2,22 +2,26 @@ var map_index;
 var map_show;
 var map_new;
 
-function initialize(mapElement, zoomlevel) {
+function initialize(mapElement, zoomlevel, moreOptions) {
   // geocoder = new google.maps.Geocoder();	// create geocoder object to geocode address
   var mapPlaceholder = $('#' + mapElement);
   var latlng = { lat: mapPlaceholder.data('latitude'), lng: mapPlaceholder.data('longitude') };	// set default to search params geocoded = @centerpoint in walks controller
   var mapOptions = {
     zoom: zoomlevel,
-    center: latlng
+    center: latlng,
+    scrollwheel: false
   };
-  var map = new google.maps.Map(document.getElementById(mapElement), mapOptions);	// create new map div
+  var extendedOptions = _.extend({}, mapOptions, moreOptions)
+  var map = new google.maps.Map(document.getElementById(mapElement), extendedOptions);	// create new map div
   return map;
 };
 
   function renderMap() {
     //initialize map
     if ($('#map_walk-index').length > 0) {
-      map_index = initialize('map_walk-index', 12);
+      var moreOptions = {maxZoom: 17,
+        minZoom: 8};
+      map_index = initialize('map_walk-index', 12, moreOptions);
       var startpoints = $('#map_walk-index').data('startpoints');
       // startpoints_formatted =
       google.maps.event.addDomListener(window, 'load', map_index);		// execute init map function on page load
@@ -26,7 +30,8 @@ function initialize(mapElement, zoomlevel) {
     }
 
     if ($('#map_walk-show').length > 0) {
-    map_show = initialize('map_walk-show', 12);
+      var moreOptions = {disableDefaultUI: true, disableDoubleClickZoom: true, draggable: false};
+    map_show = initialize('map_walk-show', 12, moreOptions);
     google.maps.event.addDomListener(window, 'load', map_show);		// execute init map function on page load
     }
 

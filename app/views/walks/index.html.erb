@@ -4,9 +4,23 @@
   <div class=" page-wrapper">
 <h1 class="index_title">Walks in <%=@searchedcity%> </h1>
 
+<div>
+<%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
+  <%= label_tag(:search_by_category, "search for:") %>
+  <%= text_field_tag :search_by_category, params[:search_by_category], placeholder: 'search by category' %>
+  <%= hidden_field_tag :search_by_location, params[:search_by_location] %>
+  <%= submit_tag "search by Category" %>
+<% end %>
+</div>
+
+<!-- <div id='geolocate_me'>
+Find walks near me!
+</div> -->
+
 <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
 </div>
 </div>
+
 
 <button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
 
@@ -21,7 +35,4 @@
       <p class="walk_desc"><%= walk.description%></p>
     </div>
     <% end %>
-</div>
-
-
 </div>

@@ -2,6 +2,13 @@
 // window.walkThisWay = {};
 // window.walkThisWay.acOptions = 'stuff';
 
+
+
+
+
+//////////////////////
+
+
 $(document).on('ready page:load', function() {
 
   //optional input variable to narrow down autocomplete search
@@ -27,7 +34,11 @@ function autocomplete_maker(dom_element) {
 if ($('#autocomplete').length >0) {
 autocomplete_maker('autocomplete');
 }
+
+$('.geolocate_me').on
 //
+
+
 
 // every time the search button is clicked
 //   $('input#search-button').on('click', function(event) {

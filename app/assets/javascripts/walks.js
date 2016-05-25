@@ -16,11 +16,12 @@ function codeAddress(geocoder, address, mapSelected) {
   return false;
 }
 
-function codeCity(geocoder, city, new_walk_form_map) {
+function codeCity(geocoder, city, form_map) {
   geocoder.geocode( { 'address': city }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      new_walk_form_map.setCenter(results[0].geometry.location);			// center the map on address
-      new_walk_form_map.setZoom(12);			// zoom map in
+      form_map.setCenter(results[0].geometry.location);			// center the map on address
+      form_map.setZoom(12);			// zoom map in
+
     } else {
       alert('something went wrong... Geocode was not successful');
     }
@@ -35,27 +36,25 @@ $(document).on('ready page:load', function() {
 
 	geocoder = new google.maps.Geocoder(); // create geocoder object to geocode address
 
-  var urlWalknew = new RegExp("\\Swalks\\Snew");
+  var urlWalknew = new RegExp("\\Swalks");
   if (urlWalknew.test(document.location.pathname) == true) {
-    var new_walk_form_map = initialize('map_walk-new', 1);
-    google.maps.event.addDomListener(window, 'load', new_walk_form_map);// execute init map function on page load
+    // var map_new = initialize('map_walk-new', 1);
+    google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
 
     $('#mkpts').on('cocoon:after-insert', function(e){
-      // attempting to see if cocoon is effecting jquery order
       console.log("waypoint div selected");
-      $("p#plot").on('click', function(event){
-        //   prevent default?
-        console.log("button.waypoint-btn jquery event registered");
-    //function to geocode adddress and plot it on map
-        var address = $(this).closest(".nested-fields").find(".address").val();	// grab the address from the input field
-        codeAddress(geocoder, address, new_walk_form_map);// pass in the address into codeAddress function
+      $(".plot_btn").on('click', function(event){
+        // console.log("button.waypoint-btn jquery event registered");
+        var address = $(this).closest(".nested-fields").find(".address").val();
+        codeAddress(geocoder, address, map_new);
       });
     });
 
 
     $('#centerbutton').on('click', function(e){
       var city = $('#autocomplete').val();
-      codeCity(geocoder, city, new_walk_form_map);
+      console.log('city is' + city);
+      codeCity(geocoder, city, map_new);
     });
 
     $('#plot_new_walk').on('click', function(e){

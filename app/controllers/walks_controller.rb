@@ -1,6 +1,8 @@
 class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
+
+
   def index
 
     if params[:search_by_location].present?
@@ -51,6 +53,7 @@ class WalksController < ApplicationController
   end
 
   def show
+
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = {coords: @walk.waypoints_coord_array}.to_json
@@ -64,6 +67,7 @@ class WalksController < ApplicationController
 
 
   def create
+
     @walk = Walk.new(walk_params)
 
     if @walk.save

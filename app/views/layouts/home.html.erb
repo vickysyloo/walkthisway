@@ -11,26 +11,6 @@
 
 </head>
  <body>
-   <div class="nav-menu-not-home">
-     <div class="logo">
-       <%= link_to "W", root_path %>
-     </div>
-           <ul>
-       <% if @gobbledegook == nil %>
-         <% if current_user %>
-
-           <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
-           <%= link_to "Hi, #{current_user.first_name}!" ,edit_user_path(current_user.id) %>
-           <%= link_to "Logout", :logout, method: :post %>
-         </ul>
-         <% else %>
-           <%= link_to "Create a walk", new_walk_path %>
-           <%= link_to "Register", new_user_path %>
-           <%= link_to "Login", :login, :class=> 'login_link'%>
-
-         <% end %>
-       <% end %>
-     </div><!-- end of nav-menu-->
 
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
@@ -40,7 +20,7 @@
     <p id="alert"><%= flash[:alert] %></p>
   <% end %>
 
-  <div class="social-media social-media-not-home">
+  <div class="social-media">
       <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>

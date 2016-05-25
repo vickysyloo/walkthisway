@@ -1,5 +1,7 @@
 <div class="nested-fields">
 
+  <button type='button' id='up_reorder'> UP </button>
+  <button type='button' id='down_reorder'> DOWN </button>
 
 
   <div>
@@ -12,11 +14,9 @@
     <%= f.text_field :address,:class=>"address" %>
   </div>
 
-  <div class ='form_set'>
-    <%= f.label :order,:class=> 'form_label_create_walk'   %>
-    <%= f.number_field :order,:class=>"point order" %>
+  <div>
+    <%= f.hidden_field :order, :class=>"order" %>
   </div>
-
 
   <div>  <%= link_to_remove_association "cancel", f %></div>
 

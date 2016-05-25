@@ -1,4 +1,8 @@
 // this function, plot_waypoints_array was used to plot waypoints on the show page before the google directions service was implemented to show paths
+
+
+
+
 function plot_waypoints_array(pt_array, map) {
   for (var i=0; i<pt_array.length; i++) {
     lat = pt_array[i][0]

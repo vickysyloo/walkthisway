@@ -65,12 +65,12 @@ class WalksController < ApplicationController
 
   def create
     @walk = Walk.new(walk_params)
-
+    binding.pry
     if @walk.save
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      render :new
+      render new
       flash.now[:alert] = 'failed'
     end
   end
@@ -87,8 +87,9 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    # binding.pry
-    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order])
+    binding.pry
+    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order, :index])
   end
+
 
 end

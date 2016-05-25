@@ -1,4 +1,5 @@
 function codeAddress(geocoder, address, mapSelected) {
+  
   console.log("function codeAddress is running");
 
   geocoder.geocode( { 'address': address}, function(results, status) {

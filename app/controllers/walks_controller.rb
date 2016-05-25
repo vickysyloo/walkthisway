@@ -19,7 +19,7 @@ class WalksController < ApplicationController
     else
       @walks = []
       @startpoints = []
-      @walks = Walk.where(city: 'Toronto')
+      @walks = Walk.where(city: 'Toronto, ON, Canada')
       @centerpoint = Geocoder.coordinates('Toronto, Ontario')
       @searchedcity = 'Toronto, Ontario';
     end
@@ -69,12 +69,11 @@ class WalksController < ApplicationController
   def create
 
     @walk = Walk.new(walk_params)
-
     if @walk.save
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      render :new
+      render new
       flash.now[:alert] = 'failed'
     end
   end
@@ -91,8 +90,8 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    # binding.pry
-    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order])
+    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order, :index])
   end
+
 
 end

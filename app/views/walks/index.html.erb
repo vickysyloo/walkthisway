@@ -1,7 +1,7 @@
 
 <div class="index_container">
   <div class=" page-wrapper">
-<h1 class="index_title">Walks in <%=@searchedcity%> </h1>
+<h1 class="index_title">Walks around <%= @searchedcity %> </h1>
 
 <div>
 <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
@@ -12,9 +12,10 @@
 <% end %>
 </div>
 
-<!-- <div id='geolocate_me'>
-Find walks near me!
-</div> -->
+<br><br>
+<button type="button" id='geolocate_me'>Find walks near me! </button>
+</div>
+<br>
 
 <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
 </div>
@@ -26,12 +27,14 @@ Find walks near me!
 <div class="walks-list">
 
     <% @walks.each do |walk| %>
+      <%= link_to walk_path(walk) do %>
     <div class="walks-list-item">
-      <div class="restaurant_image">
+      <div class="walk_image">
        <img src="<%= walk.picture%>">
      </div>
-        <p class="restaurant_name"><%= link_to walk.name, walk_path(walk) %></p>
+        <p class="walk_name"><%= walk.name%></p>
       <p class="walk_desc"><%= walk.description%></p>
     </div>
+      <% end %>
     <% end %>
 </div>

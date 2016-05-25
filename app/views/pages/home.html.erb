@@ -16,6 +16,20 @@
    <p id="notice"><%= flash[:notice] %></p>
  <% end %>
 
+    <%if current_user%>
+        <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
+        <%= link_to user_path(current_user.id) do %>
+          <%= "Hi, #{current_user.first_name}!" %>
+          <%= image_tag current_user.icon_url(:thumb) if current_user.icon? %>
+        <% end %>
+        <%= link_to "Logout", :logout, method: :post %>
+      </ul>
+      <% else %>
+        <%= link_to "Create a walk", new_walk_path %>
+        <%= link_to "Register", new_user_path %>
+        <%= link_to "Login", :login, :class=> 'login_link'%>
+    <%end%>
+
  <% if flash[:alert] %>
    <p id="alert"><%= flash[:alert] %></p>
  <% end %>
@@ -39,7 +53,7 @@
 
     <div class="search-bar">
       <%= form_tag walks_path, method: :get do %>
-      <%= text_field_tag :search_by_location, params[:search_by_location], id: "autocomplete", data:params[:search_by_location], :placeholder => "Where do you want to walk around? (E.g. Toronto, ON)", :class =>"search-bar-field"%>
+      <%= text_field_tag :search_by_location, params[:search_by_location], id: "autocomplete", data:params[:search_by_location], :placeholder => "Which city would you like to explore? (E.g. Toronto, ON)", :class =>"search-bar-field"%>
       <%= submit_tag "Search", class: 'search-button'%>
       <% end %>
     </div>

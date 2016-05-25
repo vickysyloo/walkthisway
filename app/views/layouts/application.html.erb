@@ -16,7 +16,7 @@
        <%= link_to "W", root_path %>
      </div>
            <ul>
-       <% if @gobbledegook == nil %>
+
          <% if current_user %>
 
            <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
@@ -28,7 +28,6 @@
            <%= link_to "Register", new_user_path %>
            <%= link_to "Login", :login, :class=> 'login_link'%>
 
-         <% end %>
        <% end %>
      </div><!-- end of nav-menu-->
 

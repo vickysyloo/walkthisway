@@ -31,7 +31,7 @@ function initialize(mapElement, zoomlevel, moreOptions) {
 
     if ($('#map_walk-show').length > 0) {
       var moreOptions = {disableDefaultUI: true, disableDoubleClickZoom: true, draggable: false};
-    map_show = initialize('map_walk-show', 12, moreOptions);
+    map_show = initialize('map_walk-show', 9, moreOptions);
     google.maps.event.addDomListener(window, 'load', map_show);		// execute init map function on page load
     }
 

@@ -21,7 +21,8 @@
 </div>
 
 <div>
-<!-- <div>The div for uploading an avatar goes here </div> -->
+  <%= f.label :icon,:class=> 'form_label' %><span class="required">*</span>
+  <%= f.file_field :icon, :class=>'form_field' %>
 </div>
 
 
@@ -38,12 +39,12 @@
 
 <div class ='form_set'>
    <%= f.label :password,:class=> 'form_label' %><span class="required">*</span>
-   <%= f.text_field :password, :class=>'form_field' %>
+   <%= f.password_field :password, :class=>'form_field' %>
 </div>
 
 <div class ='form_set'>
    <%= f.label :password_confirmation,:class=> 'form_label' %><span class="required">*</span>
-   <%= f.text_field :password_confirmation , :class=>'form_field'%>
+   <%= f.password_field :password_confirmation , :class=>'form_field'%>
 </div>
 
 <div class ='form_set'>

@@ -3,11 +3,13 @@ class Walk < ActiveRecord::Base
   belongs_to :user
   has_many :waypoints
 
+  mount_uploader :picture, PictureUploader
+
   validate :need_two_waypoints
   validate :too_many_waypoints
   validates :name, presence: { message: "Name of walk is required" }
   validates :description, presence: { message: "Description of walk is required" }
-  validates :picture, presence: { message: "Image of walk is required" }
+  # validates :picture, presence: { message: "Image of walk is required" }
   validates :city, presence: { message: "City is required" }
 
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank

@@ -43,19 +43,19 @@ username: 'SneakyBob',
 email: 'bbl@gmail.com',
 icon: 'https://pbs.twimg.com/profile_images/688922841375322112/tTiPeHKd.png',
 details: 'Lawyer',
-location: 'Toronto, ON',
+location: 'Toronto, ON, Canada',
 password: 'banana',
 password_confirmation: 'banana'
 )
 
 walk1 = Walk.new(
-id: 1,
+id: 1000,
 name: 'Great Architecture, Buildings',
 description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto, Ontario, Canada"
+city: "Toronto, ON, Canada"
 )
 
 waypoint1 = Waypoint.create!(
@@ -79,13 +79,12 @@ walk_id: walk1.id
 walk1.save!
 
 walk2 = Walk.new(
-id: 2,
+id: 2000,
 name: 'Coffee it up!',
 description: 'A fantastic walk through your neighbourhood featuring coffee shops!',
-picture: 'http://imgh.us/Toronto_skyline_250x250.jpg',
 category_id: nature.id,
 user_id: bob.id,
-city: "Toronto"
+city: "Toronto, ON, Canada"
 )
 
 waypoint3 = Waypoint.create!(

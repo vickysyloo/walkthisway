@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.walk_image img{
-  width: 100%;
-  height:350px;
-}
 
+
+.walk_image img {
+  margin: auto;
+}
 
 .walk_show_left{
   display: inline-block;
@@ -72,7 +72,7 @@
   width:30%;
 }
 
-.restaurant_name{
+.walk_name{
   font-size: 20px;
   font-family: Arial;
   margin-top: 10px;
@@ -86,7 +86,7 @@
 }
 
 
-.restaurant_category{
+.walk_category{
   font-size: 16px;
   margin: 0;
   color: darkgrey;
@@ -109,9 +109,9 @@
 
 }
 
-.restaurant_image{
-  max-width: 250px;
-  max-height: 250px;
+.walk_image img{
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   position: relative;
   border: solid black;

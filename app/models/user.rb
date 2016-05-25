@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  mount_uploader :icon, IconUploader
+
   authenticates_with_sorcery! do |config|
     config.authentications_class = Authentication
   end

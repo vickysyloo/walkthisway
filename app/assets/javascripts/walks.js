@@ -1,4 +1,5 @@
 function codeAddress(geocoder, address, mapSelected) {
+  
   console.log("function codeAddress is running");
 
   geocoder.geocode( { 'address': address}, function(results, status) {
@@ -33,7 +34,7 @@ function codeCity(geocoder, city, form_map) {
 
 $(document).on('ready page:load', function() {
 	var geocoder;
-
+  var waypt_order = 1;
 	geocoder = new google.maps.Geocoder(); // create geocoder object to geocode address
 
   var urlWalknew = new RegExp("\\Swalks");
@@ -42,6 +43,9 @@ $(document).on('ready page:load', function() {
     google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
 
     $('#mkpts').on('cocoon:after-insert', function(e){
+      $('input.hidden_order').attr({name: 'order', value: waypt_order});
+      waypt_order +=1;
+
       console.log("waypoint div selected");
       $(".plot_btn").on('click', function(event){
         // console.log("button.waypoint-btn jquery event registered");

@@ -62,13 +62,12 @@
 
   <div class ='form_set'>
     <%= f.label :picture,:class=> 'form_label form_label_create_walk'  %>
-    <%= f.text_field :picture, :class=>'form_field form_field_create_walk' %><span class="required">*  </span>
+    <%= f.file_field :picture, :class=>'form_field form_field_create_walk' %><span class="required">*  </span>
   </div>
 
   <div class="waypoint_title">Waypoints</div>
 
   <div id="mkpts">
-
       <%= f.fields_for :waypoints do |waypoint| %>
       <%= render 'waypoint_fields', :f => waypoint %>
       <% end %>
@@ -77,7 +76,8 @@
   </div>
 
   <div>
-    <%= f.submit %>
+    <button type = 'button' class = 'plot_walk'> plot this walk! </button>
+    <%= f.submit :class=>'walk_submit'%>
   </div>
 
 <% end %>

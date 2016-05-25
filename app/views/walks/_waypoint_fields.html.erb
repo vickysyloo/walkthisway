@@ -15,8 +15,7 @@
   </div>
 
   <div>
-    <%= f.label :order, :class=> 'form_label_create_walk' %>
-    <%= f.number_field :order, :class=>"order" %>
+    <%= f.hidden_field :order, :class=>"order" %>
   </div>
 
   <div>  <%= link_to_remove_association "cancel", f %></div>

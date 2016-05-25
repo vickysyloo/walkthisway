@@ -70,7 +70,7 @@ class WalksController < ApplicationController
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      redirect_to :new
+      render new
       flash.now[:alert] = 'failed'
     end
   end
@@ -91,8 +91,5 @@ class WalksController < ApplicationController
     params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order, :index])
   end
 
-  def params_cleanup
-    params
-  end
 
 end

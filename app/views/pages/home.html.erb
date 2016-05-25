@@ -16,20 +16,6 @@
    <p id="notice"><%= flash[:notice] %></p>
  <% end %>
 
-    <%if current_user%>
-        <%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %>
-        <%= link_to user_path(current_user.id) do %>
-          <%= "Hi, #{current_user.first_name}!" %>
-          <%= image_tag current_user.icon_url(:thumb) if current_user.icon? %>
-        <% end %>
-        <%= link_to "Logout", :logout, method: :post %>
-      </ul>
-      <% else %>
-        <%= link_to "Create a walk", new_walk_path %>
-        <%= link_to "Register", new_user_path %>
-        <%= link_to "Login", :login, :class=> 'login_link'%>
-    <%end%>
-
  <% if flash[:alert] %>
    <p id="alert"><%= flash[:alert] %></p>
  <% end %>

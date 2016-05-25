@@ -4,7 +4,6 @@ $(document).on('ready page:load', function() {
   $('#mkpts').on('cocoon:after-insert', function(e){
     $('button#up_reorder').on('click', function(e){
       console.log('button click registered');
-      ls s
 
 
     });

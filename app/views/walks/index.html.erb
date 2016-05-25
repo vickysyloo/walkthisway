@@ -49,12 +49,14 @@
 <div class="walks-list">
 
     <% @walks.each do |walk| %>
+      <%= link_to walk_path(walk) do %>
     <div class="walks-list-item">
-      <div class="restaurant_image">
+      <div class="walk_image">
        <img src="<%= walk.picture%>">
      </div>
-        <p class="restaurant_name"><%= link_to walk.name, walk_path(walk) %></p>
+        <p class="walk_name"><%= walk.name%></p>
       <p class="walk_desc"><%= walk.description%></p>
     </div>
+      <% end %>
     <% end %>
 </div>

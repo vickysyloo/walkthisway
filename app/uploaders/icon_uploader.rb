@@ -27,7 +27,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process :scale => [200, 200]
   # process resize_to_fit: [200, 200]
-  process resize_to_fill: [1000,4000]
+  process resize_to_fill: [200,200]
   # ^crops image
   #
   # def scale(width, height)
@@ -42,7 +42,7 @@ class IconUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg png)
   end
 
   # Override the filename of the uploaded files:

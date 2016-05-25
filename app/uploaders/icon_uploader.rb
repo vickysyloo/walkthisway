@@ -26,8 +26,8 @@ class IconUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process :scale => [200, 200]
-  # process resize_to_fit: [200, 200]
-  process resize_to_fill: [1000,4000]
+  process resize_to_fit: [200, 200]
+  # process resize_to_fill: [1000,4000]
   # ^crops image
   #
   # def scale(width, height)

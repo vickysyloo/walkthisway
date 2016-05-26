@@ -60,11 +60,86 @@ function renderMap() {
     var moreOptions = {disableDefaultUI: true, disableDoubleClickZoom: true, draggable: false};
     map_show = initialize('map_walk-show', 9, moreOptions);
     google.maps.event.addDomListener(window, 'load', map_show);		// execute init map function on page load
+
+    var UrlWalkShow = new RegExp("\\Swalks\\S\\d{1,}");
+
+    if (UrlWalkShow.test(document.location.pathname)) {
+      console.log('show page registered regex pass')
+
+      $.ajax({
+        dataType: 'json',
+        url: document.location.pathname,
+        method: 'GET',
+        success: function(return_data){
+          console.log('returned json file: ' + return_data);
+          plot_waypoints_array(return_data, map_show);
+          initPathMap(return_data);
+        }
+      });
+    }
   }
 
   if ($('#map_walk-new').length > 0) {
+    var geocoder;
+    var waypt_order = 1;
+    geocoder = new google.maps.Geocoder(); // create geocoder object to geocode address
+
     map_new = initialize('map_walk-new', 1);
     google.maps.event.addDomListener(window, 'load', map_new);		// execute init map function on page load
+
+    var urlWalknew = new RegExp("\\Swalks");
+    if (urlWalknew.test(document.location.pathname) == true) {
+      // var map_new = initialize('map_walk-new', 1);
+      google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
+
+      $('#mkpts').on('cocoon:after-insert', function(e){
+        $('input.hidden_order').attr({name: 'order', value: waypt_order});
+        waypt_order +=1;
+
+        console.log("waypoint div selected");
+        $(".plot_btn").on('click', function(event){
+          // console.log("button.waypoint-btn jquery event registered");
+          var address = $(this).closest(".nested-fields").find(".address").val();
+          codeAddress(geocoder, address, map_new);
+        });
+      });
+
+
+      $('#centerbutton').on('click', function(e){
+        var city = $('#autocomplete').val();
+        console.log('city is' + city);
+        codeCity(geocoder, city, map_new);
+      });
+
+      $('#plot_new_walk').on('click', function(e){
+        alert('click on plot new walk registered');
+        var total = $('input.address')
+        var addresses = [];
+        for (i=0; i< total.length; i++) {
+          addresses.push($(total[i]).val());
+          console.log(addresses);
+        }
+      });
+        //take all addresses
+        //geocode address
+        // create hash with lat/long of waypoints
+
+        // initPathMap
+        // var returnedWaypoints = return_data.coords;
+        // console.log('returned json file: ' + returnedWaypoints);
+        // plot_waypoints_array(returnedWaypoints, map_show);
+        //
+        // initPathMap(returnedWaypoints);
+    }
+
+
+    // if ($('#map_walk-show').length > 0) {
+    //   var waypoints = (add all waypoints to json file)
+    //   var marker = new google.maps.Marker({					// place a marker on the map at the address
+    //     map: new_walk_form_map,
+    //     position: .geometry.location
+    //   });
+    // };
   }
 
 }

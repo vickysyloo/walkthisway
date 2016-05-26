@@ -49,7 +49,7 @@ class WalksController < ApplicationController
   def show
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
-    @allwaypoints = {coords: @walk.waypoints_coord_array}.to_json
+    @allwaypoints = @walk.waypoints_coord_formatted
     # binding.pry
     respond_to do |format|
       format.html

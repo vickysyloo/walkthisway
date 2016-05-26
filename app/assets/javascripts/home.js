@@ -1,13 +1,3 @@
-// code below: adding global variables that wont conflict with other JS global variables
-// window.walkThisWay = {};
-// window.walkThisWay.acOptions = 'stuff';
-
-
-
-
-
-//////////////////////
-
 
 $(document).on('ready page:load', function() {
 
@@ -16,15 +6,10 @@ $(document).on('ready page:load', function() {
     types: ['(cities)']
   };
 
-  // option 1 - loop through classes
-  // option 2 - can Autocomplete accept array? if so change get elementbyclass
-  //google maps object, autocomplete, attached to 'autocomplete' html element
-
-function autocomplete_maker(dom_element) {
-  var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById(dom_element),acOptions);
-
-
-
+function autocomplete_maker(dom_element, acOptions) {
+  var autocomplete1 =
+    new google.maps.places.Autocomplete(dom_element,
+    acOptions);
 //value of search_acaddress updated by autocomplete for each autocomplete search
   google.maps.event.addListener(autocomplete1, 'place_changed', function() {
     var search_ACaddress = autocomplete1.getPlace();
@@ -32,13 +17,20 @@ function autocomplete_maker(dom_element) {
 }
 
 if ($('#autocomplete').length >0) {
-autocomplete_maker('autocomplete');
+  var acElement = document.getElementById('autocomplete');
+  acOptions = {
+    types: ['(cities)']
+  }
+  autocomplete_maker(acElement, acOptions);
 }
 
-$('.geolocate_me').on
-//
+  $('#mkpts').on('cocoon:after-insert', function(e){
+    $('input#autocomplete2').each( function(index){
 
-
+      autocomplete_maker(this);
+      console.log('cocoon created, autocomplete event fired');
+    });
+  });
 
 // every time the search button is clicked
 //   $('input#search-button').on('click', function(event) {

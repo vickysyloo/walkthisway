@@ -1,5 +1,5 @@
 function codeAddress(geocoder, address, mapSelected) {
-  
+
   console.log("function codeAddress is running");
 
   geocoder.geocode( { 'address': address}, function(results, status) {
@@ -47,7 +47,7 @@ $(document).on('ready page:load', function() {
       waypt_order +=1;
 
       console.log("waypoint div selected");
-      $(".plot_btn").on('click', function(event){
+      $("button.plot_btn").on('click', function(event){
         // console.log("button.waypoint-btn jquery event registered");
         var address = $(this).closest(".nested-fields").find(".address").val();
         codeAddress(geocoder, address, map_new);

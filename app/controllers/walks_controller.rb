@@ -1,5 +1,6 @@
 class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
+  before_filter :require_permission, only: [:edit, :destroy]
 
   def index
     if params[:search_by_location].present?
@@ -51,33 +52,51 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = {coords: @walk.waypoints_coord_array}.to_json
-    # binding.pry
     respond_to do |format|
       format.html
       format.json { render json: @allwaypoints}
-      # binding.pry
     end
   end
 
 
   def create
     @walk = Walk.new(walk_params)
+    @walk.user_id = current_user.id
+
     if @walk.save
-      flash[:notice] = "Walk created!"
-      redirect_to walk_path(@walk)
+      flash[:notice] = "Your walk has been created!"
+      redirect_to walk_url(@walk)
     else
-      render new
+      render 'new'
       flash.now[:alert] = 'failed'
     end
   end
 
   def update
+   @walk = Walk.find(params[:id])
+
+   if @walk.update_attributes(walk_params)
+     redirect_to walk_url(@walk)
+   else
+     render edit_walk_url
+   end
   end
 
   def edit
+   @walk = Walk.find(params[:id])
   end
 
   def destroy
+    @walk = Walk.find(params[:id])
+    @walk.destroy
+
+    redirect_to walks_url
+  end
+
+  def require_permission
+    if current_user != Walk.find(params[:id]).user
+      redirect_to walk_url
+    end
   end
 
   private

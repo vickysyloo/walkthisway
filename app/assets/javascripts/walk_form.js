@@ -4,10 +4,14 @@ $(document).on('ready page:load', function() {
   $('#mkpts').on('cocoon:after-insert', function(e){
     $('button#up_reorder').on('click', function(e){
       console.log('button click registered');
-
-
-    });
   });
+
+    window.NestedFormEvents.prototype.insertFields = function(content, assoc, link) {
+      var $tr = $(link).closest('tr');
+      return $(content).insertBefore($tr);
+    }
+
+});
 
 
 

@@ -5,3 +5,9 @@
   <%= @user.first_name %>
   <img src ="<%= @user.icon %>">
 </div>
+
+
+<% if current_user == @user %>
+<%= link_to "Edit Profile", edit_user_url %>
+<%= link_to "Walks You've Created", root_url  %>
+<% end %>

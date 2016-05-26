@@ -25,7 +25,7 @@ if ($('#autocomplete').length >0) {
 }
 
   $('#mkpts').on('cocoon:after-insert', function(e){
-    $('input#autocomplete2').each( function(index){
+    $('input.address').each( function(index){
 
       autocomplete_maker(this);
       console.log('cocoon created, autocomplete event fired');
@@ -54,7 +54,5 @@ if ($('#autocomplete').length >0) {
 //        }
 //      });
 //   });
-
-
 
 });

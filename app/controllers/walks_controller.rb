@@ -2,7 +2,6 @@ class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
-    binding.pry
     if params[:search_by_location].present?
       @walks = []
       @startpoints = []
@@ -29,18 +28,18 @@ class WalksController < ApplicationController
 
     if @walks != nil
       @walks.each do |walk|
-        @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude]
+        @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude, walk.waypoints.first.address, walk.description]
       end
     end
 
-    if request.xhr?
-      render @walks #if the request is sent via ajax, render @walks. otherwise, redirect to walks_path (per rails default)
-    end
+    # if request.xhr?
+    #   render @walks #if the request is sent via ajax, render @walks. otherwise, redirect to walks_path (per rails default)
+    # end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @allwaypoints_js }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: @allwaypoints_js }
+    # end
   end
 
   def new

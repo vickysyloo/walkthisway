@@ -3,10 +3,10 @@
 
 
 
-function plot_waypoints_array(pt_array, map) {
+function plot_waypoints_array(pt_array, map, contentString) {
   for (var i=0; i<pt_array.length; i++) {
-    lat = pt_array[i][0]
-    lng = pt_array[i][1]
+    lat = pt_array[i][0];
+    lng = pt_array[i][1];
 
     var marker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
@@ -14,9 +14,23 @@ function plot_waypoints_array(pt_array, map) {
     });
 
     marker.setMap(map);
+
+    address = pt_array[i][2];
+    description = pt_array[i][3];
+
+    addInfoWindow(marker, map, address, description)
   }
 }
 
+function addInfoWindow(marker, map, address, description) {
+  var infowindow = new google.maps.InfoWindow({
+  content: ('<b>Starting Location:</b>'+address+"<br>"+description)
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
 // function home_index_waypoints(pt_array, map, mapElement, zoomlevel) {
 //   initialize(mapElement, zoomlevel);
 //   plot_waypoints_array(pt_array, map);

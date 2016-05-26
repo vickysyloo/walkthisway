@@ -6,7 +6,7 @@ $(document).on('ready page:load', function() {
     types: ['(cities)']
   };
 
-function autocomplete_maker(dom_element, acOptions) {
+function autocomplete_maker(dom_element, acOptions){
   var autocomplete1 =
     new google.maps.places.Autocomplete(dom_element,
     acOptions);
@@ -25,7 +25,7 @@ if ($('#autocomplete').length >0) {
   autocomplete_maker(acElement, acOptions);
 }
 
-//on new walks form 
+//on new walks form
   $('#mkpts').on('cocoon:after-insert', function(e){
     $('input.address').each( function(index){
 

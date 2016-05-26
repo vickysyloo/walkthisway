@@ -1,2 +1,18 @@
-<h1>Walks#edit</h1>
-<p>Find me in app/views/walks/edit.html.erb</p>
+<div class="page-wrapper">
+
+<div class="create_walk_contain_left">
+  <h1 class="create_walk_title">
+    <span class="create_walk_title_split">Have an awesome path</span>
+    <span class="create_walk_title_split">you want to share?<span>
+    <span class="create_walk_title_split">Create a route!</span>
+  </h1>
+</div>
+
+<div class="create_walk_contain_right">
+  <div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
+</div>
+
+<div class="form-list">
+<%= render partial: 'form'  %>
+
+</div> <!-- end of page wrapper-->

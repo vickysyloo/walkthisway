@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    @gobbledegook  = false
   end
 
   def show
@@ -23,6 +22,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    unless current_user == @user
+     flash[:notice] = "You do not have permission to view this page!"
+     redirect_to root_url
+   end
+
   end
 
   def update

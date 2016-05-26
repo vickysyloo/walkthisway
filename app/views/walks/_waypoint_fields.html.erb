@@ -3,21 +3,42 @@
   <button type='button' id='up_reorder'> UP </button>
   <button type='button' id='down_reorder'> DOWN </button>
 
-  <div class ='form_set'>
-    <%= f.label :address,:class=> 'form_label_create_walk'  %>
-    <%= f.text_field :address,:class=>"address"%>
-  </div>
+<table>
+  <thead></thead>
+  <tbody>
+    <tr class="fields">
+      <td>
+        <%= f.label :address, :class=>'form_field'  %><span class="required">*</span>
+      </td>
+      <td>
+        <%= f.text_field :address,:class=>"form_field", :id=>'autocomplete'%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :description, :class=>'form_field' %><span class="required">*</span>
+      </td>
+      <td>
+        <%= f.text_area :description,:class=>"form_field"%>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.hidden_field :order, :class=>"order" %>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+        <button class="plot_btn" type='button'>Plot me!</button>
+        </div>
+      </td>
+      <td>
+        <%= link_to_remove_association "Cancel", f %>
+      </td>
+    </tr>
 
-  <div>
-    <%= f.label :description, :class=> 'form_label_create_walk'  %>
-    <%= f.text_area :description,:class=>"description"%>
-  </div>
-
-  <div>
-    <%= f.hidden_field :order, :class=>"order" %>
-  </div>
-
-  <div><%= link_to_remove_association "cancel", f %></div>
-
-  <button class ="plot_btn" type="button">Plot me</button>
+  </tbody>
+</table>
 </div>

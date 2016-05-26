@@ -1,7 +1,7 @@
 class Walk < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
-  has_many :waypoints
+  has_many :waypoints, dependent: :destroy
 
   mount_uploader :picture, PictureUploader
 
@@ -9,7 +9,6 @@ class Walk < ActiveRecord::Base
   validate :too_many_waypoints
   validates :name, presence: { message: "Name of walk is required" }
   validates :description, presence: { message: "Description of walk is required" }
-  # validates :picture, presence: { message: "Image of walk is required" }
   validates :city, presence: { message: "City is required" }
 
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank

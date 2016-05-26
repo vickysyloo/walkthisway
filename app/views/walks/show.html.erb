@@ -16,6 +16,11 @@
       <%= @walk.city %>
     </div>
 
+    <% if current_user == Walk.find(params[:id]).user %>
+      <%= link_to 'Edit Walk', edit_walk_path %>
+      <%= link_to 'Delete Walk', method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
+    <% end %>
+
     <h2>About This Walk</h2>
     <p class="walk_show_description"><%=@walk.description%></p>
 

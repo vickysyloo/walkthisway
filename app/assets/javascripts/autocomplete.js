@@ -16,6 +16,7 @@ function autocomplete_maker(dom_element, acOptions) {
   });
 }
 
+//on home page
 if ($('#autocomplete').length >0) {
   var acElement = document.getElementById('autocomplete');
   acOptions = {
@@ -24,6 +25,7 @@ if ($('#autocomplete').length >0) {
   autocomplete_maker(acElement, acOptions);
 }
 
+//on new walks form 
   $('#mkpts').on('cocoon:after-insert', function(e){
     $('input.address').each( function(index){
 

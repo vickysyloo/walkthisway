@@ -3,10 +3,10 @@
     <h1 class="index_title">Walks around <%= @searchedcity %></h1>
     <div>
       <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
-        <%= label_tag(:search_by_category, "search for:") %>
-        <%= text_field_tag :search_by_category, params[:search_by_category], placeholder: 'search by category' %>
-        <%= hidden_field_tag :search_by_location, params[:search_by_location] %>
-        <%= submit_tag "search by Category" %>
+      <%= label_tag(:search_by_category, "Category:") %>
+      <%=select_tag(:search_by_category, options_from_collection_for_select(Category.all, "id", "theme"), :selected => params[:search_by_category]) %>
+      <%= hidden_field_tag :search_by_location, params[:search_by_location] %>
+      <%= submit_tag "search by Category" %>
       <% end %>
     </div>
     <br><br>
@@ -14,22 +14,21 @@
   </div><!-- end of page-wrapper -->
 <br>
 
-  <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
+<div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" >
 </div>
 
 <button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
 
 <div class="walks-list">
-    <% @walks.each do |walk| %>
-      <%= link_to walk_path(walk) do %>
-      <div class="walks-list-item">
-        <div class="walk_image">
-         <img src="<%= walk.picture%>">
-        </div>
-        <p class="walk_name"><%= walk.name%></p>
-        <p class="walk_desc"><%= walk.description%></p>
-              </div>
-      <% end %>
+  <% @walks.each do |walk| %>
+    <%= link_to walk_path(walk) do %>
+    <div class="walks-list-item">
+      <div class="walk_image">
+       <img src="<%= walk.picture%>">
+      </div>
+      <p class="walk_name"><%= walk.name%></p>
+      <p class="walk_desc"><%= walk.description%></p>
+    </div>
     <% end %>
-
+  <% end %>
 </div>

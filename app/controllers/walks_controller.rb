@@ -2,6 +2,7 @@ class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
+    binding.pry
     if params[:search_by_location].present?
       @walks = []
       @startpoints = []
@@ -22,9 +23,8 @@ class WalksController < ApplicationController
     end
 
     if params[:search_by_category]
-      @searchquery = params[:search_by_category]
-      @category_id = Category.find_by("lower(theme) like lower(?)",  params[:search_by_category]).id
-      @walks = @walks.select{|walk| walk.category_id ==  @category_id}
+      @category = params[:search_by_category].to_i
+      @walks = @walks.select{|walk| walk.category.id ==  @category}
     end
 
     if @walks != nil

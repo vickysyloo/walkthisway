@@ -17,7 +17,7 @@ $(document).on('ready page:load', function() {
 
     $('input.order').each(function(index) {
       $(this).val(index);
-      $('form#new_walk').trigger('submit');
     });
+    $('form#new_walk').trigger('submit');
   });
 });

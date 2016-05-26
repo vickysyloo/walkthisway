@@ -9,30 +9,32 @@
 </div>
 
 <div class="create_walk_contain_right">
-  <div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
+<div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
 </div>
+
 
 <div class="form-list">
   <%= form_for @walk do |f| %>
 
   <div class="errors">
     <% if @walk.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @walk.errors.each do |key, value| %>
-            <li><%= value %></li>
-          <% end %>
-        </ul>
-    <% end %>
+    <div id="error_explanation">
 
-    <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
       <ul>
-        <% @waypoint.errors.each do |key, value| %>
-          <li><%= key %><%= value %></li>
+        <% @walk.errors.each do |key, value| %>
+        <li><%= value %></li>
         <% end %>
       </ul>
-    <% end %>
-      </div>
+      <% end %>
+
+      <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
+      <ul>
+        <% @waypoint.errors.each do |key, value| %>
+        <li><%= key %><%= value %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
   </div>
 
   <div class ='form_set'>
@@ -65,9 +67,10 @@
 
   <div id="mkpts">
       <%= f.fields_for :waypoints do |waypoint| %>
-        <%= render 'waypoint_fields', :f => waypoint %>
+      <%= render 'waypoint_fields', :f => waypoint %>
       <% end %>
       <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
+
   </div>
 
   <div>
@@ -75,6 +78,7 @@
     <%= f.submit :class=>'walk_submit'%>
   </div>
 
-  <% end %><!-- end of form for -->
-
+<% end %>
+</div>
 </div> <!-- end of page wrapper-->
+</div>

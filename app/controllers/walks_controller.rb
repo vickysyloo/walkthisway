@@ -1,10 +1,7 @@
 class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
-
-
   def index
-
     if params[:search_by_location].present?
       @walks = []
       @startpoints = []
@@ -30,12 +27,10 @@ class WalksController < ApplicationController
       @walks = @walks.select{|walk| walk.category_id ==  @category_id}
     end
 
-
     if @walks != nil
       @walks.each do |walk|
         @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude]
       end
-
     end
 
     if request.xhr?
@@ -53,7 +48,6 @@ class WalksController < ApplicationController
   end
 
   def show
-
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = {coords: @walk.waypoints_coord_array}.to_json
@@ -67,7 +61,6 @@ class WalksController < ApplicationController
 
 
   def create
-
     @walk = Walk.new(walk_params)
     if @walk.save
       flash[:notice] = "Walk created!"
@@ -92,6 +85,5 @@ class WalksController < ApplicationController
   def walk_params
     params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order, :index])
   end
-
 
 end

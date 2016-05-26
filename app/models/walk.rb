@@ -34,7 +34,4 @@ class Walk < ActiveRecord::Base
     end
     return coords
   end
-
-
-
 end

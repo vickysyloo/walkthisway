@@ -22,7 +22,7 @@
 
       <ul>
         <% @walk.errors.each do |key, value| %>
-        <li><%= value %></li>
+          <li><%= value %></li>
         <% end %>
       </ul>
       <% end %>
@@ -30,12 +30,11 @@
       <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
       <ul>
         <% @waypoint.errors.each do |key, value| %>
-        <li><%= key %><%= value %></li>
+          <li><%= key %><%= value %></li>
         <% end %>
       </ul>
       <% end %>
-
-  </div>
+    </div>
 
   <div class ='form_set'>
     <%= f.label :city,:class=> 'form_label form_label_create_walk'  %>
@@ -65,20 +64,21 @@
 
   <div class="waypoint_title">Waypoints</div>
 
+<div id="sortable">
   <div id="mkpts">
-      <%= f.fields_for :waypoints do |waypoint| %>
-      <%= render 'waypoint_fields', :f => waypoint %>
-      <% end %>
-      <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
-
+    <%= f.fields_for :waypoints do |waypoint| %>
+    <%= render 'waypoint_fields', :f => waypoint %>
+    <% end %>
+    <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
   </div>
 
   <div>
     <button type = 'button' class = 'plot_walk'> plot this walk! </button>
     <%= f.submit :class=>'walk_submit'%>
   </div>
+</div>
 
-<% end %>
-</div>
-</div> <!-- end of page wrapper-->
-</div>
+  <% end %><!-- end for form for -->
+    </div>
+  </div>
+</div><!-- end of page wrapper-->

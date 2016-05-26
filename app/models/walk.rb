@@ -26,15 +26,12 @@ class Walk < ActiveRecord::Base
     end
   end
 
-  def waypoints_coord_array
+  def waypoints_coord_formatted
     if self.waypoints
       self.waypoints.order(:order)
       # ordering by waypoints attribute :order
-      coords = self.waypoints.map { |waypt| [waypt.latitude, waypt.longitude] }
+      waypt_hash = self.waypoints.map { |waypt| [waypt.latitude, waypt.longitude, waypt.address, waypt.description] }
     end
-    return coords
+    return waypt_hash.to_json
   end
-
-
-
 end

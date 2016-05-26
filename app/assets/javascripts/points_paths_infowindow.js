@@ -1,12 +1,7 @@
-// this function, plot_waypoints_array was used to plot waypoints on the show page before the google directions service was implemented to show paths
-
-
-
-
 function plot_waypoints_array(pt_array, map) {
   for (var i=0; i<pt_array.length; i++) {
-    lat = pt_array[i][0]
-    lng = pt_array[i][1]
+    lat = pt_array[i][0];
+    lng = pt_array[i][1];
 
     var marker = new google.maps.Marker({
       position: {lat: lat, lng: lng},
@@ -14,9 +9,24 @@ function plot_waypoints_array(pt_array, map) {
     });
 
     marker.setMap(map);
+
+    address = pt_array[i][2];
+    description = pt_array[i][3];
+
+    addInfoWindow(marker, map, address, description)
   }
 }
 
+function addInfoWindow(marker, map, address, description) {
+  var infowindow = new google.maps.InfoWindow({
+    content: ('<b>Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
+    maxWidth: 200
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
 // function home_index_waypoints(pt_array, map, mapElement, zoomlevel) {
 //   initialize(mapElement, zoomlevel);
 //   plot_waypoints_array(pt_array, map);
@@ -33,7 +43,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
       {location: new google.maps.LatLng(returnWaypoints[i][0], returnWaypoints[i][1])}
     )
   }
-
 
   if (waypt_array_length >2) {
     var waypts = formatted_waypoints.slice(1, waypt_array_length-1);
@@ -76,7 +85,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
 function initPathMap(returnedWaypoints) {
   // ******THIS IS FROM THE DIRECTIONS SERVICES ******//
   var directionsService = new google.maps.DirectionsService; // geocode and calculate direction between pts
-  var directionsDisplay = new google.maps.DirectionsRenderer; // creates an empty rendering object, which will later be used to show pts, paths
+  var directionsDisplay = new google.maps.DirectionsRenderer({
+            suppressMarkers: true,
+            suppressInfoWindows: true,
+       }); ; // creates an empty rendering object, which will later be used to show pts, paths
 
   directionsDisplay.setMap(map_show); // var directionsDisplay is tied to map
 //on submit click, execute function, CalculateandDisplayRoute with 2 input variables: directionsService object, and directionsDisplay object
@@ -84,28 +96,3 @@ function initPathMap(returnedWaypoints) {
 // ******** REMOVE event listener for submit button. Replace with 'on page load, where URL matches show pattern ***********// '
   calculateAndDisplayRoute(directionsService, directionsDisplay, returnedWaypoints);
 }
-
-
-$(document).on('ready page:load', function(){
-
-  //if the url matches the regex(/ + walks + >1 number):
-  var UrlWalkShow = new RegExp("\\Swalks\\S\\d{1,}");
-
-  if (UrlWalkShow.test(document.location.pathname)) {
-    console.log('show page registered regex pass')
-
-    $.ajax({
-      dataType: 'json',
-      url: document.location.pathname,
-      method: 'GET',
-      success: function(return_data){
-        var returnedWaypoints = return_data.coords;
-        console.log('returned json file: ' + returnedWaypoints);
-        plot_waypoints_array(returnedWaypoints, map_show);
-
-        initPathMap(returnedWaypoints);
-      }
-
-    });
-  }
-});

@@ -1,6 +1,7 @@
 $(document).on('ready page:load', function() {
 
   //after form partials are added
+  if ($('#map_walk-new').length > 0) {
   $('#mkpts').on('cocoon:after-insert', function(e){
     $('button#up_reorder').on('click', function(e){
       console.log('button click registered');
@@ -20,4 +21,5 @@ $(document).on('ready page:load', function() {
     });
     $('form#new_walk').trigger('submit');
   });
+}
 });

@@ -7,7 +7,7 @@
   //retrieve all walks within set distance
   //re-initialize google maps map with center on browser location
   //setmarkers for start of walk
-  //replace html at bottom of form with the returned data 
+  //replace html at bottom of form with the returned data
 
 //on fail
 
@@ -17,10 +17,9 @@
 //jquery selection
 
 $(document).on('ready page:load', function() {
-  $('button#geolocate_me').on('click', function(event) {
+  // $('button#geolocate_me').on('click', function(event) {
     console.log('click registered');
 
 
 
-  })
-});
+  });

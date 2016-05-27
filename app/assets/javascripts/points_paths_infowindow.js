@@ -75,7 +75,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
         summaryPanel.innerHTML += 'instructions:<br>'
         for (var j=0; j < route.legs[i].steps.length; j++) {
           summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
-
+          
         }
         summaryPanel.innerHTML += '<br>length of this step:<br>' + Math.round(route.legs[i].distance.value/10)*10 + ' m <br>';
       }

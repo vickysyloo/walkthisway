@@ -9,26 +9,32 @@
       <%= submit_tag "search by Category" %>
       <% end %>
     </div>
-    <br><br>
+
     <button type="button" id='geolocate_me'>Find walks near me! </button>
-  </div><!-- end of page-wrapper -->
-<br>
+
 
 <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" >
 </div>
 
 <button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
+</div><!-- end of page-wrapper-->
 
-<div class="walks-list">
-  <% @walks.each do |walk| %>
-    <%= link_to walk_path(walk) do %>
-    <div class="walks-list-item">
-      <div class="walk_image">
-       <img src="<%= walk.picture%>">
+
+<div class="walks_container">
+  <div class="page-wrapper">
+    <div class="walks-list">
+      <% @walks.each do |walk| %>
+
+        <div class="walkcard" style="background-image: url('<%= walk.picture%>');">
+        
+          <%= link_to walk_path(walk) do %>
+        <p class="walkcard_name"><%= walk.name%></p>
+
+        <p class="walkcard_desc"><%= walk.description%></p>
       </div>
-      <p class="walk_name"><%= walk.name%></p>
-      <p class="walk_desc"><%= walk.description%></p>
-    </div>
-    <% end %>
+  <%end%>
   <% end %>
 </div>
+
+  </div><!-- end of page-wrapper -->
+  </div> <!-- end of walks container-->

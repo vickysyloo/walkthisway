@@ -1,41 +1,33 @@
-<div class="walk_image">
-  <img src="<%=@walk.picture%>" >
-  <style>
-    .walk_image {
-      width: 100%;
-      height:250px;
-      background-image: url('<%=@walk.picture%>');
-    }
-  </style>
-</div><!-- end of walk_image -->
-
-<div class="page-wrapper">
-  <div class= "walk_show_left">
-    <div class="walk_name">
+<div class="walk_show_hero" style="background-image: url('<%=@walk.picture%>');">
+    <div class="walk_show_name">
       <%= @walk.name %>
+    </div>
+    <div class="walk_show_city">
       <%= @walk.city %>
     </div>
+</div>
 
-    <h2>About This Walk</h2>
+<main class="walk_show_main">
+  <div class= "walk_show_left">
+    <h2 class="walk_show_about">About This Walk</h2>
     <p class="walk_show_description"><%=@walk.description%></p>
 
-    <h2>Walk Route</h2>
+    <h2 class="walk_show_route">Walk Route</h2>
+
     <div class="waypoints_form">
-      <p> Waypoints on this route: </p>
         <% i = 1 %>
       <% @walk.waypoints.each do |waypoint| %>
-        <%= "Stop #{i}: "%> <%= waypoint.address %>
+        <span class="waypoint_stop"><%= "Stop #{i}: "%></span> <%= waypoint.address %>
           <!-- <%#= waypoint.description %> -->
         <% i+= 1%> <br>
       <% end %>
 
-    <br />
       <div id='directions-panel'>Directions</div>
     </div>
-
   </div><!-- end of walk_show_left-->
 
   <div class="walk_show_right">
     <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
   </div>
-</div><!-- end of page wrapper -->
+
+</main>

@@ -1,0 +1,97 @@
+.walk_show_hero {
+  width: 100%;
+  height:430px;
+  display: flex;
+  flex-direction: column;
+}
+
+.walk_show_name{
+  font-size: 3.3vw;
+  font-family: Arial;
+  font-weight: bold;
+  font-family:Gotham;
+  color:white;
+  margin-top: 290px;
+  margin-left: 50px;
+  a{
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.walk_show_city{
+  font-family:Gotham;
+  color: #F1D01B;
+  margin-left: 50px;
+  font-size: 2.5vw;
+  background-color: white;
+  display:inline;
+  opacity: 0.8;
+  padding: 5px;
+}
+
+.walk_show_main{
+  display: flex;
+  font-family:Gotham;
+}
+
+.walk_show_left{
+  padding: 40px;
+}
+
+.walk_show_description, .waypoints_form {
+  font-size: 22px;
+  font-family: gotham-light;
+    line-height: 24px;
+}
+
+.walk_show_about, .walk_show_route{
+  font-size: 30px;
+}
+
+.waypoint_stop{
+  color: #f75c4f;
+  font-weight: bold;
+}
+
+.form-list{
+  margin-top: 150px;
+  border: solid black 2px;
+  width: 60%;
+  margin-left:auto;
+  margin-right:auto;
+  padding: 10px;
+  margin-bottom: 200px;
+}
+
+.form_label_create_walk{
+  font-size: 18px;
+}
+
+.form_field_create_walk{
+  width: 400px;
+  height: 30px;
+}
+
+#centerbutton{
+  color:#f75c4f ;
+  background-color:white;
+  padding: 5px;
+  border: solid black 1px;
+  border-radius: 5px;
+  width: 100px;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.waypoint_title{
+  color: #f75c4f;
+  margin-left: 10px;
+}
+
+.plot_btn{
+  background-color: #f75c4f;
+  display: inline-block;
+  border-radius: 10px;
+  border: solid #f75c4f;
+}

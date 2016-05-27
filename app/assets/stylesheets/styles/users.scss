@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .signup_container{
-  height: 700px;
   background-size: cover;
 }
+
 .login_desc {
   font-size: 40px;
   width: 45%;
@@ -13,13 +13,11 @@
   display: inline-block;
 }
 
-
 .loginform{
   background-color: white;
   display: inline-block;
   border: solid  black 2px;
   width: 48%;
-  height:500px;
   float: right;
   padding: 20px;
   margin-right: 5%;
@@ -37,7 +35,6 @@
   width: 200px;
   line-height: 20px;
 }
-
 
 .form_set{
   margin: 10px;
@@ -60,7 +57,6 @@
 }
 
 .signup_form{
-  height: 200px;
   width: 30%;
   margin-right:20%;
 }

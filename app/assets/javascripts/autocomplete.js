@@ -1,4 +1,3 @@
-
 $(document).on('ready page:load', function() {
 
   //optional input variable to narrow down autocomplete search

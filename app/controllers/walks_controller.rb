@@ -65,7 +65,7 @@ class WalksController < ApplicationController
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      render new
+      render :new
       flash.now[:alert] = 'failed'
     end
   end

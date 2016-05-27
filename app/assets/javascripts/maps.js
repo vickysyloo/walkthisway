@@ -57,7 +57,24 @@ function renderMap() {
   }
 
   if ($('#map_walk-show').length > 0) {
-    var moreOptions = {disableDefaultUI: true, disableDoubleClickZoom: true, draggable: false};
+    var moreOptions = {disableDefaultUI: true,
+    // mapTypeControl: true,
+    // mapTypeControlOptions: {
+    //   style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+    //   position: google.maps.ControlPosition.RIGHT
+    // },
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER
+      },
+      draggable: true,
+      scaleControl: true,
+      // streetViewControl: true,
+      // streetViewControlOptions: {
+      //   position: google.maps.ControlPosition.BOTTOM_CENTER
+      // },
+    fullscreenControl: true
+    }
     map_show = initialize('map_walk-show', 9, moreOptions);
     google.maps.event.addDomListener(window, 'load', map_show);		// execute init map function on page load
 
@@ -87,8 +104,6 @@ function renderMap() {
     map_new = initialize('map_walk-new', 1);
     google.maps.event.addDomListener(window, 'load', map_new);		// execute init map function on page load
 
-    var urlWalknew = new RegExp("\\Swalks");
-    if (urlWalknew.test(document.location.pathname) == true) {
       // var map_new = initialize('map_walk-new', 1);
       google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
 
@@ -101,7 +116,6 @@ function renderMap() {
           // console.log("button.waypoint-btn jquery event registered");
           var address = $(this).closest(".nested-fields").find(".address").val();
           codeAddress(geocoder, address, map_new);
-        });
       });
 
 
@@ -130,7 +144,7 @@ function renderMap() {
         // plot_waypoints_array(returnedWaypoints, map_show);
         //
         // initPathMap(returnedWaypoints);
-    }
+    });
 
   }
 

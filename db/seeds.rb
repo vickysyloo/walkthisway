@@ -106,3 +106,64 @@ walk_id: walk2.id
 )
 
 walk2.save!
+
+walk3 = Walk.new(
+id: 3000,
+name: 'Cool-Aid',
+description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
+picture: 'https://a1.muscache.com/airbnb/guidebook/v1_san_francisco_hero@2x.jpg',
+category_id: architecture.id,
+user_id: bob.id,
+city: "Toronto, ON, Canada"
+)
+
+waypoint1 = Waypoint.create!(
+name: 'Historic Route',
+description: 'A route that takes you through the ROM Museum and shows all the historic buildings within Toronto.',
+latitude: 43.6677,
+longitude: -79.3948,
+address: '100 Queen\'s Park, Toronto, Ontario',
+walk_id: walk3.id
+)
+
+waypoint2 = Waypoint.create!(
+name: 'An artistic adventure',
+description: 'A route that takes you through the AGO and shows all the historic buildings within Toronto.',
+latitude: 43.65342,
+longitude: -79.392625,
+address: '317 Dundas Street West, Toronto, Ontario',
+walk_id: walk3.id
+)
+
+walk3.save!
+
+
+walk4 = Walk.new(
+id: 4000,
+name: 'Cool-Aid',
+description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
+picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
+category_id: architecture.id,
+user_id: bob.id,
+city: "Toronto, ON, Canada"
+)
+
+waypoint1 = Waypoint.create!(
+name: 'Historic Route',
+description: 'A route that takes you through the ROM Museum and shows all the historic buildings within Toronto.',
+latitude: 43.6677,
+longitude: -79.3948,
+address: '100 Queen\'s Park, Toronto, Ontario',
+walk_id: walk4.id
+)
+
+waypoint2 = Waypoint.create!(
+name: 'An artistic adventure',
+description: 'A route that takes you through the AGO and shows all the historic buildings within Toronto.',
+latitude: 43.65342,
+longitude: -79.392625,
+address: '317 Dundas Street West, Toronto, Ontario',
+walk_id: walk4.id
+)
+
+walk4.save!

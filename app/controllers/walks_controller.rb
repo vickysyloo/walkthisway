@@ -61,11 +61,12 @@ class WalksController < ApplicationController
 
   def create
     @walk = Walk.new(walk_params)
+    binding.pry
     if @walk.save
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
-      render new
+      render :new
       flash.now[:alert] = 'failed'
     end
   end

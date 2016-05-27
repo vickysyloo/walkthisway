@@ -12,7 +12,7 @@ $(document).on('ready page:load', function() {
 
 
   // on clicking 'submit', query for all waypoint partial forms (input.order hidden field), insert index value into hidden field, trigger submit on the form
-  $('input.walk_submit').on('click', function(e) {
+  $('input#walk_submit').on('click', function(e) {
     e.preventDefault();
 
     $('input.order').each(function(index) {

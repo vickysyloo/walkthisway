@@ -57,7 +57,7 @@ function renderMap() {
   }
 
   if ($('#map_walk-show').length > 0) {
-    var moreOptions = {disableDefaultUI: true, disableDoubleClickZoom: true, draggable: false};
+    var moreOptions = {disableDefaultUI: true, disableDoubleClickZoom: false, draggable: true, mapTypeControlOptions: {position: google.maps.ControlPosition.BOTTOM_CENTER}};
     map_show = initialize('map_walk-show', 9, moreOptions);
     google.maps.event.addDomListener(window, 'load', map_show);		// execute init map function on page load
 

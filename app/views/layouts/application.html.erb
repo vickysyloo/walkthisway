@@ -14,6 +14,14 @@
     <div class="logo">
       <%= link_to "W", root_path %>
     </div>
+
+    <div class="search-bar">
+      <%= form_tag walks_path, method: :get do %>
+        <%= text_field_tag :search_by_location, params[:search_by_location], id: "autocomplete", data:params[:search_by_location], :placeholder => "Which city would you like to explore? (E.g. Toronto, ON)", :class =>"search-bar-field"%>
+        <%= submit_tag "Search", class: 'search-button'%>
+      <% end %>
+    </div>
+    
       <ul>
         <% if current_user %>
           <li><%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %></li>

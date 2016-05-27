@@ -1,6 +1,8 @@
 <div class="index_container">
   <div class=" page-wrapper">
     <h1 class="index_title">Walks around <%= @searchedcity %></h1>
+
+
     <div>
       <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
       <%= label_tag(:search_by_category, "Category:") %>
@@ -26,7 +28,7 @@
       <% @walks.each do |walk| %>
 
         <div class="walkcard" style="background-image: url('<%= walk.picture%>');">
-        
+
           <%= link_to walk_path(walk) do %>
         <p class="walkcard_name"><%= walk.name%></p>
 

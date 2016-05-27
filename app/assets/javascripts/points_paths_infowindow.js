@@ -60,26 +60,35 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
 
     //if successful directionsService request
     if (status === google.maps.DirectionsStatus.OK) {
+      var totalLength = 0;
       directionsDisplay.setDirections(response); //call setDirections method on input variable, directionsDisplay (a google object, 'renderer'), feeding it 'response' (contains waypoints, paths from directionsService.route)
       var route = response.routes[0]; //returns all info between a-->b and b-->c etc. (each leg of journey)
       var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
 
       //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
       summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
-      // For each leg of route, display summary information.
+
+
       for (var i = 0; i < route.legs.length; i++) {
-        var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Segments: ' + '#' + routeSegment +
-            '</b><br>';
-        summaryPanel.innerHTML += 'Starting point: ' + route.legs[i].start_address + '<br>';
-        summaryPanel.innerHTML += 'End point: ' + route.legs[i].end_address + '<br><br>';
-        summaryPanel.innerHTML += 'Total length of walk segment: ' + route.legs[i].distance.text + '<br><br>';
-      } // ***** CHANGE TEXT HERE TO PROVIDE DIRECTIONS ********//
+
+        totalLength += route.legs[i].distance.value;
+        summaryPanel.innerHTML += 'instructions:<br>'
+        for (var j=0; j < route.legs[i].steps.length; j++) {
+          summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions;
+
+        }
+        summaryPanel.innerHTML += '<br>length of this step:<br>' + Math.round(route.legs[i].distance.value/10)*10 + ' m <br>';
+      }
+
+      summaryPanel.innerHTML += '<br><br> Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
+
+      var upperBound = Math.round(totalLength*0.001*0.3*60);
+      var lowerBound = Math.round(totalLength*0.001*(1/7)*60);
+      summaryPanel.innerHTML += '<br>Approximate walk time: ' + lowerBound + ' to '+ upperBound + ' minutes';
     } else { // if response status is not ok
       window.alert('Directions request failed due to ' + status);
     }
   });
-
 }
 
 function initPathMap(returnedWaypoints) {

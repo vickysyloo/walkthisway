@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517041202) do
+ActiveRecord::Schema.define(version: 20160527004736) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160517041202) do
     t.datetime "updated_at"
   end
 
-  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "theme"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160517041202) do
     t.string   "salt"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "walks", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160517041202) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "city"
+    t.integer  "length_in_m"
   end
 
   create_table "waypoints", force: :cascade do |t|

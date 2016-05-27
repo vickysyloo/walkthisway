@@ -132,14 +132,6 @@ function renderMap() {
         // initPathMap(returnedWaypoints);
     }
 
-
-    // if ($('#map_walk-show').length > 0) {
-    //   var waypoints = (add all waypoints to json file)
-    //   var marker = new google.maps.Marker({					// place a marker on the map at the address
-    //     map: new_walk_form_map,
-    //     position: .geometry.location
-    //   });
-    // };
   }
 
 }

@@ -9,31 +9,32 @@
 </div>
 
 <div class="create_walk_contain_right">
-  <div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
+<div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
 </div>
+
 
 <div class="form-list">
   <%= form_for @walk do |f| %>
 
   <div class="errors">
     <% if @walk.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <% @walk.errors.each do |key, value| %>
-            <li><%= value %></li>
-          <% end %>
-        </ul>
-    <% end %>
+    <div id="error_explanation">
 
-    <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
+      <ul>
+        <% @walk.errors.each do |key, value| %>
+          <li><%= value %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+      <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
       <ul>
         <% @waypoint.errors.each do |key, value| %>
           <li><%= key %><%= value %></li>
         <% end %>
       </ul>
-    <% end %>
-      </div>
-  </div>
+      <% end %>
+    </div>
 
   <div class ='form_set'>
     <%= f.label :city,:class=> 'form_label form_label_create_walk'  %>
@@ -63,18 +64,21 @@
 
   <div class="waypoint_title">Waypoints</div>
 
+<div id="sortable">
   <div id="mkpts">
-      <%= f.fields_for :waypoints do |waypoint| %>
-        <%= render 'waypoint_fields', :f => waypoint %>
-      <% end %>
-      <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
+    <%= f.fields_for :waypoints do |waypoint| %>
+    <%= render 'waypoint_fields', :f => waypoint %>
+    <% end %>
+    <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
   </div>
 
   <div>
     <button type = 'button' class = 'plot_walk'> plot this walk! </button>
     <%= f.submit :class=>'walk_submit'%>
   </div>
+</div>
 
-  <% end %><!-- end of form for -->
-
-</div> <!-- end of page wrapper-->
+  <% end %><!-- end for form for -->
+    </div>
+  </div>
+</div><!-- end of page wrapper-->

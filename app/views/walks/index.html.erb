@@ -25,12 +25,8 @@
     <div class="walks-list">
       <% @walks.each do |walk| %>
 
-        <div class="walkcard">
-          <style>
-            .walkcard {
-              background-image: url('<%= walk.picture%>');
-            }
-          </style>
+        <div class="walkcard" style="background-image: url('<%= walk.picture%>');">
+        
           <%= link_to walk_path(walk) do %>
         <p class="walkcard_name"><%= walk.name%></p>
 

@@ -74,7 +74,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
         totalLength += route.legs[i].distance.value;
         summaryPanel.innerHTML += 'instructions:<br>'
         for (var j=0; j < route.legs[i].steps.length; j++) {
-          summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions;
+          summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
 
         }
         summaryPanel.innerHTML += '<br>length of this step:<br>' + Math.round(route.legs[i].distance.value/10)*10 + ' m <br>';
@@ -85,6 +85,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
       var upperBound = Math.round(totalLength*0.001*0.3*60);
       var lowerBound = Math.round(totalLength*0.001*(1/7)*60);
       summaryPanel.innerHTML += '<br>Approximate walk time: ' + lowerBound + ' to '+ upperBound + ' minutes';
+
+
     } else { // if response status is not ok
       window.alert('Directions request failed due to ' + status);
     }

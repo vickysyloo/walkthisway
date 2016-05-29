@@ -40,7 +40,7 @@
 
   <div class ='form_set'>
     <%= f.label :city,:class=> 'form_label form_label_create_walk'  %>
-    <%= f.text_field :city, id: "autocomplete", :class=>'form_field form_field_create_walk'%><span class="required">*  </span>
+    <%= f.text_field :city, :class=>'form_field form_field_create_walk autocomplete_city', :id =>'autocomplete_centermap'%><span class="required">*  </span>
     <button type="button" id="centerbutton">Center Map</button>
   </div>
 

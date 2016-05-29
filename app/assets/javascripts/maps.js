@@ -115,7 +115,7 @@ function renderMap() {
 
 
       $('#centerbutton').on('click', function(e){
-        var city = $('#autocomplete').val();
+        var city = $('#autocomplete_centermap').val();
         console.log('city is' + city);
         codeCity(geocoder, city, map_new);
       });

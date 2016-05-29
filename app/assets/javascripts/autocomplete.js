@@ -16,12 +16,16 @@ $(document).on('ready page:load', function() {
   }
 
 //on home page
-  if ($('#autocomplete').length >0) {
-    var acElement = document.getElementById('autocomplete');
+  if ($('input.autocomplete_city').length >0) {
+    // var acElement = document.getElementByClass('autocomplete');
     acOptions = {
       types: ['(cities)']
     }
-    autocomplete_maker(acElement, acOptions);
+    $('input.autocomplete_city').each( function(index){
+
+      autocomplete_maker(this, acOptions);
+      console.log('each loop for autocomplete_city:' + index);
+    });
 
 
   //on new walks form

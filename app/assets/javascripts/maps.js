@@ -2,6 +2,7 @@ var map_index;
 var map_show;
 var map_new;
 var styles;
+var geocoder;
 
 function initialize(mapElement, zoomlevel, moreOptions) {
   // geocoder = new google.maps.Geocoder();	// create geocoder object to geocode address
@@ -89,7 +90,7 @@ function renderMap() {
   }
 
   if ($('#map_walk-new').length > 0) {
-    var geocoder;
+
     var waypt_order = 1;
     geocoder = new google.maps.Geocoder(); // create geocoder object to geocode address
 

@@ -66,36 +66,39 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
 
     //if successful directionsService request
     if (status === google.maps.DirectionsStatus.OK) {
-      var totalLength = 0;
+
       directionsDisplay.setDirections(response); //call setDirections method on input variable, directionsDisplay (a google object, 'renderer'), feeding it 'response' (contains waypoints, paths from directionsService.route)
-      var route = response.routes[0]; //returns all info between a-->b and b-->c etc. (each leg of journey)
+//returns all info between a-->b and b-->c etc. (each leg of journey)
       if ($('#directions-panel').length > 0) {
-        var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
-
-        //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
-        summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
-
-
-        for (var i = 0; i < route.legs.length; i++) {
-
-          totalLength += route.legs[i].distance.value;
-          summaryPanel.innerHTML += 'instructions:<br>'
-          for (var j=0; j < route.legs[i].steps.length; j++) {
-            summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
-          }
-        }
-
-        summaryPanel.innerHTML += '<br><br> Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
-
-        var upperBound = Math.round(totalLength*0.001*0.3*60);
-        var lowerBound = Math.round(totalLength*0.001*(1/7)*60);
-        summaryPanel.innerHTML += '<br>Approximate walk time: ' + lowerBound + ' to '+ upperBound + ' minutes';
+        summarizeDirections(response);
       }
     }
     else { // if response status is not ok
       window.alert('Directions request failed due to ' + status);
     }
   });
+}
+
+function summarizeDirections(response) {
+var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
+      var totalLength = 0;
+//******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
+  summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
+  var route = response.routes[0];
+
+  for (var i = 0; i < route.legs.length; i++) {
+    totalLength += route.legs[i].distance.value;
+    summaryPanel.innerHTML += 'instructions:<br>'
+    for (var j=0; j < route.legs[i].steps.length; j++) {
+      summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
+    }
+  }
+
+  summaryPanel.innerHTML += '<br><br> Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
+
+  var upperBound = Math.round(totalLength*0.001*0.3*60);
+  var lowerBound = Math.round(totalLength*0.001*(1/7)*60);
+  summaryPanel.innerHTML += '<br>Approximate walk time: ' + lowerBound + ' to '+ upperBound + ' minutes';
 }
 
 function initPathMap(returnedWaypoints, map) {

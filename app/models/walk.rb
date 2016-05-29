@@ -32,7 +32,6 @@ class Walk < ActiveRecord::Base
       # ordering by waypoints attribute :order
       waypt_hash = self.waypoints.map { |waypt| [waypt.latitude, waypt.longitude, waypt.address, waypt.description] }
     end
-    binding.pry
     return waypt_hash.to_json
   end
 end

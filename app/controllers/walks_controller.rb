@@ -1,5 +1,6 @@
 class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
+  before_filter :require_permission, only: [:edit, :destroy]
 
   def index
     if params[:search_by_location].present?
@@ -31,15 +32,6 @@ class WalksController < ApplicationController
         @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude, walk.waypoints.first.address, walk.description]
       end
     end
-
-    # if request.xhr?
-    #   render @walks #if the request is sent via ajax, render @walks. otherwise, redirect to walks_path (per rails default)
-    # end
-
-    # respond_to do |format|
-    #   format.html
-    #   format.json { render json: @allwaypoints_js }
-    # end
   end
 
   def new
@@ -61,6 +53,8 @@ class WalksController < ApplicationController
 
   def create
     @walk = Walk.new(walk_params)
+    @walk.user_id = current_user.id
+
     if @walk.save
       flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
@@ -71,13 +65,31 @@ class WalksController < ApplicationController
   end
 
   def update
-  end
+    @walk = Walk.find(params[:id])
 
-  def edit
-  end
+    if @walk.update_attributes(walk_params)
+      redirect_to walk_url(@walk)
+    else
+      render edit_walk_url
+    end
+   end
 
-  def destroy
-  end
+   def edit
+    @walk = Walk.find(params[:id])
+   end
+
+   def destroy
+     @walk = Walk.find(params[:id])
+     @walk.destroy
+
+     redirect_to walks_url
+   end
+
+   def require_permission
+     if current_user != Walk.find(params[:id]).user
+       redirect_to walk_url
+     end
+   end
 
   private
 

@@ -3,8 +3,7 @@
 <head>
   <title>Walkthisway</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_maps_api_key']%>&libraries=drawing,geometry,places"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous" ></script
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -21,7 +20,13 @@
         <%= submit_tag "Search", class: 'search-button'%>
       <% end %>
     </div>
-    
+
+    <div class="favourites-link">
+      <% if current_user %>
+        <%= link_to "Your Favourite Walks", root_url  %>
+      <% end %>
+    </div>
+
       <ul>
         <% if current_user %>
           <li><%= link_to "Create a walk", new_walk_path, :class=>'walk_link' %></li>

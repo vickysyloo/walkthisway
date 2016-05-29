@@ -10,10 +10,8 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,32 +21,26 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+# to manage user sessions
 gem 'sorcery'
-
+# to get simple Google Maps API information
 gem 'geocoder'
-
+# to manage nested forms
 gem 'cocoon'
 
 gem 'underscore-rails'
-
+# to manage secrets
 gem 'figaro'
 
 gem 'font-awesome-rails'
 
 gem 'velocityjs-rails'
-
+# to manage uploading
 gem 'carrierwave'
-
+# to process pictures with ImageMagick
 gem 'mini_magick'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-  gem 'puma'
+# to use Puma as the web server
+gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

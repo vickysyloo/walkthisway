@@ -82,7 +82,7 @@ function renderMap() {
         success: function(return_data){
           console.log('returned json file: ' + return_data);
           plot_waypoints_array(return_data, map_show);
-          initPathMap(return_data);
+          initPathMap(return_data, map_show);
         }
       });
     }

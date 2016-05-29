@@ -36,6 +36,22 @@ class WalksController < ApplicationController
 
   def new
     @walk = Walk.new
+    @allwaypoints = []
+    if params[:waypoints]
+      i=0
+      params[:waypoints].each do |waypt|
+        waypt = params[:waypoints][i.to_s]
+        latlong = Geocoder.coordinates(waypt[:address])
+        @allwaypoints.push([latlong[0], latlong[1], "", ""])
+        i+=1
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @allwaypoints}
+    end
+
   end
 
   def show

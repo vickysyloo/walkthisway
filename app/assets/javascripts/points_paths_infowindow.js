@@ -1,3 +1,8 @@
+var directionsDisplay = new google.maps.DirectionsRenderer({
+          suppressMarkers: true,
+          suppressInfoWindows: true,
+     });
+
 function plot_waypoints_array(pt_array, map) {
   for (var i=0; i<pt_array.length; i++) {
     lat = pt_array[i][0];
@@ -33,6 +38,7 @@ function addInfoWindow(marker, map, address, description) {
 // }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWaypoints) {
+
   //chunk below iterates over input menu on htmlpage and plucks out selected waypoints, pushing into waypts array
   var waypt_array_length = returnWaypoints.length;
 
@@ -63,45 +69,41 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
       var totalLength = 0;
       directionsDisplay.setDirections(response); //call setDirections method on input variable, directionsDisplay (a google object, 'renderer'), feeding it 'response' (contains waypoints, paths from directionsService.route)
       var route = response.routes[0]; //returns all info between a-->b and b-->c etc. (each leg of journey)
-      var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
+      if ($('#directions-panel').length > 0) {
+        var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
 
-      //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
-      summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
+        //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
+        summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
 
 
-      for (var i = 0; i < route.legs.length; i++) {
+        for (var i = 0; i < route.legs.length; i++) {
 
-        totalLength += route.legs[i].distance.value;
-        summaryPanel.innerHTML += 'instructions:<br>'
-        for (var j=0; j < route.legs[i].steps.length; j++) {
-          summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
-
+          totalLength += route.legs[i].distance.value;
+          summaryPanel.innerHTML += 'instructions:<br>'
+          for (var j=0; j < route.legs[i].steps.length; j++) {
+            summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
+          }
         }
-    
+
+        summaryPanel.innerHTML += '<br><br> Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
+
+        var upperBound = Math.round(totalLength*0.001*0.3*60);
+        var lowerBound = Math.round(totalLength*0.001*(1/7)*60);
+        summaryPanel.innerHTML += '<br>Approximate walk time: ' + lowerBound + ' to '+ upperBound + ' minutes';
       }
-
-      summaryPanel.innerHTML += '<br><br> Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
-
-      var upperBound = Math.round(totalLength*0.001*0.3*60);
-      var lowerBound = Math.round(totalLength*0.001*(1/7)*60);
-      summaryPanel.innerHTML += '<br>Approximate walk time: ' + lowerBound + ' to '+ upperBound + ' minutes';
-
-
-    } else { // if response status is not ok
+    }
+    else { // if response status is not ok
       window.alert('Directions request failed due to ' + status);
     }
   });
 }
 
-function initPathMap(returnedWaypoints) {
+function initPathMap(returnedWaypoints, map) {
   // ******THIS IS FROM THE DIRECTIONS SERVICES ******//
   var directionsService = new google.maps.DirectionsService; // geocode and calculate direction between pts
-  var directionsDisplay = new google.maps.DirectionsRenderer({
-            suppressMarkers: true,
-            suppressInfoWindows: true,
-       }); ; // creates an empty rendering object, which will later be used to show pts, paths
-
-  directionsDisplay.setMap(map_show); // var directionsDisplay is tied to map
+  // creates an empty rendering object, which will later be used to show pts, paths
+  directionsDisplay;
+  directionsDisplay.setMap(map); // var directionsDisplay is tied to map
 //on submit click, execute function, CalculateandDisplayRoute with 2 input variables: directionsService object, and directionsDisplay object
 
 // ******** REMOVE event listener for submit button. Replace with 'on page load, where URL matches show pattern ***********// '

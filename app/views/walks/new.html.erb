@@ -3,7 +3,7 @@
 <div class="create_walk_contain_left">
   <h1 class="create_walk_title">
     <span class="create_walk_title_split">Have an awesome path</span>
-    <span class="create_walk_title_split">you want to share?<span>
+    <span class="create_walk_title_split">you want to share?</span>
     <span class="create_walk_title_split">Create a route!</span>
   </h1>
 </div>
@@ -37,6 +37,8 @@
     </div>
 
   <div class ='form_set'>
+    <div class = 'form_step_one'>
+      <h3>STEP ONE - Describe Your Walk</h3>
     <%= f.label :city,:class=> 'form_label form_label_create_walk'  %>
     <%= f.text_field :city, id: "autocomplete", :class=>'form_field form_field_create_walk'%><span class="required">*  </span>
     <button type="button" id="centerbutton">Center Map</button>
@@ -62,21 +64,29 @@
     <%= f.file_field :picture, :class=>'form_field form_field_create_walk' %><span class="required">*  </span>
   </div>
 
-  <div class="waypoint_title">Waypoints</div>
+  <button type="button" class="create_walk_next_btn">Next</button>
+</div> <!-- end of form_step_one-->
+
+  <div class="form_step_two">
+    <h3> STEP TWO - Add Waypoints</h3>
+      <p>Add the waypoints that you want to be in your walk. You can drag each waypoint to sort order. </p>
 
 <div id="sortable">
   <div id="mkpts">
     <%= f.fields_for :waypoints do |waypoint| %>
     <%= render 'waypoint_fields', :f => waypoint %>
     <% end %>
-    <%= link_to_add_association 'Add new waypoint', f, :waypoints%>
+    Add New Waypoint<%= link_to_add_association '+', f, :waypoints%>
   </div>
+      </div>
+
 
   <div>
     <button type = 'button' class = 'plot_walk'> plot this walk! </button>
     <%= f.submit :class=>'walk_submit'%>
   </div>
-</div>
+
+
 
   <% end %><!-- end for form for -->
     </div>

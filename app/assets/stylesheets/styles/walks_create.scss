@@ -1,0 +1,76 @@
+.form-list{
+  margin-top: 50px;
+  border: solid #565a5c 1px;
+  padding: 10px;
+  margin-bottom: 200px;
+  font-family: gotham;
+}
+
+.form_field_create_walk{
+  width: 400px;
+  height: 30px;
+}
+
+#error_explanation {
+  color: tomato;
+}
+
+
+.create_step_one_title,.create_step_two_title{
+  font-weight: normal;
+  padding: 10px 0px;
+  font-size: 20px;
+}
+
+#centerbutton {
+  background-color: #f75c4f;
+  border: solid #f75c4f;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+.required{
+  color: tomato;
+}
+
+.nested-fields{
+  border: dotted 2px gray;
+  width: 60%;
+  position: relative;
+}
+
+.plus{
+  color: red;
+  margin-left: 20px;
+  font-size: 22px;
+}
+
+.fa-hand-grab-o{
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 22px;
+  margin: 9px;
+}
+
+.waypoint_label{
+  font-weight: 100;
+  margin-right: 30px;
+  font-family: Gotham-light;
+  margin-left: 20px;
+}
+
+.form_set_waypoint_address{
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.desc_field_create_walk{
+  height:150px;
+  width: 400px;
+
+}
+
+.desc_field_waypoint{
+  margin-left: 20px;
+}

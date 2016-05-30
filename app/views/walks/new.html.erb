@@ -17,6 +17,10 @@
       <div id="error_explanation">
         <ul>
           <%@walk.errors.each do |key, value| %>
+          <%# binding.pry%>
+            <%if key == [:walk]%>
+                <%=value = ""%>
+             <%end%>
             <li><%= value %></li>
           <% end %>
         </ul>
@@ -35,8 +39,10 @@
   <h3 class="create_step_one_title">Step 1 - Describe Walk</h3>
   <div class ='form_set'>
 
+
     <%= f.label :city,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-    <%= f.text_field :city, id: "autocomplete", :class=>'form_field form_field_create_walk'%>
+    <%= f.text_field :city, :id=>'autocomplete_centermap', :class=>'form_field form_field_create_walk autocomplete_city'%>
+
     <button type="button" id="centerbutton">Center Map on City</button>
   </div>
 

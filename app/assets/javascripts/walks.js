@@ -12,6 +12,8 @@ $( ".walkcard" ).hover(
   $('.create_form_step_three').hide();
 
 $( ".next_first_btn" ).on('click',function (){
+  (this).preventDefault();
+  (this).stopPropagation();
   $('.create_form_step_one').hide();
   $('.create_form_step_one').show();
 });

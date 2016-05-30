@@ -5,16 +5,19 @@ class Walk < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
-  validate :need_two_waypoints
-  validate :too_many_waypoints
+  validates :city, presence: { message: "City is required" }
   validates :name, presence: { message: "Name of walk is required" }
+
   validates :description, presence: { message: "Description of walk is required" }
   # validates :picture, presence: { message: "Image of walk is required" }
-  validates :city, presence: { message: "City is required" }
+  validate :need_two_waypoints
+  validate :too_many_waypoints
+
 
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank
 
   def need_two_waypoints
+
     if self.waypoints.length < 2
       errors.add(:walk, "Walks need at least two waypoints.")
     end

@@ -11,8 +11,11 @@ $(document).on('ready page:load', function() {
       }
     });
 
+
     $('button.plot_walk').on('click', function(e){
       console.log('button click!');
+      renderMap;
+
       var waypoints = [];
       $('input.address').each(function (index){
         waypoints.push({address: $(this).val(), order: index});

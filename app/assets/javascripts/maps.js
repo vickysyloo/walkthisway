@@ -102,34 +102,7 @@ function renderMap() {
       // var map_new = initialize('map_walk-new', 1);
       google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
 
-      $('#mkpts').on('cocoon:after-insert', function(e){
-        $('input.hidden_order').attr({name: 'order', value: waypt_order});
-        waypt_order +=1;
 
-        console.log("waypoint div selected");
-        $(".plot_btn").on('click', function(event){
-          // console.log("button.waypoint-btn jquery event registered");
-          var address = $(this).closest(".nested-fields").find(".address").val();
-          codeAddress(geocoder, address, map_new);
-        });
-      });
-
-
-      $('#centerbutton').on('click', function(e){
-        var city = $('#autocomplete_centermap').val();
-        console.log('city is' + city);
-        codeCity(geocoder, city, map_new);
-      });
-
-      $('#plot_new_walk').on('click', function(e){
-        alert('click on plot new walk registered');
-        var total = $('input.address')
-        var addresses = [];
-        for (i=0; i< total.length; i++) {
-          addresses.push($(total[i]).val());
-          console.log(addresses);
-        }
-      });
         //take all addresses
         //geocode address
         // create hash with lat/long of waypoints

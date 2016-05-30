@@ -8,12 +8,7 @@ class WalksController < ApplicationController
       @startpoints = []
       @searchedcity = params[:search_by_location]
       @centerpoint = Geocoder.coordinates(params[:search_by_location])
-      Walk.all.each do |walk| #iterate over all Walks in database
-        if walk.waypoints.first.distance_from(@centerpoint) < 30
-          @walks << walk #push this walk into @walks array
-        end
-      end
-
+      Walk.filter_by_distance(@walks, @centerpoint)
     else
       @walks = []
       @startpoints = []
@@ -28,16 +23,17 @@ class WalksController < ApplicationController
     end
 
     if @walks != nil
-      @walks.each do |walk|
-        @startpoints << [walk.waypoints.first.latitude, walk.waypoints.first.longitude, walk.waypoints.first.address, walk.description]
-      end
+      @walks.each {|walk| walk.walk_startpoints(@startpoints)}
     end
   end
 
   def new
     @walk = Walk.new
+    # @walk.plot_waypoints(params[:waypoint])
+
     @allwaypoints = []
     if params[:waypoints]
+
       i=0
       params[:waypoints].each do |waypt|
         waypt = params[:waypoints][i.to_s]

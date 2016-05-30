@@ -11,8 +11,17 @@ $(document).on('ready page:load', function() {
       }
     });
 
+    $('button#centerbutton').on('click', function(event) {
+        var city = $('#autocomplete_centermap').val();
+        console.log('city is' + city);
+        codeCity(geocoder, city, map_new);
+      });
 
     $('button.plot_walk').on('click', function(e){
+      if ($('input.address').val() == undefined || $('input.address').length) {
+        return;
+      }
+
       console.log('button click!');
       renderMap;
 

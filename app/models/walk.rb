@@ -34,4 +34,17 @@ class Walk < ActiveRecord::Base
     end
     return waypt_hash.to_json
   end
+
+  def self.filter_by_distance(walk_array, coord_array)
+    self.all.each do |walk| #iterate over all Walks in database
+      if walk.waypoints.first.distance_from(coord_array) < 30
+        walk_array << walk #push this walk into @walks array
+      end
+    end
+  end
+
+  def walk_startpoints(startpt_array)
+      startpt_array << [self.waypoints.first.latitude, self.waypoints.first.longitude, self.waypoints.first.address, self.description]
+  end
+
 end

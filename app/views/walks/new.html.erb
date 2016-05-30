@@ -13,23 +13,39 @@
   <%= form_for @walk do |f| %>
 
   <div class="errors">
-    <% if @walk.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <%@walk.errors.each do |key, value| %>
-            <li><%= value %></li>
-          <% end %>
-        </ul>
-    <% end %>
+    <%if @walk.errors.any? %>
+    <% @waypoint_errors = [] %>
+    <% @walk_errors = []%>
+      <% @walk.errors.messages.each do |error| %>
+        <% if error == @walk.errors.messages[:'waypoints.address'] %>
+          <% @waypoint_errors << @walk.errors.messages[:'waypoint.address']%>
+        <% elsif error == @walk.errors.messages[:walk]%>
+          <% @waypoint_errors << @walk.errors.messages[:walk] %>
+        <% else %>
+        <% @walk_errors << error %>
+        <% end %>
+      <% end %>
+    <% end%>
 
-      <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
+    <% if @walk_errors != nil %>
+    <%= 'Walk Errors' %>
+      <% @walk_errors.each do |key, error| %>
         <ul>
-          <% @waypoint.errors.each do |key, value| %>
-            <li><%= key %><%= value %></li>
-          <% end %>
+          <li><%= error[0]%> </li>
         </ul>
       <% end %>
-    </div><!-- end of error_explanation-->
+    <% end %>
+
+    <% if @waypoint_errors != nil%>
+    <%= 'Waypoint Errors' %>
+      <% @waypoint_errors.each do |error| %>
+        <ul>
+          <li><%= error%> </li>
+        <ul>
+      <% end%>
+    <% end %>
+  </div>
+
 
 <div class="create_form_step_one">
   <h3 class="create_step_one_title">Step 1 - Describe Walk</h3>

@@ -23,7 +23,7 @@ $(document).on('ready page:load', function() {
       if (event.which === 13) {
         event.preventDefault();
         event.stopPropagation();
-        var city = $('#autocomplete_centermap').val();
+        var city = $('input.autocomplete_centermap').val();
         console.log('city is' + city);
         codeCity(geocoder, city, map_new);
       }

@@ -1,16 +1,18 @@
 <div class="nested-fields">
+  <!-- <button type='button' id='up_reorder'> UP </button>
+  <button type='button' id='down_reorder'> DOWN </button> -->
 
-  <button type='button' id='up_reorder'> UP </button>
-  <button type='button' id='down_reorder'> DOWN </button>
+  <i class="fa fa-hand-grab-o" aria-hidden="true"></i>
 
-  <div class ='form_set'>
-    <%= f.label :address,:class=> 'form_label_create_walk'  %>
-    <%= f.text_field :address,:class=>"address"%>
+  <div class ='form_set_waypoint_address'>
+    <%= f.label :address,:class=> 'waypoint_label'  %>
+    <%= f.text_field :address,:class=>"form_field_create_walk"%>
   </div>
 
-  <div>
-    <%= f.label :description, :class=> 'form_label_create_walk'  %>
-    <%= f.text_area :description,:class=>"description"%>
+  <div class='form_set_waypoint'>
+    <%= f.label :description, :class=> 'waypoint_label' %>
+    <div>
+    <%= f.text_area :description,:class=>"desc_field_create_walk desc_field_waypoint"%></div>
   </div>
 
   <div>
@@ -19,5 +21,5 @@
 
   <div><%= link_to_remove_association "cancel", f %></div>
 
-  <button class ="plot_btn" type="button">Plot me</button>
+  <button class ="plot_btn" type="button">Plot Waypoint on Map</button>
 </div>

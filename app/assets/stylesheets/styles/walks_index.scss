@@ -29,17 +29,17 @@
 
 .walks-list{
   display: flex;
-  justify-content: space-between;
   background-color: transparent;
   flex-wrap: wrap;
 }
+
 .walkcard{
   background-size: cover;
   height: 365px;
   border: solid 1px lightgrey;
   width: 32%;
   background-color: white;
-  margin-top: 20px;
+  margin: 20px 0.5%;
   position: relative;
   a{
     color: black;

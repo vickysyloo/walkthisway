@@ -35,7 +35,7 @@
   <h3 class="create_step_one_title">Step 1 - Describe Walk</h3>
   <div class ='form_set'>
 
-    <%= f.label :city,:class=> 'form_label form_label_create_walk'  %><span class="required">*  </span>
+    <%= f.label :city,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
     <%= f.text_field :city, id: "autocomplete", :class=>'form_field form_field_create_walk'%>
     <button type="button" id="centerbutton">Center Map on City</button>
   </div>
@@ -59,12 +59,14 @@
     <%= f.label :picture,:class=> 'form_label form_label_create_walk'  %>
     <%= f.file_field :picture, :class=>'form_field form_field_create_walk' %>
   </div>
+
+  <button type="submit" class="next_btn next_first_btn">Next </button>
 </div><!-- end of create_form_step_one-->
 
 <div class="create_form_step_two">
     <h3 class="create_step_two_title">Step 2 - Waypoints (Stops)</h3>
 
-    <p class="waypoint_desc">You may create up to 8 Waypoints/Stops for your walk. You can drag the waypoints to your desired order. </p>
+    <p class="waypoint_desc">You may create up to 8 Waypoints(stops) for your walk. You can drag the waypoints to your desired order. </p>
 
 <div id="sortable">
   <div id="mkpts">
@@ -73,8 +75,15 @@
     <% end %>
     <span>Add New Waypoint</span><%= link_to_add_association '+', f, :waypoints, :class=> 'plus'%>
   </div>
+
+  <button type="submit" class="next_btn next_second_btn">Next </button>
+
+</div>
 </div><!-- end of create_form_step_two-->
 
+<div class="create_form_step_three">
+    <h3 class="create_step_two_title">Step 3 - Plot Walk</h3>
+    <p>You can view what your walk will look like on a map. If you are satisfied with the walk, click the 'create walk' button below.  </p>
   <div>
     <button type = 'button' class = 'plot_walk'> plot this walk! </button>
     <%= f.submit :class=>'walk_submit' %>
@@ -84,4 +93,5 @@
   <% end %><!-- end for form for -->
 </div><!-- end of errors -->
   </div><!-- end of form_list -->
+</div><!-- end of create_form_step_three-->
 </div><!-- end of page wrapper-->

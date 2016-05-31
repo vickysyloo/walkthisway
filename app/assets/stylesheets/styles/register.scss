@@ -1,0 +1,25 @@
+.home-body {
+  position: relative;
+}
+
+#register-button {
+  color: white;
+  text-decoration: none;
+  margin: 0px;
+  letter-spacing: 1px;
+  &:hover {
+    border-bottom: solid white;
+  }
+}
+
+.register-modal {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(30,30,40,0.8);
+}

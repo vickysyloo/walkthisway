@@ -1,0 +1,21 @@
+<%= form_tag user_sessions_path, :method => :post do %>
+  <fieldset>
+    <ul>
+      <li class="form_set">
+        <%= label_tag :email, "Email", :class => 'form_label' %>
+      </li>
+      <li class="form_set">
+        <%= text_field_tag :email, "", :id => "form_email" %>
+      </li>
+      <li class="form_set">
+        <%= label_tag :password, "Password", :class => 'form_label' %>
+      </li>
+      <li class="form_set">
+        <%= password_field_tag :password, "", :id => "form_password", :placeholder => "(at least 6 characters)"%>
+      </li>
+      <li class="form_set">
+        <%= submit_tag "Login", :class => 'btn_submit', :id => "form_submit" %>
+      </li>
+    </ul>
+  </fieldset>
+<% end %>

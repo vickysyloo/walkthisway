@@ -1,0 +1,47 @@
+.home-body {
+  position: relative;
+}
+
+#login-button {
+  color: white;
+  text-decoration: none;
+  margin: 0px;
+  letter-spacing: 1px;
+  &:hover {
+    border-bottom: solid white;
+  }
+}
+
+.signin-modal {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(30,30,40,0.8);
+}
+
+.signup_container-modal {
+  color: white;
+}
+
+.loginform_signup_form-modal {
+  color: black;
+  background-color: white;
+  display: inline-block;
+  border: solid  black 2px;
+  width: 48%;
+  float: right;
+  padding: 20px;
+  margin-right: 5%;
+  margin-top: 100px;
+  display: block;
+}
+
+#close-button {
+  top: 0;
+  right: 0;
+}

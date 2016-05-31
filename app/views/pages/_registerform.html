@@ -1,0 +1,35 @@
+<%= form_for @user do |f| %>
+  <fieldset>
+    <ul>
+      <li>* Required Field</li>
+      <li class ='form_set'><%= f.label :first_name, :class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.text_field :first_name, :class=>'form_field' %></li>
+
+      <li class ='form_set'><%= f.label :last_name,:class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.text_field :last_name, :class=>'form_field' %></li>
+
+      <li class ='form_set'><%= f.label :username,:class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.text_field :username, :class=>'form_field' %></li>
+
+      <li class ='form_set'><%= f.label :email,:class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.email_field :email, :class=>'form_field' %></li>
+
+      <li class ='form_set'><%= f.label :icon,:class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.file_field :icon, :class=>'form_field' %></li>
+
+      <li class ='form_set'><%= f.label :details, "About Me",:class=> 'form_label' %><span class="required">*</span></li>
+      <li> <%= f.text_area:details, size:'50x10', :class=>'text_area_field', :placeholder =>'Write a description about yourself! (min 250 words)' %></li>
+      <li class ='form_set'><%= f.label :location,:class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.text_field :location, :class=>'form_field' %></li>
+
+      <li class ='form_set'> <%= f.label :password,:class=> 'form_label' %><span class="required">*</span></li>
+      <li><%= f.password_field :password, :class=>'form_field' %></li>
+
+      <li class ='form_set'><%= f.label :password_confirmation,:class=> 'form_label' %><span class="required">*</span></li>
+      <li> <%= f.password_field :password_confirmation , :class=>'form_field'%></li>
+
+      <br>
+      <li><%= f.submit "Save", :class=>"btn_submit" %></li>
+    </ul>
+  </fieldset>
+<% end %>

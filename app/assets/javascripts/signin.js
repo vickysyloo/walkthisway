@@ -10,7 +10,7 @@ $(document).on('ready page:load', function() {
     $('.signin-modal').fadeOut('slow');
   });
 
-  $('#form_email, #form_password, #form_submit').on('click', function(e){
+  $('#form_email, #form_password, #form_submit').on('click', function(e) {
     e.stopPropagation();
   });
 
@@ -21,9 +21,13 @@ $(document).on('ready page:load', function() {
   $('form').on('click', function(e) {
     e.stopPropagation();
 
-    if (!$(e.target).is('#form_password')) {
+    if ($(e.target).not('#form_password')) {
       $('#form_password').attr('placeholder', '(at least 6 characters)');
     };
+  });
+
+  $('#form_email').on('click', function(e) {
+    $('#form_password').attr('placeholder', '(at least 6 characters)');
   });
 
   $('.signin-modal').on('click', function(e) {

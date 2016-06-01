@@ -52,7 +52,7 @@ $(document).on('ready page:load', function() {
           console.log('returned json file: ' + return_data);
           // plot_waypoints_array(return_data, map_show);
           // initPathMap(return_data, map_show);
-          plot_waypoints_array(return_data, map_new); 
+          plot_waypoints_array(return_data, map_new);
           initPathMap(return_data, map_new);
         }
       });

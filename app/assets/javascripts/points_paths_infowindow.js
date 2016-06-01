@@ -1,6 +1,11 @@
 var directionsDisplay = new google.maps.DirectionsRenderer({
           suppressMarkers: true,
           suppressInfoWindows: true,
+          polylineOptions: {
+            strokeColor: '#ff6666',
+            strokeOpacity: 3.0,
+            strokeWeight: 3
+      }
      });
 
 function plot_waypoints_array(pt_array, map) {

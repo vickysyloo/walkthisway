@@ -18,6 +18,7 @@ function codeAddress(geocoder, address, mapSelected) {
 }
 
 function codeCity(geocoder, city, form_map) {
+  console.log('city in codeCity is ' + city)
   geocoder.geocode( { 'address': city }, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       form_map.setCenter(results[0].geometry.location);			// center the map on address

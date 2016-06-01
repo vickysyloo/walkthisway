@@ -1,18 +1,28 @@
 $(document).on('ready page:load', function() {
 
   if ($('#map_walk-new').length > 0) {
+    // $('input.autocomplete_city').on('keypress', function(event) {
+    //   if (event.which === 13) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     var city = $('#autocomplete_centermap').val();
+    //     console.log('city is' + city);
+    //     codeCity(geocoder, city, map_new);
+    //   }
+    // });
+
     $('input.autocomplete_city').on('keypress', function(event) {
       if (event.which === 13) {
         event.preventDefault();
-        event.stopPropagation();
-        var address = $('#autocomplete_centermap').val();
-        console.log('city is' + address);
-        codeCity(geocoder, address, map_new);
+        // event.stopPropagation();
+        var city = $('input#autocomplete_centermap').val();
+        console.log('city in jquery is' + city);
+        codeCity(geocoder, city, map_new);
       }
     });
 
     $('button#centerbutton').on('click', function(event) {
-        var city = $('#autocomplete_centermap').val();
+        var city = $('input#autocomplete_centermap').val();
         console.log('city is' + city);
         codeCity(geocoder, city, map_new);
       });

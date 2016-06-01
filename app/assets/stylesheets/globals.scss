@@ -37,13 +37,13 @@ src: url("fonts/AbrilFatface-Regular.otf");
  }
 
  @font-face {
-    font-family: gotham;
-   src: url(GOTHAM-MEDIUM.TTF) format("truetype");
+    font-family: 'Montserrat';
+    font-weight: 700;
   }
 
   @font-face {
-      font-family: gotham-light;
-     src: url(GOTHAM-THIN.TTF) format("truetype");
+      font-family: 'Montserrat';
+      font-weight: 400;
     }
 
 img {
@@ -63,7 +63,7 @@ img {
   justify-content: space-between;
   background-color:transparent;
   padding: 20px 0;
-  font-family: gotham;
+  font-family: 'Montserrat';
     ul{
       display: inline-block;
       display: flex;

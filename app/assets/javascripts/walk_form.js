@@ -17,11 +17,7 @@ $(document).on('ready page:load', function() {
         codeCity(geocoder, city, map_new);
       });
 
-    $(".plot_btn").on('click', function(event){
-         // console.log("button.waypoint-btn jquery event registered");
-         var address = $(this).closest(".nested-fields").find(".address").val();
-         codeAddress(geocoder, address, map_new);
-       });
+
 
     $('button.plot_walk').on('click', function(e){
       if ($('input.address').val() == undefined || $('input.address').length) {
@@ -74,6 +70,12 @@ $(document).on('ready page:load', function() {
           }
         });
       });
+
+      $(".plot_btn").on('click', function(event){
+           // console.log("button.waypoint-btn jquery event registered");
+           var address = $(this).closest(".nested-fields").find(".address").val();
+           codeAddress(geocoder, address, map_new);
+         });
     });
   }
 });

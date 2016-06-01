@@ -7,7 +7,7 @@ $(document).on('ready page:load', function() {
       $('#add-waypoint a').show();
     }
   }
-
+  
   $('#waypoint').on('cocoon:after-insert', function() {
     check_to_hide_or_show_add_link();
   });

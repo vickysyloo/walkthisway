@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :edit_rights?, only: [:update, :edit]
+
   def new
     @user = User.new
-    @gobbledegook  = false
   end
 
   def show
@@ -22,12 +23,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-
     if @user.update_attributes(user_params)
       flash[:alert] = "Information updated!"
       redirect_to root_path
@@ -48,6 +46,11 @@ private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :icon, :details, :location, :password, :password_confirmation, :authentications_attributes)
+  end
+
+  def edit_rights?
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user == @user
   end
 
 end

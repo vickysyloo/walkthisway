@@ -17,8 +17,8 @@
 
     <div class="search-bar">
       <%= form_tag walks_path, method: :get do %>
-        <%= text_field_tag :search_by_location, params[:search_by_location], data:params[:search_by_location], :placeholder => "Which city would you like to explore? (E.g. Toronto, ON)", :class =>"search-bar-field autocomplete_city"%>
-        <%= submit_tag "Search", class: 'search-button', id: 'search-button-not-home' %>
+        <%= text_field_tag :search_by_location, params[:search_by_location], id: "autocomplete", data:params[:search_by_location], :placeholder => "Which city would you like to explore? (E.g. Toronto, ON)", :class =>"search-bar-field"%>
+        <%= submit_tag "Search", class: 'search-button'%>
       <% end %>
     </div>
 

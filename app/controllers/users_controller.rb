@@ -57,6 +57,8 @@ private
   def require_permission
     if current_user != Walk.find(params[:id]).user
       redirect_to root_path
+    else
+      redirect_to edit_user_path
     end
   end
 

@@ -5,9 +5,9 @@ $(document).on('ready page:load', function() {
       if (event.which === 13) {
         event.preventDefault();
         event.stopPropagation();
-        var city = $('#autocomplete_centermap').val();
-        console.log('city is' + city);
-        codeCity(geocoder, city, map_new);
+        var address = $('#autocomplete_centermap').val();
+        console.log('city is' + address);
+        codeCity(geocoder, address, map_new);
       }
     });
 
@@ -16,6 +16,12 @@ $(document).on('ready page:load', function() {
         console.log('city is' + city);
         codeCity(geocoder, city, map_new);
       });
+
+    $(".plot_btn").on('click', function(event){
+         // console.log("button.waypoint-btn jquery event registered");
+         var address = $(this).closest(".nested-fields").find(".address").val();
+         codeAddress(geocoder, address, map_new);
+       });
 
     $('button.plot_walk').on('click', function(e){
       if ($('input.address').val() == undefined || $('input.address').length) {

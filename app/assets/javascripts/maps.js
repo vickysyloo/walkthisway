@@ -3,6 +3,7 @@ var map_show;
 var map_new;
 var styles;
 var geocoder;
+var poly;
 
 function initialize(mapElement, zoomlevel, moreOptions) {
   // geocoder = new google.maps.Geocoder();	// create geocoder object to geocode address
@@ -35,6 +36,7 @@ function initialize(mapElement, zoomlevel, moreOptions) {
       ]
     }
   ];
+
   var styledMap = new google.maps.StyledMapType(styles,
     {name: "Styled Map"});
   var map = new google.maps.Map(document.getElementById(mapElement), extendedOptions);	// create new map div

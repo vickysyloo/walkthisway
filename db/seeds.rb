@@ -48,8 +48,7 @@ password: 'banana',
 password_confirmation: 'banana'
 )
 
-walk1 = Walk.new(
-id: 1000,
+walk1 = Walk.build(
 name: 'Great Architecture, Buildings',
 description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
@@ -78,8 +77,7 @@ walk_id: walk1.id
 
 walk1.save!
 
-walk2 = Walk.new(
-id: 2000,
+walk2 = Walk.build(
 name: 'Coffee it up!',
 description: 'A fantastic walk through your neighbourhood featuring coffee shops!',
 category_id: nature.id,
@@ -107,8 +105,7 @@ walk_id: walk2.id
 
 walk2.save!
 
-walk3 = Walk.new(
-id: 3000,
+walk3 = Walk.build(
 name: 'Cool-Aid',
 description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
 picture: 'https://a1.muscache.com/airbnb/guidebook/v1_san_francisco_hero@2x.jpg',
@@ -117,7 +114,7 @@ user_id: bob.id,
 city: "Toronto, ON, Canada"
 )
 
-waypoint1 = Waypoint.create!(
+waypoint5 = Waypoint.create!(
 name: 'Historic Route',
 description: 'A route that takes you through the ROM Museum and shows all the historic buildings within Toronto.',
 latitude: 43.6677,
@@ -126,7 +123,7 @@ address: '100 Queen\'s Park, Toronto, Ontario',
 walk_id: walk3.id
 )
 
-waypoint2 = Waypoint.create!(
+waypoint6 = Waypoint.create!(
 name: 'An artistic adventure',
 description: 'A route that takes you through the AGO and shows all the historic buildings within Toronto.',
 latitude: 43.65342,
@@ -138,8 +135,7 @@ walk_id: walk3.id
 walk3.save!
 
 
-walk4 = Walk.new(
-id: 4000,
+walk4 = Walk.build(
 name: 'Cool-Aid',
 description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
@@ -148,7 +144,7 @@ user_id: bob.id,
 city: "Toronto, ON, Canada"
 )
 
-waypoint1 = Waypoint.create!(
+waypoint5 = Waypoint.create!(
 name: 'Historic Route',
 description: 'A route that takes you through the ROM Museum and shows all the historic buildings within Toronto.',
 latitude: 43.6677,
@@ -157,7 +153,7 @@ address: '100 Queen\'s Park, Toronto, Ontario',
 walk_id: walk4.id
 )
 
-waypoint2 = Waypoint.create!(
+waypoint6 = Waypoint.create!(
 name: 'An artistic adventure',
 description: 'A route that takes you through the AGO and shows all the historic buildings within Toronto.',
 latitude: 43.65342,

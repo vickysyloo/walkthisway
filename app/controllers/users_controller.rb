@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :edit_rights?, only: [:update, :edit]
+  before_filter :require_permission, only: :edit
 
   def new
     @user = User.new
@@ -51,6 +52,12 @@ private
   def edit_rights?
     @user = User.find(params[:id])
     redirect_to(root_path) unless current_user == @user
+  end
+
+  def require_permission
+    if current_user != Walk.find(params[:id]).user
+      redirect_to root_path
+    end
   end
 
 end

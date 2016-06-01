@@ -9,6 +9,8 @@ var directionsDisplay = new google.maps.DirectionsRenderer({
      });
 
 function plot_waypoints_array(pt_array, map) {
+  var markers_array = [];
+
   for (var i=0; i<pt_array.length; i++) {
     lat = pt_array[i][0];
     lng = pt_array[i][1];
@@ -17,13 +19,13 @@ function plot_waypoints_array(pt_array, map) {
       position: {lat: lat, lng: lng},
       title: 'Hello World!'
     });
-
-    marker.setMap(map);
+    markers_array[i] = marker
+    markers_array[i].setMap(map);
 
     address = pt_array[i][2];
     description = pt_array[i][3];
 
-    addInfoWindow(marker, map, address, description)
+    addInfoWindow(markers_array[i], map, address, description)
   }
 }
 

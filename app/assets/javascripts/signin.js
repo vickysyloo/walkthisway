@@ -18,7 +18,7 @@ $(document).on('ready page:load', function() {
     $(this).attr('placeholder', "");
   });
 
-  $('form').on('click', function(e) {
+  $('.login_form').on('click', function(e) {
     e.stopPropagation();
 
     if ($(e.target).not('#form_password')) {

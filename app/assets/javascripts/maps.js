@@ -3,7 +3,6 @@ var map_show;
 var map_new;
 var styles;
 var geocoder;
-var poly;
 
 function initialize(mapElement, zoomlevel, moreOptions) {
   // geocoder = new google.maps.Geocoder();	// create geocoder object to geocode address

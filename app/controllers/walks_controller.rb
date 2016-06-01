@@ -22,6 +22,11 @@ class WalksController < ApplicationController
       @walks = @walks.select{|walk| walk.category.id ==  @category}
     end
 
+    if params[:user_id]
+      @walks = User.find(params[:user_id]).walks
+      binding.pry
+    end
+
     if @walks != nil
       @walks.each {|walk| walk.walk_startpoints(@startpoints)}
     end

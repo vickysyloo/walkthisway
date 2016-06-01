@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
+  resources :users, only: [:show] do
+    resources :walks, only: [:index, :show]
+  end
 end

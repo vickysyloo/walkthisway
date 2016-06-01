@@ -24,7 +24,6 @@ class WalksController < ApplicationController
 
     if params[:user_id]
       @walks = User.find(params[:user_id]).walks
-      binding.pry
     end
 
     if @walks != nil

@@ -1,18 +1,39 @@
 $(document).on('ready page:load', function() {
 
   if ($('#map_walk-new').length > 0) {
+    // $('input.autocomplete_city').on('keypress', function(event) {
+    //   if (event.which === 13) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     var city = $('#autocomplete_centermap').val();
+    //     console.log('city is' + city);
+    //     codeCity(geocoder, city, map_new);
+    //   }
+    // });
+
     $('input.autocomplete_city').on('keypress', function(event) {
       if (event.which === 13) {
         event.preventDefault();
-        event.stopPropagation();
-        var city = $('#autocomplete_centermap').val();
-        console.log('city is' + city);
+        // event.stopPropagation();
+        var city = $('input#autocomplete_centermap').val();
+        console.log('city in jquery is' + city);
         codeCity(geocoder, city, map_new);
       }
     });
 
+    $('button#centerbutton').on('click', function(event) {
+        var city = $('input#autocomplete_centermap').val();
+        console.log('city is' + city);
+        codeCity(geocoder, city, map_new);
+      });
+
+
 
     $('button.plot_walk').on('click', function(e){
+      if ($('input.address').val() == undefined || $('input.address').val() == '' || $('input.address').length < 2 ) {
+        alert('Need at least 2 points to plot a path');
+        return;
+      }
       console.log('button click!');
       renderMap;
 
@@ -22,18 +43,19 @@ $(document).on('ready page:load', function() {
       });
         console.log(waypoints);
 
-          $.ajax({
-            dataType: 'json',
-            url: '/walks/new',
-            method: 'GET',
-            data: {waypoints: waypoints},
-            success: function(return_data){
-              console.log('returned json file: ' + return_data);
-              // plot_waypoints_array(return_data, map_show);
-              // initPathMap(return_data, map_show);
-              initPathMap(return_data, map_new);
-            }
-        });
+      $.ajax({
+        dataType: 'json',
+        url: '/walks/new',
+        method: 'GET',
+        data: {waypoints: waypoints},
+        success: function(return_data){
+          console.log('returned json file: ' + return_data);
+          // plot_waypoints_array(return_data, map_show);
+          // initPathMap(return_data, map_show);
+          plot_waypoints_array(return_data, map_new);
+          initPathMap(return_data, map_new);
+        }
+      });
     });
 
     // on clicking 'submit', query for all waypoint partial forms (input.order hidden field), insert index value into hidden field, trigger submit on the form
@@ -59,6 +81,15 @@ $(document).on('ready page:load', function() {
           }
         });
       });
+
+      $(".plot_btn").on('click', function(event){
+         // console.log("button.waypoint-btn jquery event registered");
+         var address = $(this).closest(".nested-fields").find(".address").val();
+         codeAddress(geocoder, address, map_new);
+       });
+
+
+
     });
   }
 });

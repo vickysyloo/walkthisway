@@ -9,7 +9,7 @@
 
   <% if current_user == @user %>
     <%= link_to "Edit Profile", edit_user_url %>
-    <%= link_to "Walks You've Created", root_url %>
+    <%= link_to "Walks You've Created", user_walks_url(current_user) %>
     <%= link_to "Your Favourite Walks", root_url %>
   <% end %>
 

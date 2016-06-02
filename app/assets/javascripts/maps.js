@@ -35,6 +35,7 @@ function initialize(mapElement, zoomlevel, moreOptions) {
       ]
     }
   ];
+
   var styledMap = new google.maps.StyledMapType(styles,
     {name: "Styled Map"});
   var map = new google.maps.Map(document.getElementById(mapElement), extendedOptions);	// create new map div
@@ -61,7 +62,7 @@ function renderMap() {
     var moreOptions = {
       disableDefaultUI: true,
       disableDoubleClickZoom: true,
-      draggable: false,
+      draggable: true,
       zoomControl: true,
       zoomControlOptions: {
         position: google.maps.ControlPosition.LEFT_CENTER

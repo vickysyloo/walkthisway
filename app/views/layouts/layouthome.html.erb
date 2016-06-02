@@ -3,11 +3,14 @@
 <head>
   <title>Walkthisway</title>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_maps_api_key']%>&libraries=drawing,geometry,places"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="home-body">
 
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>
@@ -18,9 +21,46 @@
   <% end %>
 
   <div class="social-media">
-    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/walkthiswayvtcm/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/walkthiswaynow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.instagram.com/walkthiswayvtcm/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+  </div>
+
+  <div class="signin-modal">
+    <div class="page-wrapper-modal">
+
+      <div class="signup_container-modal">
+        <h1 class="login_desc"> Hello again! <br> Please sign in. </h1>
+
+        <div class="loginform_signup_form-modal">
+          <%= render 'form' %>
+        </div>
+
+        <!-- <div id="close-button">CLOSE ME</div> -->
+      <!-- <%= link_to "Home", root_url %> -->
+      </div>
+    <!-- <%= link_to 'Back', root_path %> -->
+    </div>
+  </div>
+
+  <div class="register-modal">
+    <div class="page-wrapper">
+
+        <div class="social-media social-login">
+            <a href="https://www.facebook.com/walkthiswayvtcm/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/walkthiswaynow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/walkthiswayvtcm/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="signup_container-modal">
+            <h1 class="login_desc"> Walking is good for you... <br>Sign Up...Get Walking!</h1>
+
+            <div class="form loginform_signup_form-modal">
+                <%= render partial: 'registerform' %>
+            </div>
+
+        </div>
+    </div>
   </div>
 
 <div class="homepage">

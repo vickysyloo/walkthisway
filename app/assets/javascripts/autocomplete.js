@@ -18,16 +18,16 @@ $(document).on('ready page:load', function() {
 //on home page
   if ($('input.autocomplete_city').length >0) {
     // var acElement = document.getElementByClass('autocomplete');
-
-    $('input.autocomplete_city').on('keypress', function(event) {
-      if (event.which === 13) {
-        event.preventDefault();
-        event.stopPropagation();
-        var city = $('#autocomplete_centermap').val();
-        console.log('city is' + city);
-        codeCity(geocoder, city, map_new);
-      }
-    });
+    //
+    // $('input.autocomplete_city').on('keypress', function(event) {
+    //   if (event.which === 13) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     var city = $('input.autocomplete_centermap').val();
+    //     console.log('city is' + city);
+    //     codeCity(geocoder, city, map_new);
+    //   }
+    // });
 
     acOptions = {
       types: ['(cities)']
@@ -45,6 +45,8 @@ $(document).on('ready page:load', function() {
         autocomplete_maker(this);
         console.log('cocoon created, autocomplete event fired');
       });
+
+
     });
   }
 // every time the search button is clicked

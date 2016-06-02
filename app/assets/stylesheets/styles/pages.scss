@@ -18,7 +18,7 @@
 .homepage-big-letter{
   display: inline-block;
   font-size: 35vw;
-  font-family: freefonts;
+  font-family: 'Montserrat';
   background-image:image-url('walking.png');
   background-position:0 0;
   text-transform:uppercase;
@@ -52,7 +52,8 @@
 }
 
 .desc{
-  font-family: gotham-light;
+  font-family: 'Montserrat';
+  font-weight: 400;
   color: white;
   font-size: 2.5vw;
   margin-top:30px;
@@ -98,7 +99,18 @@ h1{
   width: 5.5vw;
   padding: 8px;
   color: white;
-  font-family: gotham;
+  font-family: 'Montserrat';
+  background-color: transparent;
+  font-size: 1vw;
+  margin-left: 1vw;
+}
+
+#search-button-not-home {
+  border: solid 2px gray;
+  width: 5.5vw;
+  padding: 8px;
+  color: black;
+  font-family: 'Montserrat';
   background-color: transparent;
   font-size: 1vw;
   margin-left: 1vw;

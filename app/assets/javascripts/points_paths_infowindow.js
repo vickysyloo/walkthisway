@@ -1,9 +1,16 @@
 var directionsDisplay = new google.maps.DirectionsRenderer({
           suppressMarkers: true,
           suppressInfoWindows: true,
+          polylineOptions: {
+            strokeColor: '#ff6666',
+            strokeOpacity: 3.0,
+            strokeWeight: 3
+      }
      });
 
 function plot_waypoints_array(pt_array, map) {
+  var markers_array = [];
+
   for (var i=0; i<pt_array.length; i++) {
     lat = pt_array[i][0];
     lng = pt_array[i][1];
@@ -12,19 +19,34 @@ function plot_waypoints_array(pt_array, map) {
       position: {lat: lat, lng: lng},
       title: 'Hello World!'
     });
-
-    marker.setMap(map);
+    markers_array[i] = marker
+    markers_array[i].setMap(map);
 
     address = pt_array[i][2];
     description = pt_array[i][3];
 
-    addInfoWindow(marker, map, address, description)
+    if (map == map_index) {
+      addInfoWindow_index(markers_array[i], map, address, description)
+    } else {
+      addInfoWindow(markers_array[i], map, address, description)
+    }
   }
+}
+
+function addInfoWindow_index(marker, map, address, description) {
+  var infowindow = new google.maps.InfoWindow({
+    content: ('<b>Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
+    maxWidth: 200
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 }
 
 function addInfoWindow(marker, map, address, description) {
   var infowindow = new google.maps.InfoWindow({
-    content: ('<b>Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
+    content: ('<b>Address:</b><br>'+address+"<br><b>Details</b><br>"+description),
     maxWidth: 200
   });
 

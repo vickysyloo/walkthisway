@@ -8,7 +8,7 @@ html, body {
   margin: 0;
   padding: 0;
   // cursor: crosshair;
-  font-family:  AbrilFatface-Regular;
+  font-family: 'Abril Fatface', cursive;
   height:100%;
   font-weight: 300;
   color: $grey;
@@ -27,23 +27,21 @@ html, body {
    margin: 0 auto; }
 
 @font-face {
-font-family: AbrilFatface-Regular  ;
-src: url("fonts/AbrilFatface-Regular.otf");
+font-family: 'Abril Fatface', cursive;
 }
 
 @font-face {
-   font-family: freefonts;
-  src: url(freefont.oft) format("truetype");
+   font-family: 'Montserrat';
  }
 
  @font-face {
-    font-family: gotham;
-   src: url(GOTHAM-MEDIUM.TTF) format("truetype");
+    font-family: 'Montserrat';
+    font-weight: 700;
   }
 
   @font-face {
-      font-family: gotham-light;
-     src: url(GOTHAM-THIN.TTF) format("truetype");
+      font-family: 'Montserrat';
+      font-weight: 400;
     }
 
 img {
@@ -54,7 +52,7 @@ img {
   box-sizing: inherit; }
 
 .logo{
-    font-family: freefonts;
+    font-family: 'Montserrat';
     font-size: 30px;
   }
 
@@ -63,7 +61,7 @@ img {
   justify-content: space-between;
   background-color:transparent;
   padding: 20px 0;
-  font-family: gotham;
+  font-family: 'Montserrat';
     ul{
       display: inline-block;
       display: flex;

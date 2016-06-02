@@ -62,7 +62,7 @@ function renderMap() {
     var moreOptions = {
       disableDefaultUI: true,
       disableDoubleClickZoom: true,
-      draggable: false,
+      draggable: true,
       zoomControl: true,
       zoomControlOptions: {
         position: google.maps.ControlPosition.LEFT_CENTER

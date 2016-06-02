@@ -87,8 +87,8 @@
     <%= f.fields_for :waypoints do |waypoint| %>
     <%= render 'waypoint_fields', :f => waypoint%>
     <% end %>
-    <span>Add New Waypoint</span><%= link_to_add_association '+', f, :waypoints, :class=> 'plus'%>
-  </div>
+    <span>Add New Waypoint</span>
+      <%= link_to_add_association "+", f, :waypoints, :class=> 'plus' %>
 </div><!-- end of create_form_step_two-->
 
   <div>

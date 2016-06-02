@@ -2,11 +2,11 @@
   <!-- <button type='button' id='up_reorder'> UP </button>
   <button type='button' id='down_reorder'> DOWN </button> -->
 
-  <i class="fa fa-hand-grab-o" aria-hidden="true"></i>
+  <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
 
   <div class ='form_set_waypoint_address'>
     <%= f.label :address,:class=> 'waypoint_label'  %>
-    <%= f.text_field :address,:class=>"form_field_create_walk address"%>
+    <%= f.text_field :address,:class=>"form_field_create_walk_address"%>
   </div>
 
   <div class='form_set_waypoint'>
@@ -19,7 +19,6 @@
     <%= f.hidden_field :order, :class=>"order" %>
   </div>
 
-  <div><%= link_to_remove_association "cancel", f %></div>
-
-  <button class ="plot_btn" type="button">Plot Waypoint on Map</button>
+  <%= link_to_remove_association "Remove Waypoint", f, :class=>"cancel_waypoint" %>
+  <button class ="plot_btn" type="button">Plot on Map</button>
 </div>

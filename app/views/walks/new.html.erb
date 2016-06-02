@@ -1,30 +1,29 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script>
 
-<div class="page-wrapper">
+<div class="create_walk_container">
+  <div class="page-wrapper">
+    <h1 class="create_walk_title">Have an awesome path you want to share?</br>
+      Create a route!</h1>
 
-  <h1 class="create_walk_title">
-    Have an awesome path you want to share?</br>
-    Create a route!
-  </h1>
+    <div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
 
-<div id="map_walk-new" class="map" data-latitude='0' data-longitude="0" ></div>
+    <div class="form-list">
+      <div class="page-wrapper">
+        <%= form_for @walk do |f| %>
+          <ul class="js_errors_list">
+            <!-- clientside error validations will go here -->
+          </ul>
 
-<div class="form-list">
-  <%= form_for @walk do |f| %>
-
-  <div class="errors">
-    <% if @walk.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-          <%@walk.errors.each do |key, value| %>
-          <%# binding.pry%>
-            <%if key == [:walk]%>
-                <%=value = ""%>
-             <%end%>
-            <li><%= value %></li>
+          <% if @walk.errors.any? %>
+            <div id="error_explanation">
+              <ul>
+                <% @walk.errors.each do |key, value|  %>
+                   <%if key != :walk%>
+                      <li><%= value%></li>
+                   <%end%>
+                <% end %>
+              </ul>
           <% end %>
-        </ul>
-    <% end %>
 
       <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
         <ul>
@@ -35,69 +34,72 @@
       <% end %>
     </div><!-- end of error_explanation-->
 
-<div class="create_form_step_one">
-  <h3 class="create_step_one_title">Step 1 - Describe Walk</h3>
-  <div class ='form_set'>
+<div class="steps_container">
+  <div class="create_step create_form_step_one">
+    <h3 class="create_step_one_title">STEP 1: DESCRIBE WALK</h3>
 
+    <div class ='form_set'>
+      <%= f.label :city,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
+      <%= f.text_field :city, :id=>'form_city', :class=>'form_field form_field_create_walk autocomplete_city'%>
+      <button type="button" id="centerbutton">CENTER MAP</button>
+    </div>
 
-    <%= f.label :city,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-    <%= f.text_field :city, :id=>'autocomplete_centermap', :class=>'form_field form_field_create_walk autocomplete_city'%>
+    <div class ='form_set'>
+      <%= f.label :category, :class=> 'form_label form_label_create_walk' %><span class="required">*  </span>
+      <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
+    </div>
 
-    <button type="button" id="centerbutton">Center Map on City</button>
-  </div>
+    <div class ='form_set'>
+      <%= f.label :name,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
+      <%= f.text_field :name, :class=>'form_field form_field_create_walk', :id=>'form_name' %>
+    </div>
 
-  <div class ='form_set'>
-    <%= f.label :category, :class=> 'form_label form_label_create_walk' %><span class="required">*  </span>
-    <%= f.collection_select(:category_id, Category.all, :id, :theme) %>
-  </div>
-
-  <div class ='form_set'>
-    <%= f.label :name,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-    <%= f.text_field :name, :class=>'form_field form_field_create_walk' %>
-  </div>
-
-  <div class ='form_set'>
-    <%= f.label :description,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-    <div><%= f.text_area :description, :class=>'form_field desc_field_create_walk' %></div>
-  </div>
+    <div class ='form_set'>
+      <%= f.label :description,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
+      <div><%= f.text_area :description, :class=>'form_field desc_field_create_walk', :id=>'form_desc' %></div>
+    </div>
 
   <div class ='form_set'>
     <%= f.label :picture,:class=> 'form_label form_label_create_walk'  %>
     <%= f.file_field :picture, :class=>'form_field form_field_create_walk' %>
   </div>
 
-  <button type="submit" class="next_btn next_first_btn">Next </button>
 </div><!-- end of create_form_step_one-->
 
-<div class="create_form_step_two">
-    <h3 class="create_step_two_title">Step 2 - Waypoints (Stops)</h3>
+<div class="create_step create_form_step_two">
+    <h3 class="create_step_two_title">STEP 2: WAYPOINTS (STOPS)</h3>
 
-    <p class="waypoint_desc">You may create up to 8 Waypoints(stops) for your walk. You can drag the waypoints to your desired order. </p>
+    <p class="waypoint_desc">You may create up to 8 waypoints for your walk. You can order your waypoints by dragging them. </p>
 
-<div id="sortable">
-  <div id="mkpts">
-    <%= f.fields_for :waypoints do |waypoint| %>
-    <%= render 'waypoint_fields', :f => waypoint%>
-    <% end %>
-    <span>Add New Waypoint</span><%= link_to_add_association '+', f, :waypoints, :class=> 'plus'%>
-  </div>
-
-  <button type="submit" class="next_btn next_second_btn">Next </button>
-
-</div>
+  <div id="sortable">
+    <div id="mkpts">
+      <%= f.fields_for :waypoints do |waypoint| %>
+      <%= render 'waypoint_fields', :f => waypoint%>
+      <% end %>
+      <span class="add_waypoint">Add New Waypoint</span><%= link_to_add_association '+', f, :waypoints, :class=> 'plus'%>
+    </div><!-- end of mkpts-->
+  </div><!-- end of sortable-->
 </div><!-- end of create_form_step_two-->
 
-<div class="create_form_step_three">
+<div class="create_step create_form_step_three">
     <h3 class="create_step_two_title">Step 3 - Plot Walk</h3>
     <p>You can view what your walk will look like on a map. If you are satisfied with the walk, click the 'create walk' button below.  </p>
-  <div>
-    <button type = 'button' class = 'plot_walk'> plot this walk! </button>
-    <%= f.submit :class=>'walk_submit' %>
+
+    <div>
+      <button type = 'button' class = 'plot_walk'> plot this walk! </button>
+      <%= f.submit :class=>'walk_submit' %>
+    </div>
+  </div><!-- end of create_form_step_three-->
+</div><!-- end of steps container-->
+
+  <div class="back_next_container">
+    <button type="button" class="step_btn back_btn">BACK </button>
+    <button type="button" class="step_btn next_btn">NEXT </button>
   </div>
-</div>
 
   <% end %><!-- end for form for -->
-</div><!-- end of errors -->
-  </div><!-- end of form_list -->
-</div><!-- end of create_form_step_three-->
 </div><!-- end of page wrapper-->
+</div><!-- end of form_list -->
+
+</div><!-- end of page wrapper-->
+</div><!-- end of create walk container-->

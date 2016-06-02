@@ -1,8 +1,8 @@
 /* @import all of the style sheets HERE INSTEAD OF APPLICATION.CSS */
 
+@import 'variables.scss';
 @import "font-awesome";
 @import "globals.scss";
-@import 'variables.scss';
 @import "styles/pages.scss";
 @import "styles/users.scss";
 @import 'styles/map.scss';

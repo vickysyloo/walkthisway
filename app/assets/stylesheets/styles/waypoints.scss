@@ -1,3 +1,65 @@
 // Place all the styles related to the Waypoints controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nested-fields{
+  border: dotted 2px gray;
+  width: 100%;
+  position: relative;
+  margin: 20px 0;
+}
+
+.plus{
+  color: red;
+  margin-left: 20px;
+  font-size: 22px;
+}
+
+.fa-mouse-pointer{
+  position: absolute;
+  top:0;
+  right: 0;
+  font-size: 18px;
+  margin: 9px;
+}
+
+.add_waypoint{
+  font-size: 13px;
+}
+
+.form_set_waypoint_address{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.waypoint_label{
+  font-weight: 100;
+  margin-right: 30px;
+  font-family: Gotham-light;
+}
+
+.desc_field_create_walk{
+  height:100px;
+  width: 70%;
+
+}
+
+.desc_field_waypoint{
+  margin: 8px 20px;
+}
+
+.waypoint_desc{
+  font-family: gotham-light;
+}
+
+.cancel_waypoint,.plot_btn{
+    color: tomato;
+    font-size: 10px;
+    margin: 8px;
+    font-weight: bold;
+}
+
+.plot_btn{
+  border: none;
+  background-color: transparent;
+}

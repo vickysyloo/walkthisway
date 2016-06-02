@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :walks do
     resources :waypoints
+    resources :comments, only: [:show, :create, :destroy]
   end
+
 
   resources :user_sessions
   resources :users

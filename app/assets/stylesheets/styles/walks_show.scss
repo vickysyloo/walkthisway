@@ -54,3 +54,37 @@
   color: #f75c4f;
   font-weight: bold;
 }
+
+#comment-list-and-form {
+  margin-top: 20%;
+}
+
+#comment_comment {
+  width: 70%;
+}
+
+p#comment-title {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0;
+}
+p.comment-text {
+  display: inline;
+}
+p.comment-author-date {
+  display: inline;
+  color: grey;
+  text-align: right;
+}
+
+ul.comments {
+  margin-top: 0;
+}
+li.comment-list {
+  margin: 2px 0px 2px;
+  border-bottom: 1px solid #eee;
+  // border-top: 1px solid #eee;
+}
+
+button.delete-comment {
+  display: inline-block;
+}

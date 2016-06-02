@@ -7,9 +7,9 @@
   </div>
 </div>
 
-<% if current_user == Walk.find(params[:id]).user %>
+<% if current_user == @walk.user %>
   <%= link_to 'Edit Walk', edit_walk_path %>
-  <%= link_to 'Delete Walk', method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
+  <%= link_to 'Delete Walk', walk_path(@walk), :method => :delete, data: { :confirm => 'Are you sure you want to delete your walk?' } %>
 <% end %>
 
 <main class="walk_show_main">

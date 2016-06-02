@@ -89,7 +89,6 @@ class WalksController < ApplicationController
 
   def update
     @walk = Walk.find(params[:id])
-
     if @walk.update_attributes(walk_params)
       redirect_to walk_url(@walk)
     else

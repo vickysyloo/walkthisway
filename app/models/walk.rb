@@ -2,7 +2,9 @@ class Walk < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :waypoints
-
+  has_many :comments
+  has_many :commenters, through: :comments, source: :user
+  
   mount_uploader :picture, PictureUploader
 
   validate :need_two_waypoints

@@ -1,0 +1,20 @@
+<div id = 'comment-list-and-form'>
+<ul class="comments">
+  <% if @walk.comments != nil %>
+    <% @walk.comments.each do |comment| %>
+      <li class="comment-list">
+        <p><%= comment.comment %></p>
+        <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<% if current_user %>
+<p> Leave a comment! </p>
+  <%= form_for [@walk, @comment] do |f| %>
+    <%= f.text_area :comment, placeholder: "What did you learn today?" %>
+    <%= f.submit "post", id: "post-comment" %>
+  <% end %>
+<% end %>
+</div>

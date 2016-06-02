@@ -58,7 +58,14 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = @walk.waypoints_coord_formatted
-    # binding.pry
+
+    if current_user
+      @comment = Comment.new
+    end 
+    if @walk.comments.any?
+      @comments = Comment.where(walk_id: params[:id])
+    end
+
     respond_to do |format|
       format.html
       format.json { render json: @allwaypoints}

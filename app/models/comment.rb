@@ -1,7 +1,8 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :walk
-    validates :user_id, :walk_id, presence: true
+    validates :walk_id, presence: true
+    validates :comment, presence: true
 
   validate :comment_length
 

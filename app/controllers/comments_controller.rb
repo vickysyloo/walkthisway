@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
+  before_action :load_walk
 
   def create
-    @comment = @walk.comments.build(comment_params)
-    @comment.user = current_user
+    @comment = @walk.comments.create(comment_params)
+    @comment.user_id = current_user.id
+    @comment.walk_id = params[:walk_id]
     respond_to do |format|
       if @comment.save
         format.html { redirect_to walk_path(@walk.id), notice: 'comment created successfully' }
@@ -30,14 +32,18 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    @walk = Walk.find(@comment.walk_id)
     @comment.destroy
-    redirect_to walks_show_path(params:[walk_id])
+    redirect_to walk_path(@walk)
   end
 
 private
 
   def comment_params
-    params.require(:user).permit(:user_id, :walk_id, :comment)
+    params.require(:comment).permit(:walk_id, :comment)
   end
 
+  def load_walk
+    @walk = Walk.find(params[:walk_id])
+  end
 end

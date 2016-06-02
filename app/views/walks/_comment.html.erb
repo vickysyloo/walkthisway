@@ -1,11 +1,22 @@
 <div id = 'comment-list-and-form'>
+  <p id = 'comment-title'> Comments </p>
 <ul class="comments">
-  <% if @walk.comments != nil %>
+  <% if @walk.comments.any? %>
     <% @walk.comments.each do |comment| %>
+      <% if comment.id != nil %>
       <li class="comment-list">
-        <p><%= comment.comment %></p>
-        <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+        <p class = 'comment-text'><%= comment.comment %>
+           <p class='comment-author-date'>
+             - <%= comment.user.username %> <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+            </p>
+         </p>
+         <% if comment.user = current_user %>
+         <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
+
+        <% end %>
+      <% end %>  
       </li>
+
     <% end %>
   <% end %>
 </ul>
@@ -13,7 +24,7 @@
 <% if current_user %>
 <p> Leave a comment! </p>
   <%= form_for [@walk, @comment] do |f| %>
-    <%= f.text_area :comment, placeholder: "What did you learn today?" %>
+    <%= f.text_area :comment, placeholder: "This walk was just fab." %>
     <%= f.submit "post", id: "post-comment" %>
   <% end %>
 <% end %>

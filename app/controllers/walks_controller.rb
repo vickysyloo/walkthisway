@@ -60,8 +60,8 @@ class WalksController < ApplicationController
     @allwaypoints = @walk.waypoints_coord_formatted
 
     if current_user
-      @comment = Comment.new
-    end 
+      @comment = @walk.comments.new
+    end
     if @walk.comments.any?
       @comments = Comment.where(walk_id: params[:id])
     end

@@ -32,14 +32,19 @@ $( '.next_btn' ).click(function() {
          $curr = $curr.next();
          $curr.show();
        }
-  }
+}
 
   else if (counter===1) {
     $('.js_errors_list').html('');
-    if ($('.nested-fields').length < 2  || $('.form_field_create_walk_address') == '') {
-        $('.js_errors_list').html('Need at least two waypoints and waypoints require addresses.');
+    if ($('.nested-fields').length < 2)  {
+        $('.js_errors_list').html('Need at least two waypoints.');
         return false;
     }
+
+    else if ($('.form_field_create_walk_address').val() === '') {
+       $('.js_errors_list').html('Waypoints require addresses.');
+       return false;
+   }
 
     else {
       counter ++;

@@ -11,11 +11,6 @@ class UsersController < ApplicationController
     @user_walks = @user.walks
   end
 
-  # def user_walk
-  #   @user = User.find(params[:id])
-  #   @user_walk = User.walks
-  # end
-
   def create
     @user = User.new(user_params)
     if @user.save

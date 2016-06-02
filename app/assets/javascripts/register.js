@@ -9,6 +9,10 @@ $(document).on('ready page:load', function() {
     e.stopPropagation();
   });
 
+  $('.form').on('click', function(e) {
+    e.stopPropagation();
+  });
+
   $('.register-modal').on('click', function(e) {
     $(this).fadeOut('slow');
   });

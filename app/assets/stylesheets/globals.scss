@@ -79,6 +79,16 @@ img {
         padding-bottom: 10px;
       }
     }
+    span.login-button, #register-button {
+      color: white;
+      text-decoration: none;
+      margin: 20px;
+      letter-spacing: 1px;
+      &:hover {
+        border-bottom: solid white ;
+        padding-bottom: 10px;
+      }
+    }
   }
 
   .nav-menu-home{

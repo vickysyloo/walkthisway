@@ -25,13 +25,28 @@ function plot_waypoints_array(pt_array, map) {
     address = pt_array[i][2];
     description = pt_array[i][3];
 
-    addInfoWindow(markers_array[i], map, address, description)
+    if (map == map_index) {
+      addInfoWindow_index(markers_array[i], map, address, description)
+    } else {
+      addInfoWindow(markers_array[i], map, address, description)
+    }
   }
+}
+
+function addInfoWindow_index(marker, map, address, description) {
+  var infowindow = new google.maps.InfoWindow({
+    content: ('<b>Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
+    maxWidth: 200
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 }
 
 function addInfoWindow(marker, map, address, description) {
   var infowindow = new google.maps.InfoWindow({
-    content: ('<b>Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
+    content: ('<b>Address:</b><br>'+address+"<br><b>Details</b><br>"+description),
     maxWidth: 200
   });
 

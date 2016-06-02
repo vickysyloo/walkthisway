@@ -1,6 +1,6 @@
 $(document).on('ready page:load', function() {
 
-  $('#login-button').on('click', function() {
+  $('.login-button').on('click', function() {
     console.log("login clicked");
     $('.signin-modal').fadeIn('slow');
   });

@@ -18,7 +18,7 @@ $(document).on('ready page:load', function() {
 //on home page
   if ($('input.autocomplete_city').length >0) {
     // var acElement = document.getElementByClass('autocomplete');
-    // 
+    //
     // $('input.autocomplete_city').on('keypress', function(event) {
     //   if (event.which === 13) {
     //     event.preventDefault();
@@ -45,6 +45,8 @@ $(document).on('ready page:load', function() {
         autocomplete_maker(this);
         console.log('cocoon created, autocomplete event fired');
       });
+
+
     });
   }
 // every time the search button is clicked

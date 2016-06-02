@@ -10,11 +10,12 @@
         <li><%= link_to "Hi, #{current_user.first_name}!" ,user_path(current_user.id) %></li>
         <li><%= link_to "Logout", :logout, method: :post %></li>
       <% else %>
-        <li><span id='login-button'>Login-test</span></li>
-        <li><span id='register-button'>Reg-test</span></li>
-        <li><%= link_to "Create a walk", new_walk_path %></li>
-        <li><%= link_to "Register", new_user_path %></li>
-        <li><%= link_to "Login", :login, :class=> 'login_link'%></li>
+        <!-- <li><%#= link_to "Create a walk", new_walk_path %></li> -->
+        <!-- <li><%#= link_to "Register", new_user_path %></li>
+        <li><%#= link_to "Login", :login, :class=> 'login_link'%></li> -->
+        <li><span class='login-button'>Create a Walk</span></li>
+        <li><span class='login-button'>Login</span></li>
+        <li><span id='register-button'>Register</span></li>
       <% end %>
     </ul>
 </div><!-- end of nav-menu-->

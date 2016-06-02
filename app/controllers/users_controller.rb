@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     unless current_user == @user
-      flash[:alert] = "You are not authorized."
+      flash[:alert] = "You are not authorized. Currently logged in is #{current_user.username}."
       redirect_to root_url
     end
   end

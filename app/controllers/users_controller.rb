@@ -8,7 +8,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_walks = @user.walks
   end
+
+  # def user_walk
+  #   @user = User.find(params[:id])
+  #   @user_walk = User.walks
+  # end
 
   def create
     @user = User.new(user_params)

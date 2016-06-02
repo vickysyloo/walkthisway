@@ -1,12 +1,20 @@
 class UsersController < ApplicationController
+  before_action :edit_rights?, only: [:update, :edit]
+  before_filter :require_permission, only: :edit
+
   def new
     @user = User.new
-    @gobbledegook  = false
   end
 
   def show
     @user = User.find(params[:id])
+    @user_walks = @user.walks
   end
+
+  # def user_walk
+  #   @user = User.find(params[:id])
+  #   @user_walk = User.walks
+  # end
 
   def create
     @user = User.new(user_params)
@@ -22,12 +30,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-
     if @user.update_attributes(user_params)
       flash[:alert] = "Information updated!"
       redirect_to root_path
@@ -48,6 +53,19 @@ private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :icon, :details, :location, :password, :password_confirmation, :authentications_attributes)
+  end
+
+  def edit_rights?
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user == @user
+  end
+
+  def require_permission
+    if current_user != Walk.find(params[:id]).user
+      redirect_to root_path
+    else
+      redirect_to edit_user_path
+    end
   end
 
 end

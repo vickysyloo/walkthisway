@@ -87,6 +87,9 @@ $(document).on('ready page:load', function() {
          var address = $(this).closest(".nested-fields").find(".address").val();
          codeAddress(geocoder, address, map_new);
        });
+
+
+
     });
   }
 });

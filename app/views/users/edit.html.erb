@@ -10,8 +10,12 @@
         <h1 class="login_desc"> Edit your profile... <br></h1>
 
         <div class="form loginform">
+            <% if current_user = @user %>
             <%= render partial: 'form' %>
+            <% else %>
+            <%= redirect_to walks_path %>
+            <% end %>
         </div>
-        
+
     </div>
 </div>

@@ -18,7 +18,7 @@
     <div class="search-bar">
       <%= form_tag walks_path, method: :get do %>
         <%= text_field_tag :search_by_location, params[:search_by_location], id: "autocomplete_city", data:params[:search_by_location], :placeholder => "Which city would you like to explore? (E.g. Toronto, ON)", :class =>"search-bar-field autocomplete_city"%>
-        <%= submit_tag "Search", class: 'search-button'%>
+        <%= submit_tag "Search", class: 'search-button', id: 'search-button-not-home'%>
       <% end %>
     </div>
 
@@ -50,9 +50,9 @@
   <% end %>
 
   <div class="social-media social-media-not-home">
-    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/walkthiswayvtcm/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/walkthiswaynow"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.instagram.com/walkthiswayvtcm/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
   </div>  <!-- end of social-media -->
 
   <%= yield %>

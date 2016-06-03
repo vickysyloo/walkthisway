@@ -1,6 +1,7 @@
 var map_index;
 var map_show;
 var map_new;
+var map_edit;
 var styles;
 var geocoder;
 
@@ -90,40 +91,20 @@ function renderMap() {
     }
   }
 
-  if ($('#map_walk-new').length > 0) {
+  if ($('#map_walk-form').length > 0) {
 
     var waypt_order = 1;
     geocoder = new google.maps.Geocoder(); // create geocoder object to geocode address
 
-    map_new = initialize('map_walk-new', 1);
+    map_new = initialize('map_walk-form', 1);
     google.maps.event.addDomListener(window, 'load', map_new);		// execute init map function on page load
 
     var urlWalknew = new RegExp("\\Swalks");
     if (urlWalknew.test(document.location.pathname) == true) {
-      // var map_new = initialize('map_walk-new', 1);
       google.maps.event.addDomListener(window, 'load', map_new);// execute init map function on page load
 
-
-        //take all addresses
-        //geocode address
-        // create hash with lat/long of waypoints
-
-        // initPathMap
-        // var returnedWaypoints = return_data.coords;
-        // console.log('returned json file: ' + returnedWaypoints);
-        // plot_waypoints_array(returnedWaypoints, map_show);
-        //
-        // initPathMap(returnedWaypoints);
     }
 
-
-    // if ($('#map_walk-show').length > 0) {
-    //   var waypoints = (add all waypoints to json file)
-    //   var marker = new google.maps.Marker({					// place a marker on the map at the address
-    //     map: new_walk_form_map,
-    //     position: .geometry.location
-    //   });
-    // };
   }
 
 }

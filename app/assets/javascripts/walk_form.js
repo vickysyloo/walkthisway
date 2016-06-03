@@ -1,6 +1,6 @@
 $(document).on('ready page:load', function() {
 
-  if (($('#map_walk-new').length > 0) || ($('#map_walk-edit').length > 0)) {
+  if ($('#map_walk-form').length > 0) {
     console.log("true")
     $('input.autocomplete_city').on('keypress', function(event) {
       if (event.which === 13) {
@@ -55,7 +55,7 @@ $(document).on('ready page:load', function() {
       $('input.order').each(function(index) {
         $(this).val(index);
       });
-      $('form#new_walk').trigger('submit');
+      $('.form_edit_new').trigger('submit');
     });
 
     $('#mkpts').on('cocoon:after-insert', function(e){

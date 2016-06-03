@@ -89,10 +89,11 @@ class WalksController < ApplicationController
 
   def update
     @walk = Walk.find(params[:id])
-    if @walk.update_attributes(walk_params)
+    if @walk.update(walk_params)
+      binding.pry
       redirect_to walk_url(@walk)
     else
-      render edit_walk_url
+      render :edit
     end
    end
 

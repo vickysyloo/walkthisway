@@ -1,4 +1,4 @@
-<%= form_for @walk do |f| %>
+<%= form_for @walk, :html => { class: "form_edit_new" } do |f|%>
   <div class="errors">
     <%if @walk.errors.any? %>
     <% @waypoint_errors = [] %>

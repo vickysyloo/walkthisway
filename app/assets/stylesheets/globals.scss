@@ -33,17 +33,17 @@ html, body {
 
 @font-face {
    font-family: gotham;
-   src: url(GOTHAM-MEDIUM.TTF) format("truetype");
+   src: font-url('GOTHAM-MEDIUM.TTF') format("truetype");
  }
 
 @font-face {
   font-family: gotham-light;
-  src: url(GOTHAM-THIN.TTF) format("truetype");
+  src: font-url('GOTHAM-THIN.TTF') format("truetype");
 }
 
 @font-face {
   font-family: freefonts;
-  src: url(freefont.oft) format("truetype");
+  src: font-url('freefont.oft') format("truetype");
  }
 
 img {

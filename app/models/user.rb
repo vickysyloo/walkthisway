@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
   has_many :walks
   has_many :categories, through: :walks
-  
+  has_many :bookmarked_walks, through: :bookmarked_walks, source: :walks
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

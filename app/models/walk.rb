@@ -4,7 +4,7 @@ class Walk < ActiveRecord::Base
   has_many :waypoints
   has_many :comments
   has_many :commenters, through: :comments, source: :user
-  
+  has_many :bookmarking_users, through: :bookmarked_walks, source: :user
   mount_uploader :picture, PictureUploader
 
   validates :city, presence: { message: "City is required" }

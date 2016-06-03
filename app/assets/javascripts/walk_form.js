@@ -6,14 +6,14 @@ $(document).on('ready page:load', function() {
       if (event.which === 13) {
         event.preventDefault();
         // event.stopPropagation();
-        var city = $('input#autocomplete_centermap').val();
+        var city = $('input#form_city').val();
         console.log('city in jquery is' + city);
         codeCity(geocoder, city, map_new);
       }
     });
 
     $('button#centerbutton').on('click', function(event) {
-        var city = $('input#autocomplete_centermap').val();
+        var city = $('input#form_city').val();
         console.log('city is' + city);
         codeCity(geocoder, city, map_new);
       });

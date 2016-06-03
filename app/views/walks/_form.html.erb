@@ -1,6 +1,4 @@
-
-  <div class="page-wrapper">
-    <%= form_for @walk do |f| %>
+    <%= form_for @walk, :html => { class: "form_edit_new" } do |f| %>
       <ul class="js_errors_list">
         <!-- clientside error validations will go here -->
       </ul>
@@ -11,21 +9,22 @@
             <% @walk.errors.each do |key, value|  %>
                <%if key != :walk%>
                   <li><%= value%></li>
-               <%end%>
-            <% end %>
+               <%end%> <!-- end of if key walk -->
+            <% end %><!-- end of walk errors each do -->
           </ul>
 
 
-        <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
-          <ul>
-            <% @waypoint.errors.each do |key, value| %>
-                <li><%= key %><%= value %></li>
-            <% end %>
-          </ul>
-        <% end %>
+          <% if (@waypoint != nil) && (@waypoint.errors.any?) %>
+            <ul>
+              <% @waypoint.errors.each do |key, value| %>
+                  <li><%= key %><%= value %></li>
+              <% end %>
+            </ul>
+          <% end %>
         </div><!-- end of error_explanation-->
-    <% end %>
+      <% end %>
 
+    <fieldset>
       <div class="steps_container">
           <div class="create_step create_form_step_one">
               <h3 class="create_step_one_title">STEP 1: DESCRIBE WALK</h3>
@@ -65,7 +64,7 @@
               <div id="sortable">
                 <div id="mkpts">
                   <%= f.fields_for :waypoints do |waypoint| %>
-                  <%= render 'waypoint_fields', :f => waypoint%>
+                    <%= render 'waypoint_fields', :f => waypoint%>
                   <% end %>
                   <span class="add_waypoint">Add New Waypoint</span><%= link_to_add_association '+', f, :waypoints, :class=> 'plus'%>
                 </div><!-- end of mkpts-->
@@ -79,16 +78,16 @@
 
             <div>
               <button type = 'button' class = 'plot_walk'> plot this walk! </button>
-              <%= f.submit :class=>'walk_submit' %>
+                <%= f.submit :class=>'walk_submit' %>
             </div>
         </div><!-- end of create_form_step_three-->
 
-        </div><!-- end of steps container-->
+      </div><!-- end of steps container-->
 
         <div class="back_next_container">
           <button type="button" class="step_btn back_btn">BACK </button>
           <button type="button" class="step_btn next_btn">NEXT </button>
         </div>
 
-      <% end %><!-- end for form for -->
-    </div><!-- end of page wrapper-->
+    </fieldset>
+    <% end %><!-- end for form for -->

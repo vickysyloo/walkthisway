@@ -69,7 +69,6 @@ class WalksController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: @allwaypoints}
-      # binding.pry
     end
   end
 
@@ -89,11 +88,10 @@ class WalksController < ApplicationController
 
   def update
     @walk = Walk.find(params[:id])
-
-    if @walk.update_attributes(walk_params)
+    if @walk.update(walk_params)
       redirect_to walk_url(@walk)
     else
-      render edit_walk_url
+      render :edit
     end
    end
 

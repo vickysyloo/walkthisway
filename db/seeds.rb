@@ -118,7 +118,6 @@ city: "Toronto, ON, Canada"
 )
 
 waypoint5 = Waypoint.create!(
-id: 1003,
 name: 'Historic Route',
 description: 'A route that takes you through the ROM Museum and shows all the historic buildings within Toronto.',
 latitude: 43.6677,
@@ -140,7 +139,7 @@ walk3.save!
 
 
 walk4 = Walk.new(
-id: 1004,
+id: 1003,
 name: 'Cool-Aid',
 description: "A cool route which takes you across downtown Toronto and showcases Toronto's buildings. ",
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',

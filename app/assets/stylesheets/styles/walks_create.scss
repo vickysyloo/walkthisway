@@ -1,3 +1,11 @@
+fieldset {
+  width: 100%;
+}
+
+.nested-fields {
+  cursor: move;
+}
+
 .create_walk_container{
   background-color: #65ccb8;
   padding-bottom: 100px;
@@ -9,23 +17,20 @@
 }
 
 .form-list{
-  margin-top: 50px;
   border: solid #565a5c 1px;
   padding: 10px;
   font-family: gotham;
-  width: 75%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
-  min-height:400px;
+  min-height: 400px;
   background-color: white;
-
-
+  float: left;
 }
 
 .form_label_create_walk{
-  font-family: Gotham-light;
+  font-family: gotham-light;
   font-size: 12px;
-
 }
 
 .form_field_create_walk{
@@ -36,7 +41,6 @@
 #error_explanation {
   color: tomato;
 }
-
 
 .create_step_one_title,.create_step_two_title{
   font-weight: normal;
@@ -63,7 +67,7 @@
   border: none;
   border-radius: 7px;
   font-size: 13px;
-  font-weight: BOLD;
+  font-weight: bold;
   background-color: transparent;
    &:hover{
     text-decoration: underline;
@@ -87,8 +91,7 @@
 .waypoint_label{
   font-weight: 100;
   margin-right: 30px;
-  font-family: 'Montserrat';
-  font-weight: 400;
+  font-family: gotham-light, 'Montserrat';
   margin-left: 20px;
 }
 
@@ -98,8 +101,8 @@
 }
 .steps_container{
   position: relative;
-
 }
+
 .back_next_container{
   width: 100px;
   display: flex;

@@ -28,13 +28,23 @@ html, body {
    margin: 0 auto; }
 
 @font-face {
-font-family: 'Abril Fatface', cursive;
+  font-family: 'Abril Fatface', cursive;
 }
 
 @font-face {
-   font-family: 'Montserrat';
+   font-family: gotham;
+   src: url(GOTHAM-MEDIUM.TTF) format("truetype");
  }
 
+@font-face {
+  font-family: gotham-light;
+  src: url(GOTHAM-THIN.TTF) format("truetype");
+}
+
+@font-face {
+  font-family: freefonts;
+  src: url(freefont.oft) format("truetype");
+ }
 
 img {
   max-width: 100%;
@@ -44,7 +54,7 @@ img {
   box-sizing: inherit; }
 
 .logo{
-    font-family: 'Montserrat';
+    font-family: freefonts, 'Montserrat';
     font-size: 30px;
     margin: 10px;
   }
@@ -54,7 +64,7 @@ img {
   justify-content: space-between;
   background-color:transparent;
   padding: 10px 0px;
-  font-family: 'Arial';
+  font-family: gotham, 'Arial', sans-serif;
   font-size: 13px;
   font-weight: 700;
 

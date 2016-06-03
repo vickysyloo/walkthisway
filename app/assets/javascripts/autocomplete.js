@@ -49,27 +49,4 @@ $(document).on('ready page:load', function() {
 
     });
   }
-// every time the search button is clicked
-//   $('input#search-button').on('click', function(event) {
-//     //intercept the default behaviour (full HTML request)
-
-//     // confirm click is registered in JS console in chrome
-//     console.log('search button click event is registering');
-//
-//     //fire an ajax request
-//     $.ajax({
-//       url: "/walks",
-//       method: "GET",
-//       //send the key-value pair, search: (contents of the AC search text box) with the ajax request to the controller (added to params)
-//       data: {search: $('input#autocomplete').val()},
-//       dataType: 'HTML',
-//       //on success, console log the returned data. inject returned ata into div#walklist on splash page for now
-//       success: function(data_returned) {
-//         console.log('ajax success called');
-//         console.log('data is' + data_returned);
-//         $('#walklist').html(data_returned);
-//        }
-//      });
-//   });
-
 });

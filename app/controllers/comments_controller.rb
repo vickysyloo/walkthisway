@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to walk_path(@walk.id), notice: 'comment created successfully' }
-        format.js {}
+        format.js {@walk}
       else
         format.html { render 'walks/show', alert: "there was an error"}
         format.js {}

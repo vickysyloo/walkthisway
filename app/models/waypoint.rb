@@ -8,7 +8,7 @@ class Waypoint < ActiveRecord::Base
 
   def address_blank?
     if address.blank?
-      errors.add(:address, "No address! Man!!!!")
+      errors.add(:address, "Please enter address for waypoint(s)")
     end
   end
 

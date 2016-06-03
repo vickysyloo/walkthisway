@@ -1,6 +1,7 @@
 /*  CSS PERTAINING TO ALL PAGES WILL GO HERE */
 
 $grey: #565a5c;
+$pink:#f75c4f;
 
 html, body {
   font-size: 100%;
@@ -11,7 +12,7 @@ html, body {
   font-family: 'Abril Fatface', cursive;
   height:100%;
   font-weight: 300;
-  color: $grey;
+  color: black;
   a{
     text-decoration: none;
   }
@@ -45,14 +46,18 @@ img {
 .logo{
     font-family: 'Montserrat';
     font-size: 30px;
+    margin: 10px;
   }
 
 .nav-menu-master {
   display:flex;
   justify-content: space-between;
   background-color:transparent;
-  padding: 20px 0;
-  font-family: 'Montserrat';
+  padding: 10px 0px;
+  font-family: 'Arial';
+  font-size: 13px;
+  font-weight: 700;
+
     ul{
       display: inline-block;
       display: flex;
@@ -61,10 +66,10 @@ img {
     a{
       color: white;
       text-decoration: none;
-      margin: 20px;
+      margin: 15px;
       letter-spacing: 1px;
       &:hover {
-        border-bottom: solid white ;
+        border-bottom: solid 2px white ;
         padding-bottom: 10px;
       }
     }
@@ -112,15 +117,15 @@ img {
 
   .social-media-not-home{
     a{
-      color: #f75c4f;
+      color: $pink;
     }
   }
 
-  #footer{
-  text-align: center;
-  //  bottom:0;
-  height:10%;
-   width: 100%;
-  //  position: absolute;
-   background-color: blue;
-  }
+
+  // #footer{
+  // text-align: center;
+  // //  bottom:0;
+  //  width: 100%;
+  // //  position: absolute;
+  //  background-color: blue;
+  // }

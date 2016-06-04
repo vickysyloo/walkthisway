@@ -20,50 +20,53 @@
 
 
 $(document).on('ready page:load', function() {
-  $('#geolocate_me').on('click', function() {
+  $('button#geolocate_me').on('click', function() {
     if ("geolocation" in navigator) {
       console.log("geolocation supported")
-      function success(pos) {
-        var crd = pos.coords;
 
-        console.log('Your current position is:');
-        console.log('Latitude : ' + crd.latitude);
-        console.log('Longitude: ' + crd.longitude);
-        console.log('More or less ' + crd.accuracy + ' meters.');
-      };
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(geolocateSuccess, geolocateFail);
       // console.log(pos)
     } else {
-      var error = alert("Geolocation not supported :(");
+      alert("Geolocation not supported!");
     }
   })
 })
 
-// function itWorked(position){
-//   var lat = position.coords.latitude;
-//   var lon = position.coords.longitude;
+
+// function success(pos) {
+//   var crd = pos.coords;
 //
-//   $.ajax({
-//     url: '/walks',
-//     method: 'get',
-//     dataType: 'html',
-//     data: {lat: lat, lon: lon},
-//     success: function(data) {
-//       $('.walks-geolocate').html(data);
-//     }
+//   console.log('Your current position is:');
+//   console.log('Latitude : ' + crd.latitude);
+//   console.log('Longitude: ' + crd.longitude);
+//   console.log('More or less ' + crd.accuracy + ' meters.');
+// };
+
+function geolocateSuccess(position) {
+  var lat = position.coords.latitude;
+  var lon = position.coords.longitude;
+
+  $.ajax({
+    url: '/walks',
+    method: 'get',
+    dataType: 'html',
+    data: {lat: lat, lon: lon},
+    success: function(data) {
+      $('.walks_container').html(data);
+    }
+  });
+
+}
+//
+function geolocateFail(error) {
+  console.log(error.message);
+}
+
+//
+// $(document).on('ready page:load', function() {
+//   // $('button#geolocate_me').on('click', function(event) {
+//     console.log('click registered');
+//
+//
+//
 //   });
-//
-// }
-//
-// function itFailed(error) {
-//   console.log(error.message);
-// }
-//
-// //
-// // $(document).on('ready page:load', function() {
-// //   // $('button#geolocate_me').on('click', function(event) {
-// //     console.log('click registered');
-// //
-// //
-// //
-// //   });

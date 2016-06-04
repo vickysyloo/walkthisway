@@ -1,6 +1,8 @@
 class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
   before_filter :require_permission, only: [:edit, :destroy]
+  geocoded_by :city
+  after_validation :geocode, :if => :city_changed?
 
   def index
     if params[:search_by_location].present?
@@ -17,6 +19,10 @@ class WalksController < ApplicationController
       @searchedcity = 'Toronto, Ontario';
     end
 
+    if params[:lat]
+      @walks = Walk.near([params[:lat], params[:lon]])
+    end
+
     if params[:search_by_category]
       @category = params[:search_by_category].to_i
       @walks = @walks.select{|walk| walk.category.id ==  @category}
@@ -28,6 +34,10 @@ class WalksController < ApplicationController
 
     if @walks != nil
       @walks.each {|walk| walk.walk_startpoints(@startpoints)}
+    end
+
+    if request.xhr?
+      render @walks
     end
   end
 

@@ -7,11 +7,12 @@ $(document).on('ready page:load', function() {
 
     $('#like-walk').on('click', function(e){
       console.log('click registered!');
+      var dom_element = $('#like-walk')
       var walk_id = this.dataset.walkid;
-      var userid = commentform.data('user');
+      var userid = dom_element.data('user');
 
       $.ajax({
-        url: '/users/'+userid+'/bookmarked_walks',
+        url: '/users/'+String(userid)+'/bookmarked_walks',
         method: 'POST',
         data: {walk_id: walk_id, user_id: userid, type: 'like'},
         success: function(return_data){

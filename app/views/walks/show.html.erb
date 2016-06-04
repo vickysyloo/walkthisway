@@ -30,7 +30,7 @@
       <div id='directions-panel'>Directions</button>
     </div>
     <% if current_user %>
-    <button id = 'like-walk' data-walkid = '<%= @walk.id %>' data-user = '<%=current_user%>'> Like! </div>
+    <button id = 'like-walk' data-walkid = '<%= @walk.id %>' data-user = '<%=current_user%>'> Like! </button>
     <% end %>
     <%= render 'comment'%>
   </div><!-- end of walk_show_left-->

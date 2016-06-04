@@ -28,7 +28,17 @@
       <% @walks.each do |walk| %>
 
         <div class="walkcard" style="background-image: url('<%= walk.picture%>');">
-
+          <% @liked_walks.each do |liked_walk| %>
+            <% if liked_walk.walk_id == walk.id %>
+              <%= form_for [current_user, BookmarkedWalk.new], :class => 'like-walk-index' do |f| %>
+                <%= f.hidden_field :walk_id, :value =>walk.id %>
+                <%= f.hidden_field :relationship, :value=>'like' %>
+                <%= f.submit 'like', :class => 'like-walk-index'%>
+              <% end %>
+            <% else %>
+              <%= link_to 'liked', user_bookmarked_walk_path(current_user, liked_walk.id), :method => :delete, :class => 'unlike-walk-index'%>
+            <% end %>
+          <% end %>
           <%= link_to walk_path(walk) do %>
         <p class="walkcard_name"><%= walk.name%></p>
 

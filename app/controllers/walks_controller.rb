@@ -29,6 +29,13 @@ class WalksController < ApplicationController
     if @walks != nil
       @walks.each {|walk| walk.walk_startpoints(@startpoints)}
     end
+
+    @liked_walks = []
+    @walks.each do |walk|
+      if BookmarkedWalk.find_by(user_id: current_user, walk_id: walk.id, relationship: 'like') != nil
+        @liked_walks << BookmarkedWalk.find_by(user_id: current_user, walk_id: walk.id, relationship: 'like')
+      end
+    end
   end
 
   def new

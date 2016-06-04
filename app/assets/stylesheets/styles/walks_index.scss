@@ -82,3 +82,36 @@
 .js_errors_list{
   color: tomato;
 }
+
+.like-walk-index {
+  position: relative;
+  float: right;
+  font-family: arial;
+  display: inline-block;
+  border: solid 2px tomato;
+  padding: 6px;
+  background-color: transparent;
+  margin-left: 15px;
+  font-size: 8px;
+  font-weight: bold;
+  color: tomato;
+}
+
+.unlike-walk-index{
+  position: relative;
+  float: right;
+  font-family: arial;
+  display: inline-block;
+  border: solid 2px red;
+  padding: 6px;
+  background-color: transparent;
+  margin-left: 15px;
+  font-size: 8px;
+  font-weight: bold;
+  color: tomato;
+}
+
+form#new_bookmarked_walk{
+  position: relative;
+  float: right;
+}

@@ -12,6 +12,13 @@
   }
 }
 
+.login_desc-home {
+  font-size: 40px;
+  width: 45%;
+  margin-top: 100px;
+  display: inline-block;
+}
+
 .signin-modal {
   display: none;
   position: absolute;
@@ -19,8 +26,8 @@
   left: 0;
   right: 0;
   margin: auto;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   background-color: rgba(30,30,40,0.8);
 }
 

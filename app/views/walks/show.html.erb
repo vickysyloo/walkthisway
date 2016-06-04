@@ -27,15 +27,19 @@
         <% i+= 1%> <br>
       <% end %>
 
-      <div id='directions-panel'>Directions</div>
+      <div id='directions-panel'>Directions</button>
     </div>
+    <% if current_user %>
+    <button id = 'like-walk' data-walkid = '<%= @walk.id %>' data-user = '<%=current_user%>'> Like! </div>
+    <% end %>
+    <%= render 'comment'%>
   </div><!-- end of walk_show_left-->
 
   <div class="walk_show_right">
     <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
 
 
-    <%= render 'comment'%>
+
   </div>
 
 

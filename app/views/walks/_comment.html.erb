@@ -1,29 +1,31 @@
 <div id = 'comment-list-and-form'>
   <p id = 'comment-title'> Comments </p>
-<ul class="comments">
-  <% if @walk.comments.any? %>
-    <% @walk.comments.each do |comment| %>
-      <% if comment.id != nil %>
-        <li class="comment-list">
-          <p class = 'comment-text'><%= comment.comment %>
-             <p class='comment-author-date'>
-               - <%= comment.user.username %> <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+  <div id = 'comment-list-textbox'>
+    <ul class="comments">
+      <% if @walk.comments.any? %>
+        <% @walk.comments.each do |comment| %>
+          <% if comment.id != nil %>
+            <li class="comment-list">
+              <p class = 'comment-text'><%= comment.comment %>
+                <p class='comment-author-date'>
+                  - <%= comment.user.username %> <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+                </p>
               </p>
-          </p>
-           <% if comment.user = current_user %>
-             <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
-            <% end %>
-      <% end %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+              <% if comment.user = current_user %>
+                <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
+              <% end %>
+            </li>
+          <% end %> <!-- if comment.id != nil -->
+        <% end %><!-- comment.each loop -->
+      <% end %><!-- if comments.any -->
+    </ul>
 
-<% if current_user %>
-<p> Leave a comment! </p>
-  <%= form_for [@walk, @comment], :html => {id: "new-comment", data: {walkid: @walk.id}} do |f| %>
-    <%= f.text_area :comment, placeholder: "This walk was just fab." %>
-    <%= f.submit "post", id: "post-comment" %>
-  <% end %>
-<% end %>
+    <% if current_user %>
+    <p> Leave a comment! </p>
+      <%= form_for [@walk, @comment], :html => {id: "new-comment", data: {walkid: @walk.id}} do |f| %>
+        <%= f.text_area :comment, placeholder: "This walk was just fab." %>
+        <%= f.submit "post", id: "post-comment" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
 
+
   resources :user_sessions
   resources :users
   get 'login' => 'user_sessions#new', :as => :login
@@ -17,5 +18,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :walks, only: [:index, :show]
+    resources :bookmarked_walks
   end
 end

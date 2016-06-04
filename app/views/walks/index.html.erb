@@ -15,10 +15,41 @@
     <button type="button" id='geolocate_me'>Find walks near me! </button>
 
 
-<div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" >
+<div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" ></div>
+
+<div class="index-buttons">
+  <button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
+<div class='index-buttons'>
+  <a href="https://twitter.com/intent/tweet?button_hashtag=walkthiswaypath" class="twitter-hashtag-button" data-size="large" data-related="walkthiswaynow">Tweet #walkthiswaypath</a>
 </div>
 
-<button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
+<div class='tweets'>
+  <a class="twitter-timeline"
+    data-dnt="true"
+    data-widget-id="739155615986163713"
+    width="100%"
+    border-color="#f3007a"
+    data-chrome="nofooter noheader"
+    data-tweet-limit = "2"
+    data-aria-polite="assertive">
+  </a>
+  <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+</div>
 </div><!-- end of page-wrapper-->
 
 

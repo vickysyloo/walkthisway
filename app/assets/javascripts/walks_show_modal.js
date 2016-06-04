@@ -10,6 +10,7 @@ $(document).on('ready page:load', function() {
       $('#directions-modal').fadeIn('slow');
       $('#directions-panel').fadeIn('slow');
       $('hide-directions').fadeIn('slow');
+      $('#directions-panel').css(['display', 'inline-block']);
     });
 
     $('#hide-directions').on('click', function() {

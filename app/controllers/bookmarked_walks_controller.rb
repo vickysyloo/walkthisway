@@ -13,11 +13,11 @@ class BookmarkedWalksController < ApplicationController
     @bookmarkedWalk.user_id = current_user.id
     respond_to do |format|
       if @bookmarkedWalk.save
-        format.html { redirect_to user_path(current_user), notice: 'like created successfully' }
-        format.js {@walk}
+        format.html { redirect_to root_path, notice: 'like created successfully' }
+
       else
-        format.html { render 'walks/show', alert: "there was an error"}
-        format.js {}
+        format.html { redirect_to root_path, alert: "there was an error"}
+
   end
 
   def show
@@ -45,7 +45,7 @@ class BookmarkedWalksController < ApplicationController
     def destroy
       @walk_relation = BookmarkedWalk.find(params[:id])
       @walk_relation.destroy
-      redirect_to walks_path
+      redirect_to root_path
     end
 
   private

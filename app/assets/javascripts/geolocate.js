@@ -16,10 +16,54 @@
 
 //jquery selection
 
+
+
+
 $(document).on('ready page:load', function() {
-  // $('button#geolocate_me').on('click', function(event) {
-    console.log('click registered');
+  $('#geolocate_me').on('click', function() {
+    if ("geolocation" in navigator) {
+      console.log("geolocation supported")
+      function success(pos) {
+        var crd = pos.coords;
 
+        console.log('Your current position is:');
+        console.log('Latitude : ' + crd.latitude);
+        console.log('Longitude: ' + crd.longitude);
+        console.log('More or less ' + crd.accuracy + ' meters.');
+      };
+      navigator.geolocation.getCurrentPosition(success, error);
+      // console.log(pos)
+    } else {
+      var error = alert("Geolocation not supported :(");
+    }
+  })
+})
 
-
-  });
+// function itWorked(position){
+//   var lat = position.coords.latitude;
+//   var lon = position.coords.longitude;
+//
+//   $.ajax({
+//     url: '/walks',
+//     method: 'get',
+//     dataType: 'html',
+//     data: {lat: lat, lon: lon},
+//     success: function(data) {
+//       $('.walks-geolocate').html(data);
+//     }
+//   });
+//
+// }
+//
+// function itFailed(error) {
+//   console.log(error.message);
+// }
+//
+// //
+// // $(document).on('ready page:load', function() {
+// //   // $('button#geolocate_me').on('click', function(event) {
+// //     console.log('click registered');
+// //
+// //
+// //
+// //   });

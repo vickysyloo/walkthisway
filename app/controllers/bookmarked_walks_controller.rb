@@ -1,19 +1,19 @@
 class BookmarkedWalksController < ApplicationController
-  before_action :load_walk
 
   def index
+    @bookmarked_walks = BookmarkedWalk.where(user_id: current_user.id)
   end
 
   def new
+    @bookmarked_walks = BookmarkedWalk.new
   end
 
   def create
-    @bookmarked_walk = current_user.create(bookmarked_walk_params)
-    @bookmarked_walk.user_id = current_user.id
-    @bookmarked_walk.walk_id = params[:walk_id]
+    @bookmarkedWalk = BookmarkedWalk.new(bookmarkedWalk_params)
+    @bookmarkedWalk.user_id = current_user.id
     respond_to do |format|
-      if @bookmarked_walk.save
-        format.html { redirect_to walk_path(@walk.id), notice: 'comment created successfully' }
+      if @bookmarkedWalk.save
+        format.html { redirect_to user_path(current_user), notice: 'like created successfully' }
         format.js {@walk}
       else
         format.html { render 'walks/show', alert: "there was an error"}
@@ -43,11 +43,14 @@ class BookmarkedWalksController < ApplicationController
 
 
     def destroy
-
+      @walk_relation = BookmarkedWalk.find(params[:id])
+      @walk_relation.destroy
+      redirect_to walks_path
     end
 
   private
-    def comment_params
-      params.require(:bookmarked_walk).permit(:user_id, :walk_id)
+    def bookmarkedWalk_params
+      params.require(:bookmarked_walk).permit(:user_id, :walk_id, :relationship)
     end
+
 end

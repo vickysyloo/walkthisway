@@ -58,9 +58,17 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = @walk.waypoints_coord_formatted
+    @creator = User.find(@walk.user_id)
+    @total_likes = BookmarkedWalk.totals(@walk.id, 'like')
+    @total_saves = BookmarkedWalk.totals(@walk.id, 'saved')
+
+
 
     if current_user
       @comment = @walk.comments.new
+      @bookmarkedWalk = BookmarkedWalk.new(user_id: current_user, walk_id: @walk.id)
+      @like = BookmarkedWalk.find_by(walk_id: @walk.id, user_id: current_user, relationship: 'like')
+
     end
     if @walk.comments.any?
       @comments = Comment.where(walk_id: params[:id])

@@ -100,10 +100,25 @@ a.delete-comment {
 }
 
 #like-walk {
+  display: inline-block;
   border: solid 2px black;
   padding: 6px;
   background-color: transparent;
   margin-left: 15px;
   font-size: 8px;
   font-weight: bold;
+}
+
+#save-walk-button {
+  display: inline-block;
+  border: solid 2px black;
+  padding: 6px;
+  background-color: transparent;
+  margin-left: 15px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+form#new_bookmarked_walk{
+  display: inline-block;
 }

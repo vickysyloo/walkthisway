@@ -15,8 +15,7 @@
 <main class="walk_show_main">
   <div class= "walk_show_left">
     <h2 class="walk_show_about">About This Walk</h2>
-    <p class="walk_show_description"><%=@walk.description%></p>
-
+    <p class="walk_show_description"><%=@walk.description%> <br>Created by: <%=@creator.username %> </p>
     <h2 class="walk_show_route">Walk Route</h2>
 
     <div class="waypoints_form">
@@ -30,7 +29,7 @@
       <div id='directions-panel'>Directions</button>
     </div>
     <% if current_user %>
-    <button id = 'like-walk' data-walkid = '<%= @walk.id %>' data-user = '<%=current_user%>'> Like! </button>
+      <%= render 'like' %>
     <% end %>
     <%= render 'comment'%>
   </div><!-- end of walk_show_left-->

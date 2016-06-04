@@ -1,0 +1,21 @@
+<% if @saved == true %> 
+  <%= form_for [current_user, @bookmarkedWalk] do |f| %>
+    <%= f.hidden_field :walk_id, :value =>@walk.id %>
+    <%= f.hidden_field :relationship, :value=>'saved' %>
+    <%= f.submit 'Save for later!', :id => 'save-walk-button'%>
+  <% end %>
+<% else %>
+  <%= form_for [current_user, @bookmarkedWalk] do |f| %>
+    <%= f.hidden_field :walk_id, :value =>@walk.id %>
+    <%= f.hidden_field :relationship, :value=>'saved' %>
+    <%= f.submit 'Save for later!', :id => 'save-walk-button'%>
+  <% end %>
+<% end %>
+
+  <% if @total_saves > 1 %>
+    <%= @total_saves %> people saved this walk for later!
+  <% elsif @total_saves = 1%>
+    <%= @total_saves %> person saved this walk for later!
+  <% else %>
+    Be the first to save this walk for later!
+  <% end %>

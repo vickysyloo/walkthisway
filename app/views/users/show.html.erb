@@ -13,4 +13,25 @@
     <%= link_to "Your Favourite Walks", root_url %>
   <% end %>
 
+  <h1> Favourite Walks </h1>
+  <ul>
+    <%if @fav_walks.any? %>
+      <% @fav_walks.each do |fav_walk| %>
+        <li>
+          <%= link_to walk_path(fav_walk.walk) do %>
+            <p><%= fav_walk.walk.name%></p>
+            <p><%= fav_walk.walk.city %> </p>
+            <p ><%= fav_walk.walk.description%></p>
+            <p> <%= fav_walk.walk.category.theme%> </p>
+          <%end%>
+        </li>
+      <% end %>
+    <% else %>
+      <%= link_to walks_path do %>
+        <p>Maybe we should go check out some walks! </p>
+      <% end %>
+    <% end %>
+  </ul>
+
+
 </div>

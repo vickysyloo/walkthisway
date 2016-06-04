@@ -9,6 +9,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_walks = @user.walks
+    @fav_walks = BookmarkedWalk.where(user_id: @user.id, relationship: 'like')
+    # @saved_walks = BookmarkedWalk.where(user_id: @user.id, relationship: 'saved')
+    # @completed_walks = BookmarkedWalk.where(user_id: @user.id, relationship: 'completed')
+
   end
 
   def create

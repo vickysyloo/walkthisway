@@ -1,0 +1,18 @@
+<% if @like != nil %>
+  <%= link_to 'Unlike', user_bookmarked_walk_path(current_user, @like), :method => :delete %>
+<% else %>
+  <%= form_for [current_user, @bookmarkedWalk] do |f| %>
+    <%= f.hidden_field :walk_id, :value =>@walk.id %>
+    <%= f.hidden_field :relationship, :value=>'like' %>
+    <%= f.submit 'Like!', :id => 'like-walk'%>
+  <% end %>
+<% end %>
+
+
+  <% if @total_likes > 1 %>
+    <%= @total_likes %> people liked this walk!
+  <% elsif @total_likes = 1%>
+    <%= @total_likes %> person liked this walk!
+  <% else %>
+    Be the first to like this walk!
+  <% end %>

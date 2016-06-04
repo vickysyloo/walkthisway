@@ -52,4 +52,5 @@ class Walk < ActiveRecord::Base
       startpt_array << [self.waypoints.first.latitude, self.waypoints.first.longitude, self.waypoints.first.address, self.description]
   end
 
+
 end

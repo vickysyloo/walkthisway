@@ -1,0 +1,15 @@
+<%= form_for [current_user, @bookmarkedWalk] do |f| %>
+  <%= f.hidden_field :walk_id, :value =>@walk.id %>
+  <%= f.hidden_field :relationship, :value=>'done' %>
+  <%= f.submit "I've done this walk!", :id => 'save-walk-button'%>
+
+<% end %>
+
+
+  <% if @total_done > 1 %>
+    <%= @total_done %> people have been on this walk!
+  <% elsif @total_done = 1%>
+    <%= @total_done %> person has been on this walk!
+  <% else %>
+    Be the first to go on this walk!
+  <% end %>

@@ -46,7 +46,7 @@
     line-height: 24px;
 }
 
-.walk_show_about, .walk_show_route, .comment-title{
+.walk_show_about, .walk_show_route, .comment-title, {
   font-size: 30px;
 }
 
@@ -121,4 +121,58 @@ a.delete-comment {
 
 form#new_bookmarked_walk{
   display: inline-block;
+}
+
+#directions-panel {
+}
+
+.walk-show-directions, .walk-show-summary {
+  font-family: gotham;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+#directions-modal {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  // right: 0;
+  margin: auto;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(30,30,40,0.8);
+  display: inline-block;
+
+}
+
+#directions-panel {
+  color: black;
+  background-color: white;
+  display: block;
+  border: solid  black 2px;
+  width: 80%;
+  float: left;
+  padding: 20px;
+  margin: auto;
+  display: block;
+  z-index: 3;
+  top: 150px;
+}
+
+#hide-directions {
+  color: black;
+  background-color: white;
+  display: inline-block;
+  border: solid  black 2px;
+  width: 5%;
+  float: right;
+  padding: 20px;
+  margin-right: 0;
+  margin-top: 0;
+  display: block;
+  z-index: 3;
+  line-height: 8px;
+  text-align: center;
 }

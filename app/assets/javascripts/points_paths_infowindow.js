@@ -102,17 +102,19 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
 }
 
 function summarizeDirections(response) {
-var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
+var summaryPanel = document.getElementById('directions-panel-summary');
+var directionsPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
       var totalLength = 0;
 //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
-  summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
+  summaryPanel.innerHTML = '';
+  directionsPanel.innerHTML = '';//sets html of summaryPanel to blank
   var route = response.routes[0];
 
   for (var i = 0; i < route.legs.length; i++) {
     totalLength += route.legs[i].distance.value;
-    summaryPanel.innerHTML += 'instructions:<br>'
+    directionsPanel.innerHTML += 'instructions:<br>'
     for (var j=0; j < route.legs[i].steps.length; j++) {
-      summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
+      directionsPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
     }
   }
 

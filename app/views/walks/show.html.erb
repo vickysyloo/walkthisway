@@ -13,34 +13,40 @@
 <% end %>
 
 <main class="walk_show_main">
-  <div class= "walk_show_left">
-    <h2 class="walk_show_about">About This Walk</h2>
-    <p class="walk_show_description"><%=@walk.description%> <br>Created by: <%=@creator.username %> </p>
-    <h2 class="walk_show_route">Walk Route</h2>
 
-    <div class="waypoints_form">
-      <% i = 1 %>
-      <% @walk.waypoints.each do |waypoint| %>
-        <span class="waypoint_stop"><%= "Stop #{i}: "%></span> <%= waypoint.address %>
-          <!-- <%#= waypoint.description %> -->
-        <% i+= 1%> <br>
+    <div class= "walk_show_left">
+      <h2 class="walk_show_about">About This Walk</h2>
+      <p class="walk_show_description"><%=@walk.description%> <br>Created by: <%=@creator.username %> </p>
+      <h2 class="walk_show_route">Walk Route</h2>
+
+      <div class="waypoints_form">
+        <% i = 1 %>
+        <% @walk.waypoints.each do |waypoint| %>
+          <span class="waypoint_stop"><%= "Stop #{i}: "%></span> <%= waypoint.address %>
+            <!-- <%#= waypoint.description %> -->
+          <% i+= 1%> <br>
+        <% end %>
+
+        <div class = 'walk-show-summary'>Summary </div>
+        <div id='directions-panel-summary'>Summary</div>
+        <div class = 'walk-show-directions'>Directions ... </div>
+
+        </div>
+
+      <% if current_user %>
+        <%= render 'like' %>
       <% end %>
+      <%= render 'comment'%>
+    </div><!-- end of walk_show_left-->
+    <div id = 'directions-modal'>
+              <div id='hide-directions'> X </div>
+              <div id='directions-panel'>Directions </div>
 
-      <div id='directions-panel'>Directions</button>
     </div>
-    <% if current_user %>
-      <%= render 'like' %>
-    <% end %>
-    <%= render 'comment'%>
-  </div><!-- end of walk_show_left-->
-
-  <div class="walk_show_right">
-    <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
+    <div class="walk_show_right">
+      <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
 
 
 
-  </div>
-
-
-
+    </div>
 </main>

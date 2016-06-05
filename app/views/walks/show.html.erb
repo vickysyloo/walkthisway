@@ -28,10 +28,16 @@
           <!-- <%#= waypoint.description %> -->
         <% i+= 1%> <br>
       <% end %>
-
-      <div id='directions-panel'>Directions</div>
+      <div class = 'walk-show-summary'>Summary </div>
+      <div id='directions-panel-summary'></div>
+      <div class = 'walk-show-directions'>Directions ... </div>
     </div>
   </div><!-- end of walk_show_left-->
+
+  <div id = 'directions-modal'>
+    <div id='hide-directions'> X </div>
+    <div id='directions-panel'>Directions </div>
+  </div>
 
   <div class="walk_show_right">
     <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>

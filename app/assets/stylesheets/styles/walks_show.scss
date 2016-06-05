@@ -43,7 +43,7 @@
   margin-right: 5%;
 }
 
-.walk_show_description, .waypoints_form {
+.walk_show_description, .waypoints_form, .comments, .comment-list {
   font-size: 22px;
   font-family: gotham-light, 'Montserrat';
   font-weight: 400;
@@ -59,38 +59,114 @@
   font-weight: bold;
 }
 
-#comment-list-and-form {
-  margin-top: 20%;
-}
-
-#comment_comment {
-  width: 70%;
-}
-
 p#comment-title {
   border-bottom: 1px solid #eee;
   margin-bottom: 0;
 }
-p.comment-text {
-  display: inline;
-}
-p.comment-author-date {
-  display: inline;
-  color: grey;
-  text-align: right;
+
+#comment-list-textbox{
+  height: 350px;
+  padding: 5px;
+  border: 1px solid #eee;
+  overflow: auto;
 }
 
-ul.comments {
-  margin-top: 0;
-}
 li.comment-list {
   margin: 2px 0px 2px;
   border-bottom: 1px solid #eee;
-  // border-top: 1px solid #eee;
+  overflow: auto;
 }
 
-button.delete-comment {
+a.delete-comment {
   display: inline-block;
+  text-align: right;
+  position: relative;
+  float: right;
+  margin: 0;
+  // border: solid 2px #ccc;
+  // padding: 6px;
+  // background-color: transparent;
+  // margin-left: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+#like-walk {
+  display: inline-block;
+  border: solid 2px black;
+  padding: 6px;
+  background-color: transparent;
+  margin-left: 15px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+#save-walk-button {
+  display: inline-block;
+  border: solid 2px black;
+  padding: 6px;
+  background-color: transparent;
+  margin-left: 15px;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+form#new_bookmarked_walk{
+  display: inline-block;
+}
+
+
+.walk-show-directions, .walk-show-summary {
+  font-family: gotham;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#directions-modal {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  // right: 0;
+  margin: auto;
+  width: 45%;
+  height: 100%;
+  background-color: rgba(30,30,40,0.8);
+  // display: inline-block;
+
+}
+
+#directions-panel {
+  color: black;
+  background-color: white;
+  display: block;
+  border: solid  black 2px;
+  width: 80%;
+  float: left;
+  padding: 20px;
+  margin: auto;
+  display: block;
+  z-index: 3;
+  top: 150px;
+}
+
+#hide-directions {
+  color: black;
+  background-color: white;
+  display: inline-block;
+  border: solid  black 2px;
+  width: 5%;
+  float: right;
+  padding: 20px;
+  margin-right: 0;
+  margin-top: 0;
+  z-index: 3;
+  line-height: 8px;
+  text-align: center;
 }
 
 .fa-pencil, .fa-trash-o{

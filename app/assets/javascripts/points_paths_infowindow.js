@@ -102,21 +102,23 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, returnWa
 }
 
 function summarizeDirections(response) {
-var summaryPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
+var summaryPanel = document.getElementById('directions-panel-summary');
+directionsPanel = document.getElementById('directions-panel'); //stores DOM element, 'directions-panel' in variable
       var totalLength = 0;
 //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
   summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
+  directionsPanel.innerHTML = '';
   var route = response.routes[0];
 
   for (var i = 0; i < route.legs.length; i++) {
     totalLength += route.legs[i].distance.value;
-    summaryPanel.innerHTML += 'instructions:<br>'
+    directionsPanel.innerHTML += 'instructions:<br>'
     for (var j=0; j < route.legs[i].steps.length; j++) {
-      summaryPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
+      directionsPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
     }
   }
 
-  summaryPanel.innerHTML += '<br><br> Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
+  summaryPanel.innerHTML += 'Total walk length: '+ (Math.round(totalLength/10)*10) + ' m';
 
   var upperBound = Math.round(totalLength*0.001*0.3*60);
   var lowerBound = Math.round(totalLength*0.001*(1/7)*60);

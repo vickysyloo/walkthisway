@@ -69,7 +69,6 @@ class WalksController < ApplicationController
     @walk = Walk.find(params[:id])
     @centershow = [@walk.waypoints.first.latitude, @walk.waypoints.first.longitude]
     @allwaypoints = @walk.waypoints_coord_formatted
-    @nearby_walks = @walk.nearbys(2, unit: :km)
 
     if current_user
       @comment = @walk.comments.new

@@ -4,19 +4,17 @@
   <% if @walk.comments.any? %>
     <% @walk.comments.each do |comment| %>
       <% if comment.id != nil %>
-      <li class="comment-list">
-        <p class = 'comment-text'><%= comment.comment %>
-           <p class='comment-author-date'>
-             - <%= comment.user.username %> <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
-            </p>
-         </p>
+        <li class="comment-list">
+          <p class = 'comment-text'><%= comment.comment %>
+             <p class='comment-author-date'>
+               - <%= User.find(comment.user_id).username %> <time><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+              </p>
+           </p>
          <% if comment.user = current_user %>
-         <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
-
-        <% end %>
-      <% end %>  
-      </li>
-
+           <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
   <% end %>
 </ul>

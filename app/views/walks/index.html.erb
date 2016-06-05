@@ -6,7 +6,7 @@
     <div>
       <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
       <%= label_tag(:search_by_category, "Category:") %>
-      <%=select_tag(:search_by_category, options_from_collection_for_select(Category.all, "id", "theme"), :selected => params[:search_by_category]) %>
+      <%=select_tag(:search_by_category, options_from_collection_for_select(Category.all, "id", "theme"), :selected => params[:search_by_category], :class=>'category_dropdown') %>
       <%= hidden_field_tag :search_by_location, params[:search_by_location] %>
       <%= submit_tag "search by Category" %>
       <% end %>

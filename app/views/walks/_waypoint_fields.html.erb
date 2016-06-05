@@ -1,25 +1,21 @@
 <div class="nested-fields">
   <fieldset>
-    <ul>
-      <li class ='form_set nested-list form_set_waypoint_address'>
+      <div class ='form_set'>
         <%= f.label :address,:class=> 'form_label_create_walk waypoint_label'  %>
         <%= f.text_field :address,:class=>"address form_field_create_walk_address"%>
-      </li>
+      </div>
 
-      <li class ='form_set nested-list'>
-        <%= f.label :description, :class=> 'form_label_create_walk' %>
+      <div class ='form_set'>
+        <%= f.label :description, :class=> 'form_label_create_walk waypoint_label' %>
         <%= f.text_area :description,:class=>"description"%>
-      </li>
+      </div>
 
       <li><%= f.hidden_field :order, :class=>"order" %></li>
 
-      <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
+      <i class="fa fa-hand-grab-o" aria-hidden="true"></i>
 
       <%= link_to_remove_association "Remove Waypoint", f, :class=>"cancel_waypoint" %>
-
-      <li>
         <button class ="plot_btn" type="button">Plot on Map</button>
-      </li>
-    </ul>
+
   </fieldset>
 </div>

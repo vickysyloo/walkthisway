@@ -3,10 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.nested-list {
-  display: inline;
-}
-
 .nested-fields{
   border: dotted 2px gray;
   width: 100%;
@@ -20,7 +16,7 @@
   font-size: 22px;
 }
 
-.fa-mouse-pointer{
+.fa-hand-grab-o{
   position: absolute;
   top:0;
   right: 0;
@@ -32,7 +28,7 @@
   font-size: 13px;
 }
 
-.form_set_waypoint_address{
+.form_set{
   margin-top: 30px;
   margin-bottom: 20px;
 }
@@ -67,4 +63,32 @@
 .plot_btn{
   border: none;
   background-color: transparent;
+}
+
+.form_create_address{
+  margin-left: 7%;
+}
+
+.form_create_name{
+    margin-left: 5.5%;
+}
+
+.form_create_desc{
+  margin-left: 1%;
+}
+
+.form_create_picture{
+  margin-left: 6%;
+}
+
+.form_field_create_walk_address{
+ width: 50%;
+ height: 30px;
+ margin-left: 3%;
+}
+
+.description{
+  margin:0;
+  width: 50%;
+  height:100px;
 }

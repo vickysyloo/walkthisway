@@ -31,7 +31,7 @@
 
               <div class ='form_set'>
                   <%= f.label :city,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-                  <%= f.text_field :city, :id=>'form_city', :class=>'form_field form_field_create_walk autocomplete_city'%>
+                  <%= f.text_field :city, :id=>'form_city', :class=>'form_field form_field_create_walk autocomplete_city form_create_address'%>
                   <button type="button" id="centerbutton">CENTER MAP</button>
               </div>
 
@@ -42,17 +42,17 @@
 
             <div class ='form_set'>
                 <%= f.label :name,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-                <%= f.text_field :name, :class=>'form_field form_field_create_walk', :id=>'form_name' %>
+                <%= f.text_field :name, :class=>'form_field form_field_create_walk form_create_name', :id=>'form_name' %>
             </div>
 
             <div class ='form_set'>
                 <%= f.label :description,:class=> 'form_label form_label_create_walk'  %><span class="required">* </span>
-                <div><%= f.text_area :description, :class=>'form_field desc_field_create_walk', :id=>'form_desc' %></div>
+                <%= f.text_area :description, :class=>'form_field desc_field_create_walk form_create_desc ', :id=>'form_desc' %>
             </div>
 
           <div class ='form_set'>
               <%= f.label :picture,:class=> 'form_label form_label_create_walk'  %>
-              <%= f.file_field :picture, :class=>'form_field form_field_create_walk' %>
+              <%= f.file_field :picture, :class=>'form_field form_field_create_walk form_create_picture' %>
           </div>
         </div><!-- end of create_form_step_one-->
 
@@ -74,11 +74,11 @@
 
         <div class="create_step create_form_step_three">
             <h3 class="create_step_two_title">Step 3 - Plot Walk</h3>
-            <p>You can view what your walk will look like on a map. If you are satisfied with the walk, click the 'create walk' button below.  </p>
+            <p>You can view what your walk will look like on a map by clicking on the 'Plot this walk' button. When you are satisfied with the walk, click the 'create walk' button below.  </p>
 
             <div>
-              <button type = 'button' class = 'plot_walk'> plot this walk! </button>
-                <%= f.submit :class=>'walk_submit' %>
+              <button type = 'button' class = 'plot_walk_btn'> plot this walk! </button>
+
             </div>
         </div><!-- end of create_form_step_three-->
 
@@ -87,6 +87,7 @@
         <div class="back_next_container">
           <button type="button" class="step_btn back_btn">BACK </button>
           <button type="button" class="step_btn next_btn">NEXT </button>
+              <%= f.submit "CREATE WALK" , :class=>'walk_submit step_btn' %>
         </div>
 
     </fieldset>

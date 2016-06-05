@@ -81,7 +81,6 @@ class WalksController < ApplicationController
     @walk.user_id = current_user.id
 
     if @walk.save
-      flash[:notice] = "Walk created!"
       redirect_to walk_path(@walk)
     else
       render :new

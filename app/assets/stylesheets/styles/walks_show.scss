@@ -33,6 +33,8 @@
 .walk_show_main{
   display: flex;
   font-family: gotham, 'Montserrat';
+  border-bottom: 1px #eee solid;
+  padding-bottom: 100px;
 }
 
 .walk_show_left{
@@ -59,22 +61,53 @@
   font-weight: bold;
 }
 
-p#comment-title {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 0;
+.comment-title {
+  margin:20px 0;
+  font-family: gotham;
+  font-size: 16px;
 }
 
-#comment-list-textbox{
-  height: 350px;
-  padding: 5px;
-  border: 1px solid #eee;
-  overflow: auto;
-}
 
 li.comment-list {
-  margin: 2px 0px 2px;
   border-bottom: 1px solid #eee;
   overflow: auto;
+  position: relative;
+}
+
+.comment_author,.comment_by{
+    font-family: gotham;
+    font-size: 14px;
+}
+
+.comment_author{
+  color: #0192b5;
+}
+
+.leave_comment{
+  font-family: gotham;
+}
+
+.comment_textbox{
+  width: 70%;
+  height: 100px;
+}
+
+
+.comment-time{
+  position: absolute;
+  top:0;
+  right: 0;
+  font-family: gotham;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+#post-comment{
+  display: block;
+  margin: 10px 0;
+  border: solid #F1D01B;
+  border-radius: 5px;
+  background-color: #F1D01B;
 }
 
 a.delete-comment {
@@ -165,8 +198,6 @@ form#new_bookmarked_walk{
   width: 5%;
   float: right;
   padding: 20px;
-  margin-right: 0;
-  margin-top: 0;
   z-index: 3;
   line-height: 8px;
   text-align: center;

@@ -126,6 +126,9 @@ form#new_bookmarked_walk{
   margin-bottom: 25px;
 }
 
+.walk-show-directions {
+  cursor: pointer;
+}
 #directions-modal {
   display: none;
   position: absolute;
@@ -167,6 +170,7 @@ form#new_bookmarked_walk{
   z-index: 3;
   line-height: 8px;
   text-align: center;
+  cursor: pointer;
 }
 
 .fa-pencil, .fa-trash-o{

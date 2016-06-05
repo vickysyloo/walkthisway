@@ -9,7 +9,9 @@
           <p class = 'comment-text'><%= comment.comment %>
              <p class='comment-author-date'>
                <span class="comment_by">by</span> <span class="comment_author"><%= User.find(comment.user_id).username %></span> <time class="comment-time"><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
-
+      <% end %>
+    <% end %>
+  <% end %> 
 <% if current_user %>
 <p class="leave_comment"> Leave a comment! </p>
   <%= form_for [@walk, @comment] do |f| %>

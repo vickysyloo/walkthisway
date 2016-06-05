@@ -5,20 +5,29 @@ $(document).on('ready page:load', function() {
 
   if (UrlWalkShow.test(document.location.pathname)) {
 
+    //
+    // $('.walk-show-directions').on('click', function() {
+    //   $('#directions-modal').fadeIn('slow');
+    //   $('#directions-panel').fadeIn('slow');
+    //   $('hide-directions').fadeIn('slow');
+    //   $('#directions-panel').css(['display', 'inline-block']);
+    // });
+    //
+    // $('#hide-directions').on('click', function() {
+    //   console.log("close button clicked");
+    //   $('#directions-panel').fadeOut('slow');
+    //   $('#directions-modal').fadeOut('slow');
+    //   $(this).fadeOut('slow');
+    // });
+
     $('.walk-show-directions').on('click', function() {
-      console.log("directions clicked");
-      $('#directions-modal').fadeIn('slow');
-      $('#directions-panel').fadeIn('slow');
-      $('hide-directions').fadeIn('slow');
-      $('#directions-panel').css(['display', 'inline-block']);
+        $("#directions-modal").css("display", "block");
     });
 
-    $('#hide-directions').on('click', function() {
-      console.log("close button clicked");
-      $('#directions-panel').fadeOut('slow');
-      $('#directions-modal').fadeOut('slow');
-      $(this).fadeOut('slow');
+    $('#hide-directions').on('click', function(){
+      $("#directions-modal").css("display", "none");
     });
+
 
   }
 

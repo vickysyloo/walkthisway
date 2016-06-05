@@ -8,38 +8,50 @@
 </div>
 
 <main class="walk_show_main">
-  <div class= "walk_show_left">
-    <% if current_user == Walk.find(params[:id]).user %>
-      <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_walk_path %>
-      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
-    <% end %>
-
-    <h2 class="walk_show_about">About This Walk</h2>
-    <p class="walk_show_description"><%=@walk.description%></p>
-
-    <h2 class="walk_show_route">Walk Route</h2>
-
-    <div class="waypoints_form">
-      <% i = 1 %>
-      <% @walk.waypoints.each do |waypoint| %>
-        <span class="waypoint_stop"><%= "Stop #{i}: "%></span> <%= waypoint.address %>
-          <!-- <%#= waypoint.description %> -->
-        <% i+= 1%> <br>
-      <% end %>
-      <div class = 'walk-show-summary'>Summary </div>
-      <div id='directions-panel-summary'></div>
-      <div class = 'walk-show-directions'>Directions ... </div>
-    </div>
-  </div><!-- end of walk_show_left-->
 
   <div id = 'directions-modal'>
     <div id='hide-directions'> X </div>
     <div id='directions-panel'>Directions </div>
   </div>
 
+  <div class= "walk_show_left">
+
+    <% if current_user == Walk.find(params[:id]).user %>
+      <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_walk_path %>
+      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
+    <% end %>
+
+    <div class="show_section">
+      <h2 class="walk_show_about">About This Walk</h2>
+      <p class="walk_show_description"><%=@walk.description%></p>
+    </div>
+
+    <div class="show_section">
+        <h2 class="walk_show_route">Walk Route</h2>
+
+        <div class="waypoints_form">
+          <% i = 1 %>
+          <% @walk.waypoints.each do |waypoint| %>
+            <span class="waypoint_stop"><%= "Stop #{i}: "%></span> <%= waypoint.address %>
+              <!-- <%#= waypoint.description %> -->
+            <% i+= 1%> <br>
+          <% end %>
+        </div>
+    </div>
+
+    <div class="show_section">
+      <div class = 'walk-show-summary'>Length of Walk </div>
+      <div id='directions-panel-summary'></div>
+      <div class = 'walk-show-directions'>Click for Directions </div>
+    </div>
+  </div><!-- end of walk_show_left-->
+
+
   <div class="walk_show_right">
     <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
   </div>
+
+
 </main>
 
     <div class="page-wrapper">

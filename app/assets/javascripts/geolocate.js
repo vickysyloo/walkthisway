@@ -17,7 +17,7 @@
 //jquery selection
 
 
-
+var user_position;
 
 $(document).on('ready page:load', function() {
   $('button#geolocate_me').on('click', function() {
@@ -26,47 +26,44 @@ $(document).on('ready page:load', function() {
 
       navigator.geolocation.getCurrentPosition(geolocateSuccess, geolocateFail);
       // console.log(pos)
+      // codecity();
     } else {
       alert("Geolocation not supported!");
     }
   })
 })
 
-
-// function success(pos) {
-//   var crd = pos.coords;
-//
-//   console.log('Your current position is:');
-//   console.log('Latitude : ' + crd.latitude);
-//   console.log('Longitude: ' + crd.longitude);
-//   console.log('More or less ' + crd.accuracy + ' meters.');
-// };
-
 function geolocateSuccess(position) {
-  var lat = position.coords.latitude;
-  var lon = position.coords.longitude;
+  // var lat = position.coords.latitude;
+  // var lon = position.coords.longitude;
+  var user_position = position
+  console.log(user_position)
 
-  $.ajax({
-    url: '/walks',
-    method: 'get',
-    dataType: 'html',
-    data: {lat: lat, lon: lon},
-    success: function(data) {
-      $('.walks_container').html(data);
-    }
-  });
 
-}
+  function geocodeLatLng(geocoder, map_new) {
+    var user_lat = user_position.coords.latitude;
+    var user_lon = user_position.coords.longitude;
+    var latlng = {lat: parseFloat(user_lat), lng: parseFloat(user_lon)}
+    geocoder = new google.maps.Geocoder();
+    var map = new google.maps.Map(document.getElementById('map_walk-index'));
+    geocoder.geocode({'location': latlng}, function(results, status) {
+      console.log("geocodelatlng running");
+
+      if (status === google.maps.GeocoderStatus.OK) {
+        console.log("geocoding ok")
+          map.setCenter(latlng)
+          map.setZoom(11);
+      } else {
+        window.alert('Geocoder failed due to: ' + status);
+      }
+    });
+  };
+
+  geocodeLatLng(geocoder, map_new);
+};
+
+
 //
 function geolocateFail(error) {
   console.log(error.message);
-}
-
-//
-// $(document).on('ready page:load', function() {
-//   // $('button#geolocate_me').on('click', function(event) {
-//     console.log('click registered');
-//
-//
-//
-//   });
+};

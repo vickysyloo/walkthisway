@@ -20,7 +20,7 @@
 /config/application.yml
 
 # Ignore secrets
-/config/initializers/sorcery.rb
+
 
 # ignore
 .DS_Store

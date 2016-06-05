@@ -4,7 +4,7 @@ class Walk < ActiveRecord::Base
   has_many :waypoints
   has_many :comments
   has_many :commenters, through: :comments, source: :user
-  
+
   mount_uploader :picture, PictureUploader
 
   validates :city, presence: { message: "City is required" }
@@ -49,7 +49,7 @@ class Walk < ActiveRecord::Base
   end
 
   def walk_startpoints(startpt_array)
-      startpt_array << [self.waypoints.first.latitude, self.waypoints.first.longitude, self.waypoints.first.address, self.description]
+      startpt_array << [self.waypoints.first.latitude, self.waypoints.first.longitude, self.waypoints.first.address, self.description, self.name, self.id]
   end
 
 end

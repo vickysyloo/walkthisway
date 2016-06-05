@@ -20,6 +20,9 @@ class WalksController < ApplicationController
     if params[:search_by_category]
       @category = params[:search_by_category].to_i
       @walks = @walks.select{|walk| walk.category.id ==  @category}
+      if @walks != nil
+        @walks.each {|walk| walk.walk_startpoints(@startpoints)}
+      end
     end
 
     if params[:user_id]

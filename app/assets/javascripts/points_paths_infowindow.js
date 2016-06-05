@@ -24,18 +24,24 @@ function plot_waypoints_array(pt_array, map) {
 
     address = pt_array[i][2];
     description = pt_array[i][3];
+    if (pt_array[0].length > 3) {
+      walkname = pt_array[i][4];
+      walkid = pt_array[i][5];
+      walkurl = '/walks/'+walkid;
+    }
 
     if (map == map_index) {
-      addInfoWindow_index(markers_array[i], map, address, description)
+      addInfoWindow_index(markers_array[i], map, address, description, walkname, walkurl)
+
     } else {
       addInfoWindow(markers_array[i], map, address, description)
     }
   }
 }
 
-function addInfoWindow_index(marker, map, address, description) {
+function addInfoWindow_index(marker, map, address, description, walkname, walkurl) {
   var infowindow = new google.maps.InfoWindow({
-    content: ('<b>Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
+    content: ('<a href = '+walkurl+'><b>'+walkname+'</b></a> <br>'+'Starting Point:</b><br>'+address+"<br><b>Details</b><br>"+description),
     maxWidth: 200
   });
 

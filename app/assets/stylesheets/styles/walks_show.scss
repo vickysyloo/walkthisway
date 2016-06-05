@@ -39,6 +39,10 @@
   padding: 40px;
 }
 
+.walk_show_right{
+  margin-right: 5%;
+}
+
 .walk_show_description, .waypoints_form {
   font-size: 22px;
   font-family: gotham-light, 'Montserrat';
@@ -87,4 +91,10 @@ li.comment-list {
 
 button.delete-comment {
   display: inline-block;
+}
+
+.fa-pencil, .fa-trash-o{
+  color: gray;
+  font-size: 25px;
+  margin: 0 10px;
 }

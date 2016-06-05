@@ -20,7 +20,7 @@ $(document).on('ready page:load', function() {
 
 
 
-    $('button.plot_walk').on('click', function(e){
+    $('button.plot_walk_btn').on('click', function(e){
       if ($('input.address').val() == undefined || $('input.address').val() == '' || $('input.address').length < 2 ) {
         alert('Need at least 2 points to plot a path');
         return;

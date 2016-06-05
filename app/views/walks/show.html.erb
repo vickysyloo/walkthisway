@@ -1,4 +1,4 @@
-<div class="walk_show_hero" style="background-image: url('<%=@walk.picture%>');">
+<div class="walk_show_hero" style="background: url('<%=@walk.picture%>') no-repeat; background-size:cover; ">
   <div class="walk_show_name">
     <%= @walk.name %>
   </div>
@@ -7,13 +7,15 @@
   </div>
 </div>
 
-<% if current_user == Walk.find(params[:id]).user %>
-  <%= link_to 'Edit Walk', edit_walk_path %>
-  <%= link_to 'Delete Walk', method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
-<% end %>
+
 
 <main class="walk_show_main">
   <div class= "walk_show_left">
+    <% if current_user == Walk.find(params[:id]).user %>
+      <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_walk_path %>
+      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
+    <% end %>
+
     <h2 class="walk_show_about">About This Walk</h2>
     <p class="walk_show_description"><%=@walk.description%></p>
 

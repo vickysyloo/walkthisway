@@ -7,8 +7,6 @@
   </div>
 </div>
 
-
-
 <main class="walk_show_main">
   <div class= "walk_show_left">
     <% if current_user == Walk.find(params[:id]).user %>
@@ -41,10 +39,9 @@
 
   <div class="walk_show_right">
     <div id="map_walk-show" class="map" data-latitude="<%= @centershow[0] %>" data-longitude="<%= @centershow[1] %>"></div>
-
-    <%= render 'comment'%>
   </div>
-
-
-
 </main>
+
+    <div class="page-wrapper">
+      <%= render 'comment'%>
+    </div>

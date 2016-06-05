@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.walk_id = params[:walk_id]
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to walk_path(@walk.id), notice: 'comment created successfully' }
+        format.html { redirect_to walk_path(@walk.id) }
         format.js {}
       else
         format.html { render 'walks/show', alert: "there was an error"}

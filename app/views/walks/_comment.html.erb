@@ -1,4 +1,5 @@
 <div id = 'comment-list-and-form'>
+
   <h3 class = 'comment-title'> Comments </h3>
 <ul class="comments">
   <% if @walk.comments.any? %>
@@ -8,16 +9,6 @@
           <p class = 'comment-text'><%= comment.comment %>
              <p class='comment-author-date'>
                <span class="comment_by">by</span> <span class="comment_author"><%= User.find(comment.user_id).username %></span> <time class="comment-time"><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
-
-              </p>
-              <% if comment.user = current_user %>
-                <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
-              <% end %>
-            </li>
-          <% end %> <!-- if comment.id != nil -->
-        <% end %><!-- comment.each loop -->
-      <% end %><!-- if comments.any -->
-    </ul>
 
 <% if current_user %>
 <p class="leave_comment"> Leave a comment! </p>

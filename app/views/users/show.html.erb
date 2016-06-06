@@ -13,4 +13,10 @@
     <%= link_to "Your Favourite Walks", root_url %>
   <% end %>
 
+  <% if current_user.has_linked_twitter? %>
+    <%= link_to 'Unlink your Twitter account', delete_oauth_path('twitter'), method: :delete %>
+  <% else %>
+    <%= link_to 'Link your Twitter account', auth_at_provider_path(:provider => :twitter) %>
+  <% end %>
+
 </div>

@@ -4,14 +4,19 @@ class CommentsController < ApplicationController
   def create
     @comment = @walk.comments.create(comment_params)
     @comment.user_id = current_user.id
-    @comment.walk_id = params[:walk_id]
     respond_to do |format|
+      # binding.pry
       if @comment.save
+        @returncomment =
+        {comment: @comment.comment,
+         username: current_user.username,
+         created_at: @comment.created_at}
         format.html { redirect_to walk_path(@walk.id) }
-        format.js {}
+        format.js {render @comment}
+        format.json {render json: @returncomment}
       else
         format.html { render 'walks/show', alert: "there was an error"}
-        format.js {}
+        format.json { render 'walks/show', alert: "error!"}
       end
     end
   end

@@ -1,15 +1,17 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 $(document).on('ready page:load', function() {
-  if ($('form.new_comment').length > 0) {
+  if ($('#comment-list-and-form').length > 0) {
+
   $('form.new_comment').submit(function(event){
     console.log('click registered on form');
     event.preventDefault();
     event.stopPropagation();
-    var walkid = $('form.new_comment')[0].dataset.walkid
-    var url = '/walks/'++'/comments'
-    $.post({
-      URL: url,
+    var walkid = $('form.new_comment')[0].dataset.walkid;
+    var urlid = ($(this).attr('action')).toString() + '/';
+    $.ajax({
+      url: urlid,
+      method: 'POST',
       data: $(this).serialize(),
       success: function(return_data){
         console.log('this is the return of form submission'+ return_data);
@@ -21,7 +23,7 @@ $(document).on('ready page:load', function() {
         alert('error');
         return false
       },
-      dataType: 'json'
+      dataType: 'script'
     });
   });
 

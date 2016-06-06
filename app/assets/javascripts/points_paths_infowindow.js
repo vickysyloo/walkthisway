@@ -118,7 +118,7 @@ directionsPanel = document.getElementById('directions-panel'); //stores DOM elem
 
   for (var i = 0; i < route.legs.length; i++) {
     totalLength += route.legs[i].distance.value;
-    directionsPanel.innerHTML += 'instructions:<br>'
+    directionsPanel.innerHTML += '<div class="instructions_title">Instructions:</div>'
     for (var j=0; j < route.legs[i].steps.length; j++) {
       directionsPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
     }

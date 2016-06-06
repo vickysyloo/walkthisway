@@ -1,11 +1,17 @@
 <div class="walk_show_hero" style="background: url('<%=@walk.picture%>') no-repeat; background-size:cover; ">
-  <div class="walk_show_name">
-    <%= @walk.name %>
+  <div class="walk_show_title">
+    <div class="walk_show_name">
+      <%= @walk.name %>
+    </div>
+    <div class="walk_show_city">
+      <%= @walk.city %>
+    </div>
   </div>
-  <div class="walk_show_city">
-    <%= @walk.city %>
+  <div class="walk_show_overlay">
   </div>
 </div>
+
+
 
 <main class="walk_show_main">
 

@@ -1,8 +1,26 @@
+.walk_show_overlay {
+  &:after{
+    position: absolute;
+    content: "";
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
 .walk_show_hero {
   width: 100%;
-  height:430px;
+  height: 430px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.walk_show_title{
+  z-index: 3;
 }
 
 .walk_show_name{
@@ -10,9 +28,13 @@
   font-family: Arial;
   font-weight: bold;
   font-family: gotham, 'Montserrat';
-  color:white;
+  // color: #F1D01B;
+  color: white;
+  max-width: 50%;
+  display: block;
   margin-top: 290px;
   margin-left: 50px;
+  padding: 10px;
   a{
     color: black;
     text-decoration: none;
@@ -21,13 +43,12 @@
 
 .walk_show_city{
   font-family: gotham, 'Montserrat';
+  max-width: 50%;
   color: #F1D01B;
   margin-left: 50px;
   font-size: 2.5vw;
-  background-color: white;
-  display:inline;
-  opacity: 0.8;
-  padding: 5px;
+  // display: inline;
+  padding: 10px;
 }
 
 .walk_show_main{

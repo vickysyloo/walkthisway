@@ -38,7 +38,7 @@ class OauthsController < ApplicationController
   private
 
   def link_account(provider)
-    if @user = add_provider_to_user(auth_params[:user_id])
+    if @user = add_provider_to_user(user_id)
      @user.update_attribute(:twitter_login, @user_params[:user_id]['login'])
       flash[:notice] = "You have successfully linked your Twitter account."
     else

@@ -4,6 +4,7 @@ class WalksController < ApplicationController
 
 
   def index
+    binding.pry
     if params[:search_by_location].present?
       @walks = []
       @startpoints = []
@@ -19,11 +20,12 @@ class WalksController < ApplicationController
     end
 
     # playing with geocoder
-    if params[:lat]
-      # @walks = []
-      # Walk.filter_by_distance(@walks, @centerpoint)
-      @walks = Walk.near([params[:lat], params[:lon]], 20, :units => :km)
-    end
+    # if params[:lat]
+    #   binding.pry
+    #   # @walks = []
+    #   # Walk.filter_by_distance(@walks, @centerpoint)
+    #   @walks = Walk.near([params[:lat], params[:lon]], 20, :units => :km)
+    # end
 
     if params[:search_by_category]
       @category = params[:search_by_category].to_i

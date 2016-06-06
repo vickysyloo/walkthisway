@@ -4,6 +4,7 @@ class Walk < ActiveRecord::Base
   has_many :waypoints
   has_many :comments
   has_many :commenters, through: :comments, source: :user
+  has_many :galleries
 
 
   geocoded_by :city

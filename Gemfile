@@ -36,13 +36,16 @@ gem 'font-awesome-rails'
 
 gem 'velocityjs-rails'
 # to manage uploading
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # to process pictures with ImageMagick
 gem 'mini_magick'
 # to use Puma as the web server
 gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'twitter'
+gem 'fog-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

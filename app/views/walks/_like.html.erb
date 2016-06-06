@@ -1,0 +1,18 @@
+<div id = 'likeorunlike'>
+  <% if @like != nil %>
+    <%= render partial: 'bookmarkedwalks/unlike_button' %>
+  <% else %>
+    <div id='likebtn'>
+      <%= render partial: 'bookmarkedwalks/like_button' %>
+    </div>
+  <% end %>
+</div>
+
+
+  <% if @total_likes > 1 %>
+    <%= @total_likes %> people liked this walk!
+  <% elsif @total_likes == 1%>
+    <%= @total_likes %> person liked this walk!
+  <% else %>
+    Be the first to like this walk!
+  <% end %>

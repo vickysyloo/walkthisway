@@ -1,0 +1,2 @@
+module BookmarkedwalksHelper
+end

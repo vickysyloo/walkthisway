@@ -1,0 +1,5 @@
+<%= form_for [current_user, @bookmarkedwalk], :html => {:id => 'likeform'} do |f| %>
+  <%= f.hidden_field :walk_id, :value =>@walk.id %>
+  <%= f.hidden_field :relationship, :value=>'like' %>
+  <%= f.submit 'Like!', :id => 'like-walk'%>
+<% end %>

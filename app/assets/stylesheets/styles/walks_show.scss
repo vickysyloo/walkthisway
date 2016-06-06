@@ -171,11 +171,6 @@ form#new_bookmarked_walk{
   display: inline-block;
 }
 
-
-.walk-show-directions {
-  cursor: pointer;
-}
-
 #directions-modal {
   position: absolute;
   z-index: 2;
@@ -212,14 +207,18 @@ form#new_bookmarked_walk{
   font-size: 15px;
   margin-top:35px;
   color: #0192b5;
+  cursor: pointer;
+}
+
+.stop_div {
+  color: tomato;
+  font-size: 18px;
 }
 
 .instructions_title{
   font-size: 20px;
   margin-bottom: 10px;
   font-family: gotham;
-
-
 }
 
 .fa-pencil, .fa-trash-o{

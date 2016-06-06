@@ -18,7 +18,7 @@
 
     <% if current_user == Walk.find(params[:id]).user %>
       <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_walk_path %>
-      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
+      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, @walk, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %>
     <% end %>
 
     <div class="show_section">

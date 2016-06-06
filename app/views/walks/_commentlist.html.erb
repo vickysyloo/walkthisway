@@ -1,0 +1,17 @@
+<div id = 'comment-list-and-form'>
+
+  <h3 class = 'comment-title'> Comments </h3>
+<ul class="comments">
+  <% if @walk.comments.any? %>
+    <% render @comments %> 
+  <% end %>
+</ul>
+  <% if current_user %>
+  <p class="leave_comment"> Leave a comment! </p>
+    <%= form_for [@walk, @comment], :html => {:id => 'commentform', :data => {:walkid => @walk.id} } do |f| %>
+      <%= f.text_area :comment, placeholder: "This walk was just fab.", class:'comment_textbox' %>
+      <%= f.submit "post", id: "post-comment" %>
+    <% end %>
+  <% end %>
+
+</div>

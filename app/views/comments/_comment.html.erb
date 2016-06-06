@@ -1,0 +1,8 @@
+<% if comment.id != nil %>
+  <li class="comment-list">
+    <p class = 'comment-text'><%= comment.comment %></p>
+    <p class='comment-author-date'>
+      <span class="comment_by">by</span> <span class="comment_author"><%= User.find(comment.user_id).username %></span> <time class="comment-time"><%= comment.created_at.strftime('%b %e, %l:%M %p') %></time>
+    </p>
+  </li>
+<% end %>

@@ -8,6 +8,7 @@ class WalksController < ApplicationController
       @startpoints = []
       @searchedcity = params[:search_by_location]
       @centerpoint = Geocoder.coordinates(params[:search_by_location])
+      binding.pry
       Walk.filter_by_distance(@walks, @centerpoint)
     else
       @walks = []

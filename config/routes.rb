@@ -9,11 +9,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:show, :create, :destroy]
   end
 
-get 'oath/oauth'
-post "oauth/callback" => "oauths#callback"
-get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
-get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
-
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" 
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  delete "oauth/:provider" => "oauths#destroy", :as => :delete_oauth
 
   resources :user_sessions
   resources :users

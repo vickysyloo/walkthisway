@@ -38,16 +38,16 @@ class OauthsController < ApplicationController
   private
 
   def link_account(provider)
-    if @user = add_provider_to_user(provider)
-     @user.update_attribute(:twitter_login, @user_hash[:user_info]['login'])
-      flash[:notice] = "You have successfully linked your GitHub account."
+    if @user = add_provider_to_user(auth_params[:user_id])
+     @user.update_attribute(:twitter_login, @user_params[:user_id]['login'])
+      flash[:notice] = "You have successfully linked your Twitter account."
     else
-      flash[:alert] = "There was a problem linking your GitHub account."
+      flash[:alert] = "There was a problem linking your Twitter account."
     end
   end
 
   def auth_params
-    params.permit(:uid, :provider)
+    params.permit(:user_id, :uid, :provider)
   end
 
 end

@@ -114,11 +114,12 @@ directionsPanel = document.getElementById('directions-panel'); //stores DOM elem
 //******SET NEW DIV ID FOR DIRECTIONS  in VIEW ********//
   summaryPanel.innerHTML = '';//sets html of summaryPanel to blank
   directionsPanel.innerHTML = '';
+  directionsPanel.innerHTML += '<div class="instructions_title">Instructions:</div>'
   var route = response.routes[0];
 
   for (var i = 0; i < route.legs.length; i++) {
     totalLength += route.legs[i].distance.value;
-    directionsPanel.innerHTML += '<div class="instructions_title">Instructions:</div>'
+    directionsPanel.innerHTML += '<div class="stop_div">Stop ' + (i+1) + ' to Stop ' + (i+2) + ':</div>'
     for (var j=0; j < route.legs[i].steps.length; j++) {
       directionsPanel.innerHTML +=  (j+1)+". " + route.legs[i].steps[j].instructions+"<br>";
     }

@@ -2,6 +2,7 @@ class WalksController < ApplicationController
   before_action :require_login, only: [:new, :create]
   before_filter :require_permission, only: [:edit, :destroy]
 
+
   def index
     if params[:search_by_location].present?
       @walks = []
@@ -13,9 +14,18 @@ class WalksController < ApplicationController
     else
       @walks = []
       @startpoints = []
-      @walks = Walk.where(city: 'Toronto, ON, Canada')
-      @centerpoint = Geocoder.coordinates('Toronto, Ontario')
-      @searchedcity = 'Toronto, Ontario';
+      @walks = Walk.where(city: 'Halifax, NS, Canada')
+      @centerpoint = Geocoder.coordinates('Halifax, NS')
+      @searchedcity = 'Halifax, NS';
+    end
+
+    # playing with geocoder
+    if params[:geolocate_lat]
+      @walks = []
+      @startpoints = []
+      @centerpoint = [params[:geolocate_lat], params[:geolocate_lon]]
+      @searchedcity = Geocoder.address(@centerpoint)
+      @walks = Walk.near([params[:geolocate_lat], params[:geolocate_lon]], 20, :units => :km)
     end
 
     if params[:search_by_category]
@@ -32,6 +42,10 @@ class WalksController < ApplicationController
 
     if @walks != nil
       @walks.each {|walk| walk.walk_startpoints(@startpoints)}
+    end
+
+    if request.xhr?
+      render @walks
     end
   end
 
@@ -118,7 +132,7 @@ class WalksController < ApplicationController
   private
 
   def walk_params
-    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order, :index])
+    params.require(:walk).permit(:city, :name, :description, :picture, :category_id, :user_id, :longitude, :latitude, waypoints_attributes: [:name, :description, :address, :longitude, :latitude, :order, :index])
   end
 
 end

@@ -55,7 +55,9 @@ description: "A cool route which takes you across downtown Toronto and showcases
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto, ON, Canada"
+city: "Toronto, ON, Canada",
+latitude: 43.653226,
+longitude: -79.383184
 )
 
 waypoint1 = Waypoint.create!(
@@ -84,7 +86,9 @@ name: 'Coffee it up!',
 description: 'A fantastic walk through your neighbourhood featuring coffee shops!',
 category_id: nature.id,
 user_id: bob.id,
-city: "Toronto, ON, Canada"
+city: "Toronto, ON, Canada",
+latitude: 43.653226,
+longitude: -79.383184
 )
 
 waypoint3 = Waypoint.create!(
@@ -114,7 +118,9 @@ description: "A cool route which takes you across downtown Toronto and showcases
 picture: 'https://a1.muscache.com/airbnb/guidebook/v1_san_francisco_hero@2x.jpg',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto, ON, Canada"
+city: "Toronto, ON, Canada",
+latitude: 43.653226,
+longitude: -79.383184
 )
 
 waypoint5 = Waypoint.create!(
@@ -145,7 +151,9 @@ description: "A cool route which takes you across downtown Toronto and showcases
 picture: 'https://drscdn.500px.org/photo/original/store/54122812/m%3D900_k%3D2_b%3D2_dpi%3D300_attachment%3D1_tags%3D1/23e7dd40d7ae6a1f3fc8dd42ee65a1ee',
 category_id: architecture.id,
 user_id: bob.id,
-city: "Toronto, ON, Canada"
+city: "Toronto, ON, Canada",
+latitude: 43.653226,
+longitude: -79.383184
 )
 
 waypoint5 = Waypoint.create!(

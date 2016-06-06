@@ -5,6 +5,13 @@ class Walk < ActiveRecord::Base
   has_many :comments
   has_many :commenters, through: :comments, source: :user
 
+
+  geocoded_by :city
+  after_validation :geocode
+
+  # reverse_geocoded_by :latitude, :longitude => :city
+  # after_validation :reverse_geocode
+
   mount_uploader :picture, PictureUploader
 
   validates :city, presence: { message: "City is required" }

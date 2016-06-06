@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160605175640) do
     t.datetime "updated_at",  null: false
     t.string   "city"
     t.integer  "length_in_m"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "waypoints", force: :cascade do |t|

@@ -3,9 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .index_title{
+  padding: 10px 20px;
   color: white;
   font-size: 35px;
   background-color:#F1D01B;
+  letter-spacing: 1px;
 }
 
 .category_btn{
@@ -14,7 +16,13 @@
   border: black;
   padding: 6px 10px;
   border-radius: 8px;
+  margin: 10px;
 }
+
+.search-geolocate {
+  display: flex;
+}
+
 .walks_container{
   background-color: #f2f2f2;
 }

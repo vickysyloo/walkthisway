@@ -1,14 +1,14 @@
 <div class="index_container">
-  <div class=" page-wrapper">
+  <div class="page-wrapper">
     <h1 class="index_title">Walks around <%= @searchedcity %></h1>
 
-
+  <div class="search-geolocate">
     <div>
       <%= form_tag(walks_path, method: "get", id:'search_by_category') do %>
         <%= label_tag(:search_by_category, "Category:") %>
       <%= select_tag(:search_by_category, options_from_collection_for_select(Category.all, "id", "theme"), :selected => params[:search_by_category], :class=>'category_dropdown') %>
       <%= hidden_field_tag :search_by_location, params[:search_by_location] %>
-      <%= submit_tag "search by Category", :class=>"category_btn" %>
+      <%= submit_tag "Search by Category", :class=>"category_btn" %>
       <% end %>
     </div>
 
@@ -22,9 +22,10 @@
       <% end %>
     </div>
 
+  </div>
 
-<div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" >
-</div>
+  <div id="map_walk-index" data-latitude="<%= @centerpoint[0] %>" data-longitude="<%= @centerpoint[1] %>" data-startpoints = "<%= @startpoints %>" >
+  </div>
 
 <button class="create_walk_btn" type="submit"><%= link_to "Create a walk", new_walk_path %></button>
 </div><!-- end of page-wrapper-->
@@ -51,3 +52,4 @@
 
   </div><!-- end of page-wrapper -->
   </div> <!-- end of walks container-->
+</div>

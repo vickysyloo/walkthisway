@@ -18,6 +18,7 @@
 
 
 var user_position;
+var latlng;
 
 $(document).on('ready page:load', function() {
   $('button#geolocate_me').on('click', function() {
@@ -102,18 +103,18 @@ function geolocateSuccess(position) {
   // var user_lon = user_position.coords.longitude;
   // var latlng = {lat: parseFloat(user_lat), lng: parseFloat(user_lon)}
   //
-  //   $.ajax({
-  //     url: '/walks',
-  //     dataType: 'html',
-  //     data: {latlng},
-  //     method: 'GET',
-  //     success: function(return_data){
-  //       console.log('returned json file: ' + return_data);
-  //       $('.walks-list').html(return_data);
-  //       plot_waypoints_array(return_data, map_new);
-  //       initPathMap(return_data, map_new);
-  //     }
-  //   });
+    $.ajax({
+      url: '/walks',
+      dataType: 'html',
+      data: {latlng},
+      method: 'GET',
+      success: function(return_data){
+        console.log('returned json file: ' + return_data);
+        $('.walks-list').html(return_data);
+        // plot_waypoints_array(return_data, map_new);
+        // initPathMap(return_data, map_new);
+      }
+    });
 };
 
 //error message if geolocate fails

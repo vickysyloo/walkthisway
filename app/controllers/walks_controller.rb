@@ -20,8 +20,9 @@ class WalksController < ApplicationController
 
     # playing with geocoder
     if params[:lat]
-      @nearme = Geocoder.coordinates([params[:lat], params[:lon]])
-      Walk.filter_by_distance(@walks, @centerpoint)
+      # @walks = []
+      # Walk.filter_by_distance(@walks, @centerpoint)
+      @walks = Walk.near([params[:lat], params[:lon]], 20, :units => :km)
     end
 
     if params[:search_by_category]

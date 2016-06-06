@@ -4,7 +4,6 @@ class WalksController < ApplicationController
 
 
   def index
-    binding.pry
     if params[:search_by_location].present?
       @walks = []
       @startpoints = []
@@ -14,18 +13,19 @@ class WalksController < ApplicationController
     else
       @walks = []
       @startpoints = []
-      @walks = Walk.where(city: 'Toronto, ON, Canada')
-      @centerpoint = Geocoder.coordinates('Toronto, Ontario')
-      @searchedcity = 'Toronto, Ontario';
+      @walks = Walk.where(city: 'Halifax, NS, Canada')
+      @centerpoint = Geocoder.coordinates('Halifax, NS')
+      @searchedcity = 'Halifax, NS';
     end
 
     # playing with geocoder
-    # if params[:lat]
-    #   binding.pry
-    #   # @walks = []
-    #   # Walk.filter_by_distance(@walks, @centerpoint)
-    #   @walks = Walk.near([params[:lat], params[:lon]], 20, :units => :km)
-    # end
+    if params[:geolocate_lat]
+      @walks = []
+      @startpoints = []
+      @centerpoint = [params[:geolocate_lat], params[:geolocate_lon]]
+      @searchedcity = Geocoder.address(@centerpoint)
+      @walks = Walk.near([params[:geolocate_lat], params[:geolocate_lon]], 20, :units => :km)
+    end
 
     if params[:search_by_category]
       @category = params[:search_by_category].to_i

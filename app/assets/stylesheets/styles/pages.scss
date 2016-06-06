@@ -39,6 +39,7 @@
   width: 45%;
   margin-right: 12%;
   margin-top: 100px;
+  border: 3px solid black;
 }
 
 .title{
@@ -103,6 +104,18 @@ h1{
   background-color: transparent;
   font-size: 1vw;
   margin-left: 1vw;
+}
+
+.near-button {
+  margin-top: 1vw;
+  margin-left: 10vw;
+  width: 15vw;
+  background-color: blue;
+}
+
+.or {
+  text-align: center;
+  margin: 0 auto;
 }
 
 #search-button-not-home {

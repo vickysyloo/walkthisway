@@ -78,6 +78,20 @@
       <% end %>
     </div>
 
+
+      <p class="or">
+        -  OR  -
+      </p>
+
+
+    <div class = "geolocate-btn-home">
+      <%= form_tag(walks_path, method: "get", :id => 'geolocate_form') do%>
+      <%= hidden_field_tag :geolocate_lat, params[:lat], :id=> 'hidden_geolocate_tag_lat'%>
+      <%= hidden_field_tag :geolocate_lon, params[:lon], :id=> 'hidden_geolocate_tag_lon'%>
+      <%= submit_tag "Find walks near me!", class: 'search-button near-button', :id => 'geolocate_me' %>
+      <% end %>
+    </div>
+
     <!-- <button type="button" id='geolocate_me'>Find walks near me! </button> -->
 
     <!-- <div class='geolocate_me'>

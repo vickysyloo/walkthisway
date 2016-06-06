@@ -9,12 +9,8 @@ class Walk < ActiveRecord::Base
   geocoded_by :city
   after_validation :geocode
 
-  reverse_geocoded_by :latitude, :longitude do |obj,results|
-    if geo = results.first
-      obj.city    = geo.city
-    end
-  end
-  after_validation :reverse_geocode
+  # reverse_geocoded_by :latitude, :longitude => :city
+  # after_validation :reverse_geocode
 
   mount_uploader :picture, PictureUploader
 

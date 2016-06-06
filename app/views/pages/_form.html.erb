@@ -2,6 +2,7 @@
   <%= form_tag user_sessions_path, :method => :post do %>
   <fieldset>
     <ul>
+      <li><%= link_to "Login with Twitter", auth_at_provider_path(provider: :twitter) %></li>
       <li class="form_set">
         <%= label_tag :email, "Email", :class => 'form_label' %>
       </li>
@@ -12,7 +13,7 @@
         <%= label_tag :password, "Password", :class => 'form_label' %>
       </li>
       <li class="form_set">
-        <%= password_field_tag :password, "", :id => "form_password", :placeholder => "(at least 6 characters)"%>
+        <%= password_field_tag :password, "", :id => "form_password"%>
       </li>
       <li class="form_set">
         <%= submit_tag "Login", :class => 'btn_submit', :id => "form_submit" %>

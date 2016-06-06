@@ -4,6 +4,7 @@ class Walk < ActiveRecord::Base
   has_many :waypoints
   has_many :comments
   has_many :commenters, through: :comments, source: :user
+  has_many :galleries
 
 
   geocoded_by :city
@@ -22,7 +23,7 @@ class Walk < ActiveRecord::Base
   validate :need_two_waypoints
   validate :too_many_waypoints
 
-
+  accepts_nested_attributes_for :galleries
   accepts_nested_attributes_for :waypoints, reject_if: :all_blank
 
   def need_two_waypoints

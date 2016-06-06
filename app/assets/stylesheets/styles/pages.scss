@@ -106,15 +106,18 @@ h1{
 }
 
 .near-button {
-  margin-top: 1vw;
+  margin-top: 0.5vw;
   margin-left: 10vw;
   width: 15vw;
-  background-color: blue;
+  background-color: rgba(0, 102, 255, 10);
+  border-radius: 25px;
 }
 
 .or {
   // text-align: center;
-  margin-left: 10vw;
+  font-family: 'Montserrat';
+  color: white;
+  margin-left: 15vw;
 }
 
 #search-button-not-home {

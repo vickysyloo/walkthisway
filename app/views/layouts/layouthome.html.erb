@@ -69,7 +69,7 @@
 
   <div class="desc_container">
     <h1 class="title">Walk <br/> This Way</h1>
-    <p class="desc">Explore and discover new <br/> routes near your neighbourhood.</p>
+    <p class="desc">Explore. Discover. Share.<br/>Become a local in any city!</p>
 
     <div class="search-bar">
       <%= form_tag walks_path, method: :get do %>
@@ -78,11 +78,9 @@
       <% end %>
     </div>
 
-
       <p class="or">
         -  OR  -
       </p>
-
 
     <div class = "geolocate-btn-home">
       <%= form_tag(walks_path, method: "get", :id => 'geolocate_form') do%>

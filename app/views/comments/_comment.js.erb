@@ -1,1 +1,1 @@
-$("<%= escape_javascript(render @commentview) %>").appendTo("ul.comments");
+$("<%= escape_javascript(render partial: 'commentview') %>").appendTo("ul.comments");

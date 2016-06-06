@@ -13,6 +13,7 @@ $(document).on('ready page:load', function() {
       url: urlid,
       method: 'POST',
       data: $(this).serialize(),
+      dataType: 'script',
       success: function(return_data){
         console.log('this is the return of form submission'+ return_data);
         // $('comment-list').append(return_data);
@@ -22,8 +23,8 @@ $(document).on('ready page:load', function() {
       fail: function(){
         alert('error');
         return false
-      },
-      dataType: 'script'
+      }
+
     });
   });
 

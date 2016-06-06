@@ -13,10 +13,10 @@ class CommentsController < ApplicationController
          created_at: @comment.created_at}
         format.html { redirect_to walk_path(@walk.id) }
         format.js {render @comment}
-        format.json {render json: @returncomment}
+
       else
         format.html { render 'walks/show', alert: "there was an error"}
-        format.json { render 'walks/show', alert: "error!"}
+        format.js { render 'walks/show', alert: "error!"}
       end
     end
   end

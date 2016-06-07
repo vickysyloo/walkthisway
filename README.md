@@ -3,7 +3,7 @@
 #Walk This Way  
 
 ##Introduction 
-This application was created as a way for users to explore and share their neighbourhoods through local landmarks and history.  
+This application was created as a way for users to explore and share their neighbourhoods through local landmarks and walks.  
 
 ##Purpose 
 This application was created for Bitmaker March 2016 cohort final project. 

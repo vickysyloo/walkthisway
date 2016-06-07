@@ -42,7 +42,7 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 Please don't do this: 
 
 
-[ ](http://i.imgur.com/snLplqq.jpg). 
+[](http://i.imgur.com/snLplqq.jpg). 
 
 
 
@@ -50,3 +50,4 @@ In that spirit, we'd like to acknowledge the following inspirations for this pro
 * Jane's Walks 
 * Airbnb  
 * Google maps 
+* the bitmaker community (especially Michael. and Steven. you know who you are.)

@@ -49,7 +49,7 @@ Push your work back up to your fork
 Submit a Pull request so that we can review your changes
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-Please don't do this [from reddit](http://i.imgur.com/snLplqq.jpg). In that spirit, we'd like to acknowledge the following inspirations for this project:
+Please don't do this ([from reddit])(http://i.imgur.com/snLplqq.jpg). In that spirit, we'd like to acknowledge the following inspirations for this project:
 * Jane's Walks 
 * Airbnb  
 * Google maps 

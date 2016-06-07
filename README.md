@@ -63,15 +63,12 @@ In that spirit, we'd like to acknowledge the following inspirations for this pro
 * the bitmaker community (especially bitmaker staff, and michael. and steven. you know who you are.)
 
 
-From the team here,
-           ______________________________________
-  ________|                                      |_______
-  \       |            Walk This Way!            |       /
-   \      | (vickysyloo, tinathientruong,        |      /
-    |     |               mokutsu, dinophile)    |     |
-   /      |______________________________________|     \
-  /__________)                                (_________\
+From the team here at WalkthisWay, 
 
+Dinophile
+Vickysylooooooo
+Tinathientruong
+Mokutsu
 
 
 

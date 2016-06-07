@@ -73,12 +73,21 @@
         </div><!-- end of create_form_step_two-->
 
         <div class="create_step create_form_step_three">
-            <h3 class="create_step_two_title">Step 3 - Plot Walk</h3>
-            <p>You can view what your walk will look like on a map by clicking on the 'Plot this walk' button. When you are satisfied with the walk, click the 'create walk' button below.  </p>
-
+            <h3 class="create_step_two_title">Step 3 - Plot and save your walk!</h3>
             <div>
+              <p>You can view what your walk will look like on a map by clicking on the 'Plot this walk' button. When you are satisfied with the walk, click the 'create walk' button below.  </p>
               <button type = 'button' class = 'plot_walk_btn'> plot this walk! </button>
 
+            </div>
+
+            <div>
+                <div>
+                    <%= form_for[@walk, @gallery] do |f| %>
+                        <div class="form_label form_label_create_walk">
+                            <%= f.file_field :file %>
+                            <% end %>
+                        </div>
+                </div>
             </div>
         </div><!-- end of create_form_step_three-->
 

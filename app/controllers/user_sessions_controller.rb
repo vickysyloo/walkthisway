@@ -7,10 +7,8 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      flash.now[:success] = "You are now logged in."
       redirect_back_or_to root_path
     else
-      flash.now[:alert] = 'Username and/or password is incorrect.'
       render action: 'new'
     end
   end

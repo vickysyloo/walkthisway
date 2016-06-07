@@ -65,10 +65,7 @@ In that spirit, we'd like to acknowledge the following inspirations for this pro
 
 From the team here at WalkthisWay, 
 
-Dinophile
-Vickysylooooooo
-Tinathientruong
-Mokutsu
+Dinophile, Vickysylooooooo, Tinathientruong, Mokutsu
 
 
 

@@ -1,28 +1,45 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Walk This Way  
 
-Things you may want to cover:
+##Introduction 
+This application was created as a way for users to share, and save their favourite walks, and explore walks other people like in other cities. 
 
-* Ruby version
+##Purpose 
+This application was created for Bitmaker March 2016 cohort final project. 
 
-* System dependencies
+##Deployment 
+This is a simple web project, it can be deployed on any web server or local host. Please see the tool kit and known bugs for further details. 
 
-* Configuration
+##Tool Kit 
+This project is a Ruby on Rails application, which uses the Google Maps API and the Twitter API. Please see the gem file, the assets folder, and the public folder for a fuller list of external resources used. 
 
-* Database creation
+##Upcoming Sprints  
 
-* Database initialization
+We would like to get the following sprints completed:
+* AJAX-based like buttons and unlike buttons 
+* Twitter sign-in working in production environment 
+* friending with other users 
+* revisions of forms to remove redundancies and potential inconsistencies  
+* reconfiguration of database and retrieval of walk data 
 
-* How to run the test suite
+##Known Bugs 
 
-* Services (job queues, cache servers, search engines, etc.)
+There are a number of known bugs we would like to fix for the next step.
+* Inconsistencies in migrations in development environment between machines
 
-* Deployment instructions
+##How to Contribute 
 
-* ...
+In general, we follow the "fork-and-pull" Git workflow.
 
+Fork the repo on GitHub
+Clone the project to your own machine
+Commit changes to your own branch
+Push your work back up to your fork
+Submit a Pull request so that we can review your changes
+NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Please don't do [this](http://i.imgur.com/snLplqq.jpg). In that spirit, we'd like to acknowledge the following inspirations for this project:
+* Jane's Walks 
+* Airbnb  
+* Google maps 

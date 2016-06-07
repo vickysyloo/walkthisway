@@ -42,7 +42,7 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 Please don't do this: 
 
 
-[](http://i.imgur.com/snLplqq.jpg). 
+[from reddit](http://i.imgur.com/snLplqq.jpg). 
 
 
 

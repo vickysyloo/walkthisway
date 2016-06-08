@@ -2,7 +2,7 @@
   <%= form_tag user_sessions_path, :method => :post do %>
   <fieldset>
     <ul>
-      <li><%= link_to "Login with Twitter", auth_at_provider_path(provider: :twitter) %></li>
+      <!-- <li><%#= link_to "Login with Twitter", auth_at_provider_path(provider: :twitter) %></li> -->
       <li class="form_set">
         <%= label_tag :email, "Email", :class => 'form_label' %>
       </li>

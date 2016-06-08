@@ -1,7 +1,13 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.profile-container{
+  display: flex;
+  justify-content: center;
+  background-color: #65ccb8;
+  min-height: 100vh;
+  padding-top: 100px;
+}
 .signup_container{
   background-size: cover;
 }
@@ -60,4 +66,8 @@
 .signup_form{
   width: 30%;
   margin-right:20%;
+}
+
+.username-show {
+  padding-left: 0;
 }

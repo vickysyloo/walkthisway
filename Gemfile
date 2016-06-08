@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '~>2.3.0'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -27,13 +27,13 @@ gem 'sorcery'
 gem 'geocoder'
 # to manage nested forms
 gem 'cocoon'
-
+# give preset mathods to make writing JavaScript easier
 gem 'underscore-rails'
 # to manage secrets
 gem 'figaro'
-
+# scalable vecter icons 
 gem 'font-awesome-rails'
-
+# used to create animations using JQuery (Css + JQuery)
 gem 'velocityjs-rails'
 # to manage uploading
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
@@ -41,11 +41,11 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 # to use Puma as the web server
 gem 'puma'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
+# to interact with the Twitter API (eventually)
 gem 'twitter'
+# used with carrierwave to store uploads in the Cloud
 gem 'fog'
+# Specific gem for interacting with Google Cloud
 gem 'google-api-client', '< 0.9', '>= 0.6.2'
 
 group :development, :test do

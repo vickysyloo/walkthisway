@@ -4,8 +4,8 @@
     <span class="comment_by">by</span> <span class="comment_author"><%= current_user.username %></span> <time class="comment-time"><%= @comment.created_at.strftime('%b %e, %l:%M %p') %></time>
   </p>
   <p class="delete-comment">
-    <% if comment.user = current_user %>
-     <%= link_to 'Delete', [@walk, comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
+    <% if @comment.user = current_user %>
+     <%= link_to 'Delete', [@walk, @comment], method: :delete, data: {confirm: "Confirm delete?"}, class:"delete-comment" %>
    <% end %>
   </p>
 
